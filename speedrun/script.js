@@ -25,7 +25,7 @@ function starttimer() {
     } 
     
 document.location.href = "#iframe";
-const urls = ["wiersz", "wideo", "audio", "extra", "camera", "cytaty", "kalkulator"];
+const urls = ["wiersz", "wideo", "extra", "camera", "cytaty", "kalkulator"];
 let permtime = "";
 let win = "false";
 
@@ -108,7 +108,7 @@ document.getElementById("save").style.display = "none";
      }
      
      function diditwin() {
-if (document.getElementById("iframe").contentWindow.location.href == "https://yewgenfanpage.neocities.org/" + urls[randomitem2]) {
+if (document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/" + urls[randomitem2]) {
     timer = "inactive";
     permtime = time;
     time = "00:00";
@@ -120,7 +120,7 @@ if (document.getElementById("iframe").contentWindow.location.href == "https://ye
     showpopup();
   }
   
-if (randomitem2 == 6 && document.getElementById("iframe").contentWindow.location.href == "https://yewgenfanpage.neocities.org/kalkulator/") {
+if (randomitem2 == 6 && document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/kalkulator/") {
     timer = "inactive";
     permtime = time;
     time = "00:00";
