@@ -1,0 +1,49 @@
+body {
+  background-color: #222222;
+  color: white;
+  font-family: Arial;
+  vertical-align: middle;
+  margin: 20px;
+}
+.realbutt {
+  background-color: #000000; /* Green */
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: 5px;
+  padding: 5px;
+}
+.realbutt:hover {
+  background-color: #ffffff; /* Green */
+  border: 2px solid #ffffff;
+  color: black;
+}
+.realcontainer {
+  background-color: #000000; /* Green */
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 23px;
+  margin: 5px;
+  padding: 5px;
+}
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
