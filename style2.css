@@ -1,0 +1,406 @@
+
+body {
+  background-color: #222222;
+  color: white;
+  font-family: Arial;
+  vertical-align: middle;
+  margin: 20px;
+}
+
+
+ /* unvisited link */
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
+
+.center {
+  text-align: center;
+}
+
+.horizontal a {
+  margin: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.horizontal h1, .horizontal h3 {
+  text-align: center;
+}
+.horizontal {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+  align-items: flex-start;
+}
+.row2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 100px 0;
+  align-items: flex-start;
+}
+.button {
+  background-color: transparent; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: -2px;
+  padding: 5px;
+}
+.buttonnounderline {
+  background-color: transparent; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: -2px;
+  padding: 5px;
+}
+  .hatehtml {
+    bottom: -50px;
+  }
+  .webcam {
+  position: relative;
+  min-height:100%;
+}
+.video-overlay {
+    position: absolute;
+    margin: 10px;
+    padding: 5px 5px;
+    font-size: 20px;
+}
+.cytaty-overlay {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+} 
+.left {
+  float: left;
+  display: flex;
+  flex: 1;
+}
+.right {
+  flex: 2;
+}
+.newerbutton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000000; /* Green */
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+  font-size: 23px;
+  margin: auto;
+  padding: 15px;
+}
+.moremargin {
+  margin: 5px;
+}
+.yewgen {
+  background-color: transparent; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: -2px;
+  padding: 5px;
+}
+.yewgen:hover {
+ display: none;
+}
+img.custom:hover {
+  width: 165px;
+}
+img.custom:active {
+  width: 168px;
+}
+.realbutt {
+  background-color: #000000; /* Green */
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: 5px;
+  padding: 5px;
+}
+.realbutt:hover {
+  background-color: #ffffff; /* Green */
+  border: 2px solid #ffffff;
+  color: black;
+}
+.realcontainer {
+  background-color: #000000; /* Green */
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 23px;
+  margin: 5px;
+  padding: 5px;
+}
+.appcontainer {
+  background-color: #171717; /* Green */
+  color: #535353;
+  position: absolute;
+  font-size: 10%;
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+  width: 100%;
+  height: 8%;
+  bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottomstay {
+ position: fixed; 
+ bottom: 0;
+}
+.appbutton {
+  background-color: transparent; /* Green */
+  color: #535353;
+  font-size: 25px;
+  font-family: Arial;
+  cursor: pointer;
+  bottom: 5px;
+  border: 0;
+}
+@media (orientation: portrait) {
+.centerpopup {
+  background-color: #292929;
+  width: 70%;
+  padding: 15px;
+  font-size: 25px;;
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  position: fixed; /* Sit on top of the page content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: landscape) {
+.centerpopup {
+  background-color: #292929;
+  width: 40%;
+  padding: 15px;
+  font-size: 25px;;
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  position: fixed; /* Sit on top of the page content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+.basiccontainer {
+  background-color: transparent;
+  padding: 7px;
+  border: 10px solid #191919;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+.centerpopupbutton {
+  background-color: #292929;
+  padding: 5px;
+  font-size: 20px;
+  color: #ffffff;
+  border: 7px solid #191919;
+  bottom: 20px;
+  cursor: pointer;
+}
+@media (orientation: landscape) {
+.casinoitems {
+  background-color: #292929;
+  padding: 5px;
+  font-size: 25px;
+  color: #ffffff;
+  border: 7px solid #191919;
+  bottom: 20px;
+  cursor: pointer;
+  width: 100%; 
+  height: 30vw;
+  max-height: 200px; 
+  line-height: 150%;
+}
+.AAA {
+  font-size: 20px;
+}
+.AAAA {
+  font-size: 20px;
+}
+.casinocenterpopup {
+  background-color: #292929;
+  width: 25%;
+  padding: 15px;
+  font-size: 25px;;
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  position: fixed; /* Sit on top of the page content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: portrait) {
+.casinoitems {
+  background-color: #292929;
+  padding: 5px;
+  font-size: 15px;
+  color: #ffffff;
+  border: 7px solid #191919;
+  bottom: 20px;
+  cursor: pointer;
+  width: 110%; 
+  height: 40vw;
+  max-height: 200px; 
+  line-height: 150%;
+}
+.AAA {
+  font-size: 16px;
+}
+.AAAA {
+  font-size: 15px;
+}
+.casinocenterpopup {
+  background-color: #292929;
+  width: 60%;
+  padding: 15px;
+  font-size: 25px;;
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  position: fixed; /* Sit on top of the page content */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: landscape) {
+.speedruntimer {
+  background-color: #292929;
+  font-size: 25px;
+  position: fixed; /* Sit on top of the page content */
+  top: 10%;
+  left: 42%;
+  height: 5%;
+  width: 13%;
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: portrait) {
+.speedruntimer {
+  background-color: #292929;
+  font-size: 25px;
+  position: fixed; /* Sit on top of the page content */
+  top: 10%;
+  left: 34%;
+  height: 5%;
+  width: 23%;
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: landscape) {
+.savedstuff {
+  background-color: #292929;
+  font-size: 25px;
+  position: fixed; /* Sit on top of the page content */
+  top: 10%;
+  left: 58%;
+  height: 5%;
+  width: 13%;
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}
+@media (orientation: portrait) {
+.savedstuff {
+  background-color: #292929;
+  font-size: 25px;
+  position: fixed; /* Sit on top of the page content */
+  top: 10%;
+  left: 66%;
+  height: 5%;
+  width: 23%;
+  padding: 5px;
+  transform: translate(-50%, -50%);
+  border: 10px solid #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+}

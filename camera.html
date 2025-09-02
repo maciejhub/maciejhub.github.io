@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+  <link rel="icon" type="image/x-icon" href="ikon.png">
+  <style>
+  body {
+  background-color: #222222;
+  color: white;
+  font-family: Arial;
+  vertical-align: middle;
+  margin: 20px;
+}
+ video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+}
+.video-overlay {
+    position: absolute;
+    top: 14vw;
+    left: 7vw;
+}
+.button {
+  background-color: transparent; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Arial;
+  font-size: 23px;
+  margin: -2px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.my {
+  top: -50px;
+  
+}
+</style>
+  </head>
+<body>
+   <div class="video-overlay">
+  <iframe id="gra" src="grygry/tycoon" width="480" height="400" frameborder="0" scrolling="no"></iframe>
+  </div>
+    <div class="my">
+  <button class="button" onclick="nextgame()"><img src="last.png" width=40></button>
+  <button class="button" onclick="lastgame()"><img src="next.png" width=40></button>
+  <button class="button" onclick="randomgame()"><img src="random.png" width=40></button>
+  </div>
+      <video id="webcam" frameborder="0" autoplay></video>
+          <script>
+          let game = 6; 
+          let url = window.location.href;
+              function nextgame() {
+      if (game < 7) {
+     game += 1;
+     updategame();
+      }
+    }
+        function lastgame() {
+      if (game > 1) 
+     game += -1;
+     updategame();
+      }
+      function randomgame() {
+       game = Math.floor(Math.random() * 8);
+       updategame();
+       console.log(game); 
+    }
+    function updategame() {
+    if (game == 1) {
+    document.getElementById("gra").src = "grygry/maciejclicker";
+    }
+    if (game == 2) {
+    document.getElementById("gra").src = "grygry/skibidi";
+    }
+        if (game == 3) {
+    document.getElementById("gra").src = "grygry/nokia";
+    }
+        if (game == 4) {
+    document.getElementById("gra").src = "grygry/mandarynki";
+    }
+        if (game == 5) {
+    document.getElementById("gra").src = "grygry/asmr";
+    }
+        if (game == 6) {
+    document.getElementById("gra").src = "grygry/kart";
+    }
+        if (game == 7) {
+    document.getElementById("gra").src = "grygry/tycoon";
+    }
+    }
+
+let video = document.querySelector('#webcam');
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({video: true})
+    .then(function(stream) {
+    video.srcObject = stream;
+  })
+    .catch(function(e) {
+    console.log(e);
+  });
+}</script>

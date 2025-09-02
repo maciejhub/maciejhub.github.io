@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css?z" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="yewgen fanpage" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta content="maciej hub" property="og:title" />
+<meta content="Kasyno na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/kasyno" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body>
+<div id="topthing">
+<div class=center>
+  <img id="topicon" src="ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+      <h2><a href="wideo">Fajne wideo</a>
+      <a href="wiersz">Wiersz</a>
+      <a href="extra">Różne fajne rzeczy</a>
+        <a href="gry">Fajne gry</a>
+    <hr width="100%;" color="#38393f" size="3">
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
+    </div>
+    </div>
+    <script src="topthingscript.js"></script>
+   <div class="center" style="display: flex; justify-content: center; gap: 10px; align-items: center;">
+     <h1>
+       <b>
+    <div style="display: inline-block; font-size: 80%;" id="plus"></div><button id="tokencounter" style="display: inline-block; cursor: auto;" class="centerpopupbutton">Ilość tokenów</button>
+    <button style="display: inline-block;" onclick="openshop()" class="centerpopupbutton">Sklep za tokeny</button>
+    </b>
+    </h1>
+    </div>
+<div class="casinocenterpopup" id="popup">
+    <div class="center">
+        <h3>
+            <div id="popuptext">Lubie mango mango</div>
+            <div id="shop">
+            <div style="max-height: 350px; overflow-y: scroll; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 5px; padding-right: 10px;">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('star')" id="premiumicon">
+                        <div class="AAA" style="font-size: 70%;">Ikon z gwiazdką</div>
+                        <img src="premiumikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('star')" id="fu" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="starprice" style="font-size: 80%;">100 tokenów</b>
+                    </button>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('gold')" id="goldicon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Złota nokia w zepsuć nokie simulator</div>
+                        <img src="goldnokia.png" width="40%"><br>
+                    </button>
+                    <button onclick="itembuy('gold')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="goldprice" style="font-size: 80%;">25 tokenów</b>
+                    </button>
+                </div>
+               <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('goldmaciej')" id="goldmac">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Złoty maciej w maciej clicker</div>
+                        <img src="goldmaciej.png" width="40%"><br>
+                    </button>
+                    <button onclick="itembuy('goldmaciej')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="maciejprice" style="font-size: 80%;">25 tokenów</b>
+                    </button>
+                </div>
+                <!-- tutaj -->
+            </div>
+            </div>
+        </h3>
+        <div>
+            <button class="centerpopupbutton" onclick="hidepopup()">OK</button>
+        </div>
+    </div>
+</div>
+ <script>
+   
+ document.getElementById("popup").style.display = "none";
+ </script>
+    <div class="center">
+   <img src="loading.png" size="200" id="spinner" style="display: inline;">
+   <h2><div id="loadedcounter"></div></h2>
+ <h1><div id="mythingdingle"></div></h1>
+ <button onclick="again()" class="centerpopupbutton"><b><div id="spin">Kręć maszyne za 2 tokeny</div></b></button><br>
+ </div>
+ <br><br>
+     <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
+     <script>
+       let tokens = tokens2;
+       function hidepopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("premiumicon").style.display = "none";
+    document.getElementById("goldicon").style.display = "none";
+    document.getElementById("goldmac").style.display = "none";
+    document.getElementById("shop").style.display = "none";
+}
+hidepopup();
+       document.getElementById("goldicon").style.display = "none";
+       if (localStorage.boughtItems) {
+       
+       } else {
+       localStorage.setItem("boughtItems", "[\"none\"]")   
+       }
+       if (JSON.parse(localStorage.boughtItems).includes("star")) {
+       if (localStorage.ikonpng == "/premiumikon.png") {
+       document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";   
+       } else {
+       document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";    
+       }
+       }
+      if (JSON.parse(localStorage.boughtItems).includes("gold")) {
+       document.getElementById("goldprice").innerHTML = "Kupione";   
+       } else {
+       document.getElementById("goldprice").innerHTML = "25 tokenów";    
+       }
+      if (JSON.parse(localStorage.boughtItems).includes("gmac")) {
+       document.getElementById("maciejprice").innerHTML = "Kupione";   
+       } else {
+       document.getElementById("maciejprice").innerHTML = "25 tokenów";    
+       }
+       
+       document.getElementById("premiumicon").style.display = "none";
+function sleep(ms) { // stolen
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function itembuy(item) {
+  
+  if (item == "star") {
+   if (localStorage.ikonpng != "/premiumikon.png") {
+     if (JSON.parse(localStorage.boughtItems).includes("star") == false) {
+    if (tokens > 99) {
+      tokens = tokens - 100;
+      document.getElementById("starprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
+      localStorage.setItem("ikonpng", "/premiumikon.png");
+      const itemsbought = JSON.parse(localStorage.boughtItems);
+      itemsbought.push("star");
+      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
+      await sleep(2000);
+      document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
+      document.getElementById("topicon").src = "/premiumikon.png";
+    } else {
+      document.getElementById("starprice").innerHTML = "Masz za mało tokenów";
+      await sleep(1000);
+      document.getElementById("starprice").innerHTML = "100 tokenów";
+    }
+    } else {
+      document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
+      localStorage.setItem("ikonpng", "/premiumikon.png");
+      document.getElementById("topicon").src = "/premiumikon.png";  
+    }
+   } else {
+     localStorage.setItem("ikonpng", "/ikon.png");
+     document.getElementById("topicon").src = "/ikon.png";
+     document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";
+   }  
+  }
+  
+    if (item == "gold") {
+      if (JSON.parse(localStorage.boughtItems).includes("gold") == false) {
+    if (tokens > 24) {
+      tokens = tokens - 25;
+      document.getElementById("goldprice").innerHTML = "Kupione, możliwe że nie pokaże się odrazu w grze";
+      const itemsbought = JSON.parse(localStorage.boughtItems);
+      itemsbought.push("gold");
+      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
+      await sleep(2000);
+      document.getElementById("goldprice").innerHTML = "Kupione";
+    } else {
+      document.getElementById("goldprice").innerHTML = "Masz za mało tokenów";
+      await sleep(1000);
+      document.getElementById("goldprice").innerHTML = "25 tokenów";
+    }
+    }
+  }
+  
+      if (item == "goldmaciej") {
+      if (JSON.parse(localStorage.boughtItems).includes("gmac") == false) {
+    if (tokens > 24) {
+      tokens = tokens - 25;
+      document.getElementById("maciejprice").innerHTML = "Kupione, możliwe że nie pokaże się odrazu w grze";
+      const itemsbought = JSON.parse(localStorage.boughtItems);
+      itemsbought.push("gmac");
+      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
+      await sleep(2000);
+      document.getElementById("maciejprice").innerHTML = "Kupione";
+    } else {
+      document.getElementById("maciejprice").innerHTML = "Masz za mało tokenów";
+      await sleep(1000);
+      document.getElementById("maciejprice").innerHTML = "25 tokenów";
+    }
+    }
+  }
+  
+}
+
+let agained = false;
+const buy = new Audio("https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3");
+document.getElementById("spinner").style.display = "inline";
+const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3", "goldnokia.png", "premiumikon.png"]; // wiem ze to jest ochydne ale prosze nie pytac
+let globalrolls = "hello";
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function showpopup() {
+    document.getElementById("popup").style.display = "initial";
+}
+
+let loadedstuff = 0;
+
+function loadImage(url) {
+    if (url != "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3") {
+
+        const img = new Image();
+
+        img.onload = function() {
+            loadedstuff += 1;
+            document.getElementById("loadedcounter").innerHTML = "Załadowano " + loadedstuff + "/" + "12" + " rzeczy";
+            if (loadedstuff == 12) {
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("loadedcounter").style.display = "none";
+                awesomeanimation();
+            }
+        };
+
+        img.onerror = function() {
+            console.log("Error loading image: " + url);
+        };
+
+        img.src = url;
+    } else {
+
+        buy.oncanplaythrough = function() {
+            loadedstuff += 1;
+            document.getElementById("loadedcounter").innerHTML = "Załadowano " + loadedstuff + "/" + "12" + " rzeczy";
+            if (loadedstuff == 12) {
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("loadedcounter").style.display = "none";
+                awesomeanimation();
+            }
+        };
+
+        buy.onerror = function() {
+            console.log("Failed to load audio");
+        };
+    }
+}
+
+urls.forEach(url => loadImage(url));
+
+function checkformatch() {
+    let addtokens = 0;
+    if (globalrolls[1] == globalrolls[2] && globalrolls[2] == globalrolls[3]) {
+        addtokens += 1;
+    }
+    if (globalrolls[4] == globalrolls[5] && globalrolls[5] == globalrolls[6]) {
+        addtokens += 1;
+    }
+    if (globalrolls[7] == globalrolls[8] && globalrolls[8] == globalrolls[9]) {
+        addtokens += 1;
+    }
+    if (globalrolls[1] == globalrolls[4] && globalrolls[4] == globalrolls[7]) {
+        addtokens += 1;
+    }
+    if (globalrolls[2] == globalrolls[5] && globalrolls[5] == globalrolls[8]) {
+        addtokens += 1;
+    }
+    if (globalrolls[3] == globalrolls[6] && globalrolls[6] == globalrolls[9]) {
+        addtokens += 1;
+
+    }
+    for (let i = 0; i < 6; i++) {
+        if (globalrolls[1 + i] == globalrolls[2 + i]) {
+            //console.log("Found h match at " + 1 + i + " and " + 2 + i);
+            if (i != 2 && i != 5) {
+                addtokens += 1;
+            } else {
+                //console.log("Found f match at " + 1 + i + " and " + 2 + i);
+            }
+        }
+        if (globalrolls[1 + i] == globalrolls[4 + i]) {
+            //console.log("Found v match at " + 1 + i + " and " + 4 + i);
+            addtokens += 1;
+        }
+    }
+    if (globalrolls[7] == globalrolls[8]) {
+        addtokens += 1;
+    }
+    if (globalrolls[8] == globalrolls[9]) {
+        addtokens += 1;
+    }
+    if (addtokens > 0) {
+        showpopup();
+    }
+    tokens += addtokens;
+    if (addtokens.toString().charAt(addtokens.toString().length - 1) == 4 || addtokens.toString().charAt(addtokens.toString().length - 1) == 3 || addtokens == 2) {
+        document.getElementById("popuptext").innerHTML = "Dostałeś " + addtokens + " tokeny!";
+    } else {
+        document.getElementById("popuptext").innerHTML = "Dostałeś " + addtokens + " tokenów!";
+    }
+    if (addtokens == 1) {
+        document.getElementById("popuptext").innerHTML = "Dostałeś " + addtokens + " token!";
+    }
+
+}
+
+// token maker
+
+if (localStorage.visitedCasino) {
+    console.log("Visited casino")
+} else {
+    localStorage.setItem("visitedCasino", "true");
+    localStorage.setItem("casinoTokens", localStorage.sessions);
+}
+
+function updateeverything() {
+    localStorage.setItem("casinoTokens", tokens);
+    let lastnumintokens = parseInt(localStorage.casinoTokens.charAt(localStorage.casinoTokens.toString().length - 1));
+
+    if (lastnumintokens == 4 || lastnumintokens == 3 || localStorage.casinoTokens == 2) {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoTokens + " tokeny";
+    } else {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoTokens + " tokenów";
+    }
+
+    if (localStorage.casinoTokens == 1) {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoTokens + " token";
+    }
+
+    setTimeout(updateeverything, 100);
+}
+
+//
+async function spinthing() {
+    document.getElementById("spin").innerHTML = "Masz za mało tokenów. Dostajesz 1 token kiedy wchodzisz na yewgen fanpage";
+    await sleep(3500);
+    document.getElementById("spin").innerHTML = "Kręc maszyne za 2 tokeny";
+}
+
+function again() {
+    if (tokens > 1) {
+        agained = true
+        tokens -= 2;
+        buy.play();
+        const rolls = [0];
+        document.getElementById("mythingdingle").innerHTML = "";
+        for (let i = 0; i < 9; i++) {
+
+            if (i == 3 || i == 6 || i == 9) {
+                const randomgetter = getRandomInt(8) + 1;
+                rolls.push(randomgetter);
+                document.getElementById("mythingdingle").innerHTML += "<br><img width=50 src=kasynozdjecie/" + randomgetter + ".png>" + " ";
+            } else {
+                const randomgetter = getRandomInt(8) + 1;
+                rolls.push(randomgetter);
+                document.getElementById("mythingdingle").innerHTML += "<img width=50 src=kasynozdjecie/" + randomgetter + ".png>" + " ";
+            }
+
+        }
+        globalrolls = rolls;
+        checkformatch();
+    } else {
+        spinthing();
+    }
+}
+
+function awesomeanimation() {
+    if (agained == false) {
+        const rolls = [0];
+        document.getElementById("mythingdingle").innerHTML = "";
+        const randomgetter = getRandomInt(8) + 1;
+        for (let i = 0; i < 9; i++) {
+
+            if (i == 3 || i == 6 || i == 9) {
+                document.getElementById("mythingdingle").innerHTML += "<br><img width=50 src=kasynozdjecie/" + randomgetter + ".png>" + " ";
+            } else {
+                document.getElementById("mythingdingle").innerHTML += "<img width=50 src=kasynozdjecie/" + randomgetter + ".png>" + " ";
+            }
+
+        }
+    }
+    if (agained == false) {
+        setTimeout(awesomeanimation, 500);
+    }
+}
+
+function openshop() {
+ showpopup();
+ document.getElementById("premiumicon").style.display = "initial";
+ document.getElementById("goldicon").style.display = "initial";
+ document.getElementById("goldmac").style.display = "initial";
+ document.getElementById("shop").style.display = "initial";
+ document.getElementById("popuptext").innerHTML = "SKLEP<br>";
+}
+
+function resetdata() {
+    localStorage.removeItem("casinoTokens");
+    localStorage.removeItem("visitedCasino");
+    window.close();
+}
+tokens = tokens2;
+
+if (localStorage.sessions) {
+    if (typeof tokens != "number" || isNaN(tokens)) {
+        tokens = localStorage.sessions;
+    }
+} else {
+    if (typeof tokens != "number" || isNaN(tokens)) {
+        tokens = 1;
+    }
+}
+
+let difference = tokens - localStorage.casinoPreviousTokens;
+
+async function plusanimation() {
+  let lastnumintokens = parseInt(localStorage.casinoPreviousTokens.charAt(localStorage.casinoPreviousTokens.toString().length - 1));
+  if (lastnumintokens == 4 || lastnumintokens == 3 || localStorage.casinoPreviousTokens == 2) {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoPreviousTokens + " tokeny";
+    } else {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoPreviousTokens + " tokenów";
+    }
+
+    if (localStorage.casinoTokens == 1) {
+        document.getElementById("tokencounter").innerHTML = localStorage.casinoPreviousTokens + " token";
+    }
+  await sleep(500);
+  document.getElementById("plus").style.marginRight = "10px";
+  document.getElementById("plus").innerHTML = " +" + difference;
+  await sleep(1000);
+  updateeverything();
+  await sleep(800);
+  document.getElementById("plus").innerHTML = "";
+  document.getElementById("plus").style.marginRight = "0px";
+  updateeverything();
+}
+
+if (difference != 0) {
+  plusanimation();
+} else {
+  updateeverything();
+}
+function setprevtokens() {
+  localStorage.setItem("casinoPreviousTokens", tokens);
+}
+
+  localStorage.setItem("casinoPreviousTokens", tokens);
+  document.addEventListener("visibilitychange", setprevtokens);
+  window.addEventListener("pagehide", setprevtokens);
+  
+
+     </script>
+     </body>
+     </html>

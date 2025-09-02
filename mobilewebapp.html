@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>Yewgen fanpage</title>
+  <link rel="icon" type="image/x-icon" href="ikon.png">
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
+    <script>
+    function wiersz() {
+      document.getElementById("web").src = "wiersz?s=f";
+    }
+    function wideo() {
+      document.getElementById("web").src = "wideo?s=f";
+    }
+    function audio() {
+      document.getElementById("web").src = "audio?s=f";
+    }
+    function extra() {
+      document.getElementById("web").src = "extra?s=f";
+    }
+    function gry() {
+      document.getElementById("web").src = "gry?s=f";
+    }
+    function checkifspeedrun() {
+      if (document.getElementById("web").contentWindow.location.href == "https://yewgenfanpage.neocities.org/speedrun/#iframe") {
+        document.getElementById("web").src = "https://yewgenfanpage.neocities.org/speedrun?s=f#iframe";
+      }
+      }
+    </script>
+    <style>
+      body, html {
+       margin: 0;
+       padding: 0;
+       width: 100%;
+       height: 100%;
+       overflow: hidden;
+        }
+        .wah {
+          flex-direction: column;
+        }
+    </style>
+  </head>
+<body> 
+<div class="wah">
+<iframe src="wiersz?s=f" id="web" onload="checkifspeedrun()" frameborder=no scrolling="yes" style="position: absolute; width: 100%; height: calc(100% - 60px); overflow: auto;"></iframe>
+<div class="center">
+<div class="appcontainer" style="position: absolute; bottom: 0; left: 0; line-height: 60px;" scrolling="yes">
+<button class="appbutton" onclick="wiersz()">Wiersz</button>
+<button class="appbutton" onclick="wideo()">Wideo</button>
+<button class="appbutton" onclick="audio()">Audio</button>
+<button class="appbutton" onclick="extra()">Extra</button>
+<button class="appbutton" onclick="gry()">Gry</button>
+</div>
+</div>
+</div>

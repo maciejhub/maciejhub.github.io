@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
+    <script type="module" src="script.js"></script>
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="maciej hub" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<link rel="manifest" href="manifest.json">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
+    <meta content="maciej hub" property="og:title" />
+<meta content="Wiersz na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/wiersz" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body>
+<div id="topthing">
+<div class=center>
+ <img id="topicon" src="ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+      <h2><a href="extra">Różne fajne rzeczy</a>
+      <a href="gry">Fajne gry</a>
+       <a href="wideo">Fajne wideo</a>
+          <a href="kasyno">Kasyno</a>
+    <hr width="100%;" color="#38393f" size="3">
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
+    </div>
+    </div>
+ <div class="centerpopup" id="popup">
+ <div id="firstpopup">
+ <div id="popuptext">Tutaj się powinno pokazać coś innego. Coś ci się zepsuło (to nie twoja wina)</div>
+ </div>
+ <div id="wallpaperpopup">
+ <h4>Kliknij na zdjęcie aby je pobrać</h4>
+<div class="row">
+<a href="wallpapers/light.png" download="maciej hub tapeta"><img src="wallpapers/light.png" width=150><br></a>
+<a href="wallpapers/dark.png" download="maciej hub tapeta"><img src="wallpapers/dark.png" width=150><br></a>
+<a href="wallpapers/mobile.png" download="maciej hub tapeta"><img src="wallpapers/mobile.png" width=75><br></a>
+</div>
+ </div>
+ <button class="centerpopupbutton" onclick="hidepopup()">OK</button>
+ <div id="firstpopup2"><button class="centerpopupbutton" onclick="showwallpaper()">Ja chce tapetę!!!</button></div>
+ </div>
+ <script>
+ document.getElementById("wallpaperpopup").style.display = "none";
+document.getElementById("firstpopup").style.display = "initial";
+document.getElementById("firstpopup2").style.display = "initial";
+ function hidepopup() {
+  document.getElementById("popup").style.display = "none";
+}
+function showpopup() {
+  document.getElementById("popup").style.display = "initial";
+}
+function showwallpaper() {
+  document.getElementById("firstpopup").style.display = "none";
+  document.getElementById("firstpopup2").style.display = "none";
+  document.getElementById("wallpaperpopup").style.display = "initial";
+}
+if (localStorage.new) {
+  hidepopup();
+} else {
+  document.getElementById("popuptext").innerHTML = "Polecam aby wejść na wszystko na tej stronie i może nawet pobrać tapetę yewgen fanpage!";
+  showpopup();
+}
+localStorage.setItem("new", "false");
+ </script>
+  <h1>
+    <div class="row">
+      <div class="center">
+    <i style=color:blue; >Wersja normal:</i><br>  
+    Kto ty jesteś?<br>Pijak mały!<br>Jaki znak twój?<br>3 browary!<br>Gdzie ty mieszkasz?<br>Pod ławeczką!<br>Czym się bronisz?<br>Żubroweczką!<br><br>
+  <i style=color:blue; >Wersja yewgen:</i><br>
+     Kto ty jesteś?<br>Yewgen mały!<br>Jaki znak twój?<br>3 browary!<br>Gdzie ty mieszkasz?<br>Pod latarnią!<br>Czym się bronisz?<br>Żubroweczką!
+       </div>
+     </div>
+     </h1>
+     <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
+     <script src="topthingscript.js"></script>

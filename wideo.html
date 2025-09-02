@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="yewgen fanpage" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
+    <meta content="maciej hub" property="og:title" />
+<meta content="Wideo na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/wideo" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body>
+<div id="topthing">
+<div class=center>
+  <img id="topicon" src="ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+      <h2><a href="wiersz">Wiersz</a>
+      <a href="gry">Fajne gry</a>
+       <a href="extra">Różne fajne rzeczy</a>
+       <a href="kasyno">Kasyno</a>
+    <hr width="100%;" color="#38393f" size="3">
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i><br><br>
+       </h2>
+       </div>
+       </div>
+       <h2>
+       <div class="center">
+       <div id="passwordstuff">
+       <h3>Wpisz hasło:</h3>
+       <input type="password" id="pass" name="name"><br><br>
+  <button class="button" onclick="checkpassword()"><b>OK</b></button>
+  </div>
+  </div>
+  <div id="poczkeajtext" class="center"></div>
+  <div class="center">
+  <div id="sourcebtn">
+  <button class="button" onclick="replacevideo()"><b>Zmień źródło filmików (użyj to jak filmiki się nie ładują)</b></button>
+    </div>
+    </div>
+       <div class="row">
+       <div id="catbox">
+               <video width=300 controls>
+     <source src="https://files.catbox.moe/a73263.mp4" type="video/mp4">
+     </video>
+                    <video width=300 controls>
+     <source src="https://files.catbox.moe/ljzdha.mp4" type="video/mp4">
+     </video>
+     <video width=300 controls>
+       <source src="https://files.catbox.moe/q77wnr.mp4" type=video/mp4>
+     </video>
+          <video width=300 controls>
+       <source src="https://files.catbox.moe/zt2rmu.mp4" type=video/mp4>
+     </video>
+              <video width=300 controls>
+       <source src="https://files.catbox.moe/x6islm.mp4" type=video/mp4>
+     </video>
+                   <video width=300 controls>
+       <source src="https://files.catbox.moe/31xu69.mp4" type=video/mp4>
+     </video>
+                        <video width=300 controls>
+       <source src="https://files.catbox.moe/0jztc3.mp4" type=video/mp4>
+     </video>
+                        <video width=300 controls>
+       <source src="https://files.catbox.moe/tx002c.mp4" type=video/mp4>
+     </video>
+                             <video width=300 controls>
+       <source src="https://files.catbox.moe/sey6jw.mp4" type=video/mp4>
+     </video>
+                                  <video width=300 controls>
+       <source src="https://files.catbox.moe/pu73tt.mp4" type=video/mp4>
+     </video>
+     </div>
+     </div>
+     <div class="row">
+     <div id="youtube">
+      <iframe width="270" height="480" frameborder="0" src="https://www.youtube.com/embed/nfJKEyAOru8"></iframe>
+      <iframe width="270" height="480" frameborder="0" src="https://www.youtube.com/embed/8lKKYX6SdYc"></iframe>
+      <iframe width="270" height="480" frameborder="0" src="https://www.youtube.com/embed/J3y1pwBh7nE"></iframe>
+      <iframe width="270" height="480" frameborder="0" src="https://www.youtube.com/embed/J_YeaVpmcIE"></iframe>
+      <iframe width="300" height="169" frameborder="0" src="https://www.youtube.com/embed/tN-OzwBNJw4"></iframe>
+</div>
+</div>
+</h2>
+<script>
+  document.getElementById("catbox").style.display = "none"; 
+document.getElementById("youtube").style.display = "none"; 
+document.getElementById("sourcebtn").style.display = "none"; 
+    function replacevideo() {
+  if (document.getElementById("catbox").style.display == "none") {
+     document.getElementById("youtube").style.display = "none"; 
+    document.getElementById("catbox").style.display = "initial"; 
+} else {
+   document.getElementById("catbox").style.display = "none"; 
+    document.getElementById("youtube").style.display = "initial"; 
+}
+}
+    function checkpassword() {
+      input = document.getElementById('pass').value;
+      document.getElementById("poczkeajtext").innerHTML = "";
+      if (input == "lubieskibidi" || localStorage.password) { // tak, wiem że łatwo to znaleźć ale nikt na telefonie tego nie zobaczy
+      localStorage.setItem("password", "correct");
+     document.getElementById("catbox").style.display = "initial"; 
+      document.getElementById("youtube").style.display = "none"; 
+      document.getElementById("sourcebtn").style.display = "initial"; 
+      document.getElementById("passwordstuff").style.display = "none"; 
+      } else {
+        if (input == "") {
+        alert("Złe hasło");
+        } else {
+        console.log("Nie ma hasła");
+        }
+      }
+    }
+    document.addEventListener('keydown', function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    checkpassword();
+  }
+});
+    if (localStorage.password) {
+    checkpassword();
+  }
+</script>
+<script src="topthingscript.js"></script>

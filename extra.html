@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">     
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="yewgen fanpage" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<link rel="manifest" href="manifestnokia.json">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta content="maciej hub" property="og:title" />
+<meta content="Extra na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/extra" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body>
+<div id="topthing">
+<div class=center>
+  <img id="topicon" src="ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+      <h2><a href="wiersz">Wiersz</a>
+      <a href="gry">Fajne gry</a>
+       <a href="wideo">Fajne wideo</a>
+          <a href="kasyno">Kasyno</a>
+    <hr width="100%;" color="#38393f" size="3">
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
+    </div>
+    </div>
+    <div class="center">
+    <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1><h3>(jeżeli wierzysz w to, to wierzysz w mój kod, który nie jest za dobry)</h3>
+    <h2>
+    <a href="camera">maciej hub gry na kamerze</a><br><br>
+    <a href="speedrun">maciej hub speedrun (tak jak wikipedia speedrun)</a><br><br> 
+    </div>
+       <div class="row">
+<a href="wallpapers/light.png" download="maciej hub tapeta">
+<img src="wallpapers/light.png" width=400>
+<div class="center">
+<h3>Bardzo fajna tapeta na komputer jasne</h3>
+</div>
+</a>
+<a href="wallpapers/dark.png" download="maciej hub tapeta">
+<img src="wallpapers/dark.png" width=400>
+<div class="center">
+<h3>Bardzo fajna tapeta na komputer ciemne</h3>
+</div>
+</a>
+<div class="center">
+<a href="wallpapers/mobile.png" download="maciej hub tapeta">
+<img src="wallpapers/mobile.png" width=200>
+<h2>Bardzo fajna tapeta na telefon ciemne</h2>
+</a>
+</div>
+<div id="hdgames">
+<a href="https://maciejhub.github.io/index/znnhd">
+<div class="center">
+<h2>zepsuc nokie SIMULATOR HD (wersja z większym ekranem) (stare, nie aktualizowane)</h2>
+</div>
+</a>
+</div>
+<a href="mchd">
+<div class="center">
+<h2>maciej clicker HD (bardzo długo się ładuje) (wersja z większym ekranem) (stare, nie aktualizowane)</h2>
+</div>
+</a>
+</div>
+<!--
+<a href="mchdo" download>
+<div class="center">
+<h2>maciej clicker HD online (nie działa, do pobrania plik html) (stare, nie aktualizowane)</h2><br>
+</a>
+<iframe src="https://ygfanpage.github.io/index/YEWRg" width="480" height="360" frameBorder="0"></iframe><br>
+<h2>yewgen pou który nie działa<br><br>
+-->
+<div class="center">
+<button class="button" id="showtext" onclick="showunrelated()"><b>pokaż rzeczy nie związane z maciej hub (nie polecam jest głupie)</b><br><br></button>
+<div id="unrelated" style="display: none;">
+<a href="cytaty">
+<h2>cytaty o życiu (na polski)<br></h2>
+</a>
+<a href="kalkulator"><h2>normalny javascript kalkulator</h2></a>
+<a href="yewgenfarmer">
+<h2>super farmer gra zrobiona w javascript (ja sam zrobiłem!!!)<br></h2>
+</a>
+<a href="https://github.com/ygfanpage/index/raw/refs/heads/main/moja%20super%20gra.llsp3" download>
+<h2>moja fajna gra dla lego spike hub<br></h2>
+</a>
+</div>
+</div>
+<script src="script.js"></script>
+<script src="topthingscript.js"></script>
+<script>
+
+function sleep(ms) { // stolen
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function animation() {
+  await sleep(500);
+  document.getElementById("plus").innerHTML = " +" + difference;
+  await sleep(1000);
+  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na yewgen fanpage! ";
+  await sleep(800);
+  document.getElementById("plus").innerHTML = "";
+}
+
+const sessionsitem = localStorage.getItem("sessions")
+const prevsessionsitem = localStorage.getItem("previousSessions")
+let difference = parseInt(sessionsitem) - parseInt(prevsessionsitem)
+if (difference > 0) {
+document.getElementById("sessioncounter").innerHTML = "To jest twój " + prevsessionsitem + " raz na yewgen fanpage! ";
+} else {
+  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na yewgen fanpage! ";
+}
+localStorage.setItem("previousSessions", sessionsitem);
+if (difference > 0) {
+animation();
+}
+
+function deletelocalstorage() {
+  localStorage.clear();
+}
+function showunrelated() {
+  document.getElementById("unrelated").style.display = "initial"; 
+  document.getElementById("showtext").style.display = "none";
+}
+</script>
+<iframe src="bottomthing" frameborder="0" width="100%"></iframe>

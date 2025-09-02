@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="yewgen fanpage" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
+    <meta content="maciej hub" property="og:title" />
+<meta content="Instrukcja na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body> 
+<div id="topthing">
+<div class=center>
+  <img id="topicon" src="ikon.png" width=200><br>
+        <hr style="margin-top: 5px; margin-bottom: -5px;" width="100%;" color="#38393f" size="3">
+      <div style="display: inline-block;"><h2><button id="button" class="button" onclick="clickbutton()"><b>Okej, rozumiem</b></button></h2></div> <div id="button2" style="margin: 15px; display: inline-block;"><button onclick="clickbutton2()" class="centerpopupbutton">I rozumiem że to też jest przycisk</button></div>
+    <hr style="margin-top: -5px;" width="100%;" color="#38393f" size="3">
+    </div>
+    </div>
+    <div class="center">
+        <h2>maciej hub</h2>
+    <h1>Instrukcja obsługi maciej hub</h1>
+    <img src="instrukcja.webp" width=300 alt="Filmik pokazujący o co chodzi" >
+    <h1>Każdy biały napis z linią pod nią to jest przycisk. Aby przejść dalej, przyciśnij przycisk "Okej, rozumiem". Wtedy się pokaże inny przycisk</h1>
+        </div>
+        <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
+        <script>
+          document.getElementById("button2").style.display = "none";
+          document.getElementById("button").style.display = "inline-block";
+        function clickbutton() {
+          document.getElementById("button").style.display = "none";
+          document.getElementById("button2").style.display = "inline-block";
+        }
+        function clickbutton2() {
+          window.location.href = "wiersz";
+        }
+        </script>
+        <script src="topthingscript.js"></script>
