@@ -462,7 +462,9 @@ function setprevtokens() {
   document.addEventListener("visibilitychange", setprevtokens);
   window.addEventListener("pagehide", setprevtokens);
   
-
+if (isNaN(tokens2)) {
+  window.location.reload();
+}
      </script>
      </body>
      </html>
