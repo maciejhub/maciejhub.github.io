@@ -1,0 +1,19 @@
+
+body {
+  background-color: transparent;
+  color: white;
+  font-family: Arial;
+  vertical-align: middle;
+  margin: 20px;
+}
+.center {
+  text-align: center;
+}
+a:link {
+  color: white;
+}
+
+/* visited link */
+a:visited {
+  color: white;
+}
