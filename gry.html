@@ -75,6 +75,7 @@
      const queryString2 = window.location.search;
      const urlParams2 = new URLSearchParams(queryString2);
      let shared = urlParams2.get("share");
+     let shared2 = urlParams2.get("share2");
      if (shared != null) {
        document.getElementById("showallbutton").style.display = "initial";
        document.getElementById("maciejclicker").style.display = "none";
@@ -85,6 +86,7 @@
        document.getElementById("yewgenkart").style.display = "none";
        document.getElementById("nokiatycoon").style.display = "none";
        document.getElementById(shared).style.display = "initial";
+       document.getElementById(shared2).style.display = "initial";
      }
      function showall() {
        document.getElementById("maciejclicker").style.display = "initial";
