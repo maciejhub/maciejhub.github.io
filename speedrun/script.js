@@ -182,3 +182,6 @@ function deletefromarray(text) {
   localStorage.setItem("speedrunresults", JSON.stringify(sarray));
   savedresults();
 }
+function leave() {
+  window.location.href = "extra/";
+}
