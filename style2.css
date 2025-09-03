@@ -338,22 +338,6 @@ img.custom:active {
   font-size: 25px;
   position: fixed; /* Sit on top of the page content */
   top: 10%;
-  left: 26%;
-  height: 5%;
-  width: 13%;
-  padding: 5px;
-  transform: translate(-50%, -50%);
-  border: 10px solid #191919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.savedstuff {
-  background-color: #292929;
-  font-size: 25px;
-  position: fixed; /* Sit on top of the page content */
-  top: 10%;
   left: 42%;
   height: 5%;
   width: 13%;
@@ -365,7 +349,7 @@ img.custom:active {
   justify-content: center;
   text-align: center;
 }
-.leave {
+.savedstuff {
   background-color: #292929;
   font-size: 25px;
   position: fixed; /* Sit on top of the page content */
@@ -388,7 +372,7 @@ img.custom:active {
   font-size: 25px;
   position: fixed; /* Sit on top of the page content */
   top: 10%;
-  left: 2%;
+  left: 34%;
   height: 5%;
   width: 23%;
   padding: 5px;
@@ -404,25 +388,9 @@ img.custom:active {
   font-size: 25px;
   position: fixed; /* Sit on top of the page content */
   top: 10%;
-  left: 34%;
-  height: 5%;
-  width: 23%;
-  padding: 5px;
-  transform: translate(-50%, -50%);
-  border: 10px solid #191919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-.leave {
-  background-color: #292929;
-  font-size: 25px;
-  position: fixed; /* Sit on top of the page content */
-  top: 10%;
   left: 66%;
   height: 5%;
-  width: 13%;
+  width: 23%;
   padding: 5px;
   transform: translate(-50%, -50%);
   border: 10px solid #191919;
