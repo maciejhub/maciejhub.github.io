@@ -24,16 +24,7 @@ function starttimer() {
       } 
     } 
     
-    const iframelocationchange = {
-    get value() {
-        return document.getElementById("iframe").contentWindow.location.href;
-    },
-    set value(newValue) {
-        if (document.getElementById("iframe").contentWindow.location.href !== newValue) {
-            diditwin();
-        }
-    }
-};
+   iframe.addEventListener("load", diditwin());
 
 const urls = ["wiersz", "wideo", "extra", "kasyno", "cytaty", "kalkulator"];
 let permtime = "";
