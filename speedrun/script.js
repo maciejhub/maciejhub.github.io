@@ -60,22 +60,8 @@ document.getElementById("iframe").contentWindow.location.href = "/kalkulator";
 }
 
 function showwhere() {
-  if (randomitem == 3) {
-  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + "różne fajne rzeczy" + "</b> do <b>" + urls[randomitem2] + "</b>";
-} else {
-  if (randomitem2 != 3) {
-  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + "</b> do <b>" + urls[randomitem2] + "</b>";
-  }
-}
-
-if (randomitem2 == 3) {
-  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + "</b> do <b>" + "różne fajne rzeczy" + "</b>";
-} else {
-  if (randomitem != 3) {
-  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + "</b> do <b>" + urls[randomitem2] + "</b>";
-  }
-}
-
+  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + urls[randomitem2] + "</b>";
+  document.getElementById("lulz").innerHTML.replace("extra", "różne fajne rzeczy");
 }
 document.getElementById("save").style.display = "none";
      function hidepopup() {
@@ -110,24 +96,13 @@ document.getElementById("save").style.display = "none";
      }
      
      function diditwin() {
-if (document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/" + urls[randomitem2]) {
+if (document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/" + urls[randomitem2] || randomitem2 == 6 && document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/kalkulator/") {
     timer = "inactive";
     permtime = time;
     time = "00:00";
     sec = "00";
     ms = "00";
     win = "true";
-    document.getElementById("lulz").innerHTML = "Wygrałeś!";
-    document.getElementById("button").innerHTML = "Zagraj jeszcze raz";
-    showpopup();
-  }
-  
-if (randomitem2 == 6 && document.getElementById("iframe").contentWindow.location.href == "https://maciejhub.github.io/kalkulator/") {
-    timer = "inactive";
-    permtime = time;
-    time = "00:00";
-    sec = "00";
-    ms = "00";
     document.getElementById("lulz").innerHTML = "Wygrałeś!";
     document.getElementById("button").innerHTML = "Zagraj jeszcze raz";
     showpopup();
