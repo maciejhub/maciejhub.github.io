@@ -60,8 +60,8 @@ document.getElementById("iframe").contentWindow.location.href = "/kalkulator";
 }
 
 function showwhere() {
-  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + urls[randomitem2] + "</b>";
-  document.getElementById("lulz").innerHTML.replace("extra", "różne fajne rzeczy");
+  document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + " do " + urls[randomitem2] + "</b>";
+  document.getElementById("lulz").innerHTML = document.getElementById("lulz").innerHTML.replace("extra", "różne fajne rzeczy");
 }
 document.getElementById("save").style.display = "none";
      function hidepopup() {
