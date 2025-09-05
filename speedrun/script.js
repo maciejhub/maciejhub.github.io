@@ -23,8 +23,6 @@ function starttimer() {
         setTimeout(starttimer, 10);
       } 
     } 
-    
-   iframe.addEventListener("load", diditwin());
 
 const urls = ["wiersz", "wideo", "extra", "kasyno", "cytaty", "kalkulator"];
 let permtime = "";
@@ -164,3 +162,5 @@ function deletefromarray(text) {
 function leave() {
   window.location.href = "extra/";
 }
+
+iframe.addEventListener("load", diditwin());
