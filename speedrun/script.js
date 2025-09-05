@@ -24,7 +24,6 @@ function starttimer() {
       } 
     } 
     
-document.location.href = "#iframe";
 const urls = ["wiersz", "wideo", "extra", "kasyno", "cytaty", "kalkulator"];
 let permtime = "";
 let win = "false";
