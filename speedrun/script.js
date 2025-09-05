@@ -63,7 +63,9 @@ function showwhere() {
   if (randomitem == 3) {
   document.getElementById("lulz").innerHTML = "Dostań się od <b>" + "różne fajne rzeczy" + "</b> do <b>" + urls[randomitem2] + "</b>";
 } else {
+  if (randomitem2 != 3) {
   document.getElementById("lulz").innerHTML = "Dostań się od <b>" + urls[randomitem] + "</b> do <b>" + urls[randomitem2] + "</b>";
+  }
 }
 
 if (randomitem2 == 3) {
@@ -133,10 +135,12 @@ if (randomitem2 == 6 && document.getElementById("iframe").contentWindow.location
      }
 
 showwhere();
+if (localStorage.speedrunresults == undefined) {
+  const myarray = [];
+  localStorage.setItem("speedrunresults", JSON.stringify(myarray));
+}
 const sarray = JSON.parse(localStorage.speedrunresults);
-
 function saveresult() {
-  const sarray = JSON.parse(localStorage.speedrunresults);
   if (localStorage.speedrunresults) {
     if (document.getElementById("save").innerHTML != "Wynik zapisany") {
     if (sarray.length < 9) {
@@ -148,15 +152,15 @@ function saveresult() {
     }
     }
 } else {
-  const sarray = ["od <b>" + urls[randomitem] + "</b> do <b>" + urls[randomitem2] + "</b> w " + permtime];
-  localStorage.setItem("speedrunresults", JSON.stringify(sarray));
+  const mysarray = ["od <b>" + urls[randomitem] + "</b> do <b>" + urls[randomitem2] + "</b> w " + permtime];
+  localStorage.setItem("speedrunresults", JSON.stringify(mysarray));
 }
 }
+
 
 function savedresults() {
   if (time == "00:00" || win == "true") {
   showpopup();
-  const sarray = JSON.parse(localStorage.speedrunresults);
   if (localStorage.speedrunresults || sarray.length != 0) {
     document.getElementById("lulz").innerHTML = "";
 for (let i = 0; i != sarray.length; i++) {
@@ -177,7 +181,6 @@ for (let i = 0; i != sarray.length; i++) {
 }
 }
 function deletefromarray(text) {
-  const sarray = JSON.parse(localStorage.speedrunresults);
   sarray.splice(text, 1);
   localStorage.setItem("speedrunresults", JSON.stringify(sarray));
   savedresults();
