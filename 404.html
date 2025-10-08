@@ -6,7 +6,6 @@
     <meta name="description" content="Witaj w mojej ultra sigma stronie">
     <title>maciej hub</title>
     <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
-    <script type="module" src="script.js"></script>
 <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
 <link rel="shortcut icon" href="/favicons/favicon.ico" />
@@ -37,13 +36,22 @@
     </div>
 <h2><div class="center" id="notfound">Nie ma tutaj niczego...</div></h2>
      <iframe src="/bottomthing" frameborder="0" width="100%"></iframe>
-     <script src="topthingscript.js"></script>
+     <script src="/topthingscript.js"></script>
          <script>
-    let path = window.location.pathname
-    if (window.location == "https://maciejhub.github.io/redirects/roblox" || window.location == "https://maciejhub.github.io/zntr" ) {
-      document.getElementById("notfound").innerHTML = "Przeprowadzanie cię do zepsuć nokie TYCOON: ROBLOX";
-      window.location.href = "https://www.roblox.com/games/90765644214333/zepsu-nokie-TYCOON-ROBLOX"
+    let path = window.location.pathname;
+    let pathArray = path.split("/");
+    console.log(pathArray);
+    let text = document.getElementById("notfound");
+    if (pathArray[1] == "r") {
+      let redirect = pathArray[2];
+      if (redirect == "zntr") {
+        text.innerHTML = "Przeprowadzanie cie do zepsuć nokie TYCOON: ROBLOX...";
+        window.location.href = "https://www.roblox.com/games/90765644214333/zepsu-nokie-TYCOON-ROBLOX";
+      } else if (redirect == "group") {
+        text.innerHTML = "Przeprowadzanie cie do grupy maciej hub na roblox...";
+        window.location.href = "https://www.roblox.com/communities/514001634/maciej-hub#!/store";
+      }
     } else {
-      document.getElementById("notfound").innerHTML = "Nie ma strony <b>" + path + "</b> na maciej hub. Czy na pewno dobrze napisałeś link?";
+      text.innerHTML = "Nie ma strony <b>" + path + "</b> na maciej hub. Czy na pewno dobrze napisałeś link?";
     }
     </script>
