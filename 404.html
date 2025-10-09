@@ -40,7 +40,9 @@
          <script>
     let path = window.location.pathname;
     let pathArray = path.split("/");
-    console.log(pathArray);
+    if (path == "/zntr") {
+pathArray = ["", "r", "zntr"];
+}
     let text = document.getElementById("notfound");
     if (pathArray[1] == "r") {
       let redirect = pathArray[2];
