@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+  <link rel="icon" type="image/x-icon" href="/ikon.png">
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
+    <style>
+        body {
+            background-color: transparent;
+            overflow: hidden;
+        }
+    </style>
+  </head>
+<body>
+    <div id="content" class="center">
+        <img id="throbber" src="loading.png" width="64">
+        <h2><div id="text"></div></h2>
+        <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">OK</button>
+        <button id="shownewest" style="display: none;" class="centerpopupbutton" onclick="shownewest()">Zobacz najnowszą wiadomość</button>
+    </div>
+    <script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    if (window.location.href.includes("#pressed")) {
+        window.location.href = "";
+    }
+    let text = document.getElementById("text");
+    let throbber = document.getElementById("throbber");
+    let ok = document.getElementById("OK");
+    let newest = document.getElementById("shownewest");
+    let latestMessage
+    fetch("latestMessage.txt")
+  .then(response => response.text())
+  .then(data => latestMessage = data)
+  .catch(error => console.error('Error:', error));
+    if (localStorage.lastMessageRead) {
+        console.log("lastMessageRead exists");
+     } else {
+        localStorage.setItem("lastMessageRead", "");
+     }
+    function hidetext() {
+        document.getElementById("content").style.display = "none";
+        window.parent.postMessage("OK", '*'); 
+    }
+    function shownewest() {
+        text.innerHTML = latestMessage;
+        document.body.style.overflow = "auto";
+    }
+    async function restOfTheScript() {
+    await sleep(1000);
+    if (latestMessage == localStorage.lastMessageRead) {
+        ok.style.display = "inline";
+        newest.style.display = "inline";
+        throbber.style.display = "none";
+        text.innerHTML = "Nie masz żadnych nowych wiadomości";
+    } else {
+        ok.style.display = "inline";
+        throbber.style.display = "none";
+        text.innerHTML = latestMessage;
+        localStorage.setItem("lastMessageRead", latestMessage);
+        document.body.style.overflow = "auto";
+    }
+}
+restOfTheScript();
+    </script>
+        </body>
+        </html>
