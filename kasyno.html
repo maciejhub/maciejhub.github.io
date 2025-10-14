@@ -58,7 +58,16 @@
                     <button onclick="itembuy('star')" id="fu" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="starprice" style="font-size: 80%;">100 tokenów</b>
                     </button>
-                </div>
+                </div> <!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('znikon')" id="znikon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem zepsuć nokie gier</div>
+                        <img src="znikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('znikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="znikonprice" style="font-size: 80%;">10 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
                 <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
                     <button class="casinoitems" onclick="itembuy('gold')" id="goldicon">
                         <div style="font-size: 70%; top: 10px; line-height: 100%;">Złota nokia w zepsuć nokie simulator</div>
@@ -67,7 +76,7 @@
                     <button onclick="itembuy('gold')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="goldprice" style="font-size: 80%;">25 tokenów</b>
                     </button>
-                </div>
+                </div><!-- koniec -->
                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
                     <button class="casinoitems" onclick="itembuy('goldmaciej')" id="goldmac">
                         <div style="font-size: 70%; top: 10px; line-height: 100%;">Złoty maciej w maciej clicker</div>
@@ -76,7 +85,7 @@
                     <button onclick="itembuy('goldmaciej')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="maciejprice" style="font-size: 80%;">25 tokenów</b>
                     </button>
-                </div>
+                </div><!-- koniec -->
                 <!-- tutaj -->
             </div>
             </div>
@@ -131,6 +140,13 @@ hidepopup();
        } else {
        document.getElementById("maciejprice").innerHTML = "25 tokenów";    
        }
+       if (JSON.parse(localStorage.boughtItems).includes("znikon")) {
+       if (localStorage.ikonpng == "/znikon.png") {
+       document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";   
+       } else {
+       document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";    
+       }
+       }
        
        document.getElementById("premiumicon").style.display = "none";
 function sleep(ms) { // stolen
@@ -169,6 +185,37 @@ async function itembuy(item) {
    }  
   }
   
+    if (item == "znikon") {
+   if (localStorage.ikonpng != "/znikon.png") {
+     if (JSON.parse(localStorage.boughtItems).includes("znikon") == false) {
+    if (tokens > 9) {
+      tokens = tokens - 10;
+      document.getElementById("znikonprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
+      localStorage.setItem("ikonpng", "/znikon.png");
+      const itemsbought = JSON.parse(localStorage.boughtItems);
+      itemsbought.push("znikon");
+      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
+      await sleep(2000);
+      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
+      document.getElementById("topicon").src = "/znikon.png";
+    } else {
+      document.getElementById("znikonprice").innerHTML = "Masz za mało tokenów";
+      await sleep(1000);
+      document.getElementById("znikonprice").innerHTML = "10 tokenów";
+    }
+    } else {
+      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
+      localStorage.setItem("ikonpng", "/znikon.png");
+      document.getElementById("topicon").src = "/znikon.png";  
+    }
+   } else {
+     localStorage.setItem("ikonpng", "/ikon.png");
+     document.getElementById("topicon").src = "/ikon.png";
+     document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";
+   }  
+  }
+  
+
     if (item == "gold") {
       if (JSON.parse(localStorage.boughtItems).includes("gold") == false) {
     if (tokens > 24) {
