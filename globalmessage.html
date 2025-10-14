@@ -19,7 +19,7 @@
         <img id="throbber" src="loading.png" width="64">
         <h2><div id="text"></div></h2>
         <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">OK</button>
-        <button id="shownewest" style="display: none;" class="centerpopupbutton" onclick="shownewest()">Zobacz najnowszą wiadomość</button>
+        <button id="shownewest" style="display: none;" class="centerpopupbutton" onclick="showall()">Zobacz wszystkie wiadomości</button>
     </div>
     <script>
     function sleep(ms) {
@@ -32,36 +32,42 @@
     let throbber = document.getElementById("throbber");
     let ok = document.getElementById("OK");
     let newest = document.getElementById("shownewest");
-    let latestMessage
-    fetch("latestMessage.txt")
+    let allMessages
+    fetch("allMessages.json", { cache: 'no-cache' })
   .then(response => response.text())
-  .then(data => latestMessage = data)
-  .catch(error => console.error('Error:', error));
+  .then(data => allMessages = JSON.parse(data))
+  .catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
     if (localStorage.lastMessageRead) {
         console.log("lastMessageRead exists");
      } else {
         localStorage.setItem("lastMessageRead", "");
      }
+
     function hidetext() {
         document.getElementById("content").style.display = "none";
         window.parent.postMessage("OK", '*'); 
     }
-    function shownewest() {
-        text.innerHTML = latestMessage;
+    function showall() {
+        text.innerHTML = "";
         document.body.style.overflow = "auto";
+        for (let i = 0; i < allMessages.length; i++) {
+            text.innerHTML += (i + 1) + ". " + allMessages[i] + "<br>";  
+        }
+        newest.style.display = "none";
     }
     async function restOfTheScript() {
     await sleep(1000);
-    if (latestMessage == localStorage.lastMessageRead) {
+    if (allMessages[allMessages.length - 1] == localStorage.lastMessageRead) {
         ok.style.display = "inline";
         newest.style.display = "inline";
         throbber.style.display = "none";
         text.innerHTML = "Nie masz żadnych nowych wiadomości";
     } else {
         ok.style.display = "inline";
+        newest.style.display = "inline";
         throbber.style.display = "none";
-        text.innerHTML = latestMessage;
-        localStorage.setItem("lastMessageRead", latestMessage);
+        text.innerHTML = allMessages[allMessages.length - 1];
+        localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1]);
         document.body.style.overflow = "auto";
     }
 }
