@@ -22,54 +22,71 @@
         <button id="shownewest" style="display: none;" class="centerpopupbutton" onclick="showall()">Zobacz wszystkie wiadomości</button>
     </div>
     <script>
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-    if (window.location.href.includes("#pressed")) {
-        window.location.href = "";
-    }
-    let text = document.getElementById("text");
-    let throbber = document.getElementById("throbber");
-    let ok = document.getElementById("OK");
-    let newest = document.getElementById("shownewest");
-    let allMessages
-    fetch("allMessages.json", { cache: 'no-cache' })
-  .then(response => response.text())
-  .then(data => allMessages = JSON.parse(data))
-  .catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
-    if (localStorage.lastMessageRead) {
-        console.log("lastMessageRead exists");
-     } else {
-        localStorage.setItem("lastMessageRead", "");
-     }
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+}
+let text = document.getElementById("text");
+let throbber = document.getElementById("throbber");
+let ok = document.getElementById("OK");
+let newest = document.getElementById("shownewest");
+let allMessages = ["gay"];
+fetch("allMessages.json", {
+		cache: 'no-cache'
+	})
+	.then(response => response.text())
+	.then(data => {
+		console.log("Setting allMessages")
+		allMessages = JSON.parse(data)
+	})
+	.catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
+if (localStorage.lastMessageRead) {
+	console.log("lastMessageRead exists");
+} else {
+	localStorage.setItem("lastMessageRead", "maciej hub jest teraz na roblox! Graj w <a href='r/zntr' target='_blank'>zepsuć nokie TYCOON: ROBLOX teraz!</a>");
+}
 
-    function hidetext() {
-        document.getElementById("content").style.display = "none";
-        window.parent.postMessage("OK", '*'); 
-    }
-    function showall() {
-        text.innerHTML = "";
-        document.body.style.overflow = "auto";
-        for (let i = 0; i < allMessages.length; i++) {
-            text.innerHTML += (i + 1) + ". " + allMessages[i] + "<br>";  
-        }
-        newest.style.display = "none";
-    }
-    async function restOfTheScript() {
-    await sleep(1000);
-    if (allMessages[allMessages.length - 1] == localStorage.lastMessageRead) {
-        ok.style.display = "inline";
-        newest.style.display = "inline";
-        throbber.style.display = "none";
-        text.innerHTML = "Nie masz żadnych nowych wiadomości";
-    } else {
-        ok.style.display = "inline";
-        newest.style.display = "inline";
-        throbber.style.display = "none";
-        text.innerHTML = allMessages[allMessages.length - 1];
-        localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1]);
-        document.body.style.overflow = "auto";
-    }
+function hidetext() {
+	document.getElementById("content").style.display = "none";
+	window.parent.postMessage("OK", '*');
+}
+
+function showall() {
+	text.innerHTML = "";
+	document.body.style.overflow = "auto";
+	for (let i = 0; i < allMessages.length; i++) {
+		text.innerHTML += (i + 1) + ". " + allMessages[i] + "<br>";
+	}
+	newest.style.display = "none";
+}
+let numberOfLastRead = allMessages.indexOf(localStorage.lastMessageRead);
+async function restOfTheScript() {
+	await sleep(100);
+	numberOfLastRead = allMessages.indexOf(localStorage.lastMessageRead);
+	await sleep(900);
+	if (allMessages[allMessages.length - 1] == localStorage.lastMessageRead) {
+		ok.style.display = "inline";
+		newest.style.display = "inline";
+		throbber.style.display = "none";
+		text.innerHTML = "Nie masz żadnych nowych wiadomości";
+	} else {
+		//if (numberOfLastRead != -1) {
+		//	if (allMessages.length - numberOfLastRead > 1) {
+		//		for (i = 0; i < allMessages.length - numberOfLastRead; i++) {
+		//			text.innerHTML += (i) + ". " + allMessages[numberOfLastRead + i] + "<br>";
+		//		}
+		//	} else {
+		//		// d
+		//	}
+		//}
+		ok.style.display = "inline";
+		newest.style.display = "inline";
+		throbber.style.display = "none";
+		//if ((allMessages.length - numberOfLastRead > 1) == false) {
+			text.innerHTML = allMessages[allMessages.length - 1];
+		//}
+		localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1]);
+		document.body.style.overflow = "auto";
+	}
 }
 restOfTheScript();
     </script>
