@@ -1,7 +1,12 @@
 // universal script for everything
+window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens);
 if (localStorage.ikonpng) {
-document.getElementById("topicon").src = localStorage.ikonpng;
+  if (document.getElementById("topicon")) {
+    document.getElementById("topicon").src = localStorage.ikonpng;
+  } else {
+    console.log("topthingscript says topicon doesn't exist")
+  }
 }
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);

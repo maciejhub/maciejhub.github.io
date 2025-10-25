@@ -1,132 +1,361 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-     <meta charset="UTF-8">
-    <meta name="description" content="Witaj w mojej ultra sigma stronie">
-    <title>maciej hub</title>
-    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
-    <script type="module" src="script.js"></script>
-    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-<link rel="shortcut icon" href="/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="maciej hub" />
-<link rel="manifest" href="/favicons/site.webmanifest" />
-<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<!-- possible content values: default, black or black-translucent -->
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta content="maciej hub" property="og:title" />
-<meta content="Gry na maciej hub" property="og:description" />
-<meta content="https://maciejhub.github.io/gry" property="og:url" />
-<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
-<meta content="#222222" data-react-helmet="true" name="theme-color" />
-  </head>
-<body>
-<div id="topthing">
-<div class=center>
-  <img id="topicon" src="ikon.png" width=200>
-        <hr width="100%;" color="#38393f" size="3">
-      <h2><a href="wideo">Fajne wideo</a>
-      <a href="wiersz">Wiersz</a>
-      <a href="extra">Różne fajne rzeczy</a>
-        <a href="kasyno">Kasyno</a>
-    <hr width="100%;" color="#38393f" size="3">
-       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
-    </div>
-    </div>
-     <div class="centerpopup" id="sharepopup">
-     <div class="center">
-    <h3>Wybierz co udostępnić</h3>
-    <div>
-    <select id="sharechoose" class="basiccontainer">
-  <option value="all" style="color: white;">wszystko</option>
-  <option value="maciejclicker" style="color: white;">maciej clicker</option>
-  <option value="skibidi" style="color: white;">skibidi toilet or creeper: the gra</option>
-  <option value="zepsucnokie" style="color: white;">zepsuć nokie SIMULATOR</option>
-  <option value="mandarynki" style="color: white;" selected>rzucać mandarynki do kibla: THE GRA</option>
-  <option value="asmrbulka" style="color: white;">asmr bułka: the gra</option>
-  <option value="kart" style="color: white;"><i style="color: black;">censored</i> KART</option>
-  <option value="nokiatycoon" style="color: white;">zepsuć nokie TYCOON</option>
-</select>
- <br><br><button class="centerpopupbutton" onclick="copylink()"><div id="copytext">Kopiuj link</div></button>
-<button class="centerpopupbutton" onclick="hidepopup()">Zamknij</button>
-</div>
-    </div>
- </div>
- <script>
- document.getElementById("sharepopup").style.display = "none";
- </script>
-    <!--<button class="button"><img src="share.svg" width=50 style="float: right;"></button>-->
-    <div class="center">
-    <button class="button" style="display: none;" id="showallbutton" onclick="showall()"><b>Pokaż reszte gier</b></button>
-    <button class="button" onclick="showpopup()"><b>Udostępnij gry</b></button>
-    <h2><a href="r/zntr">NOWE: <b>zepsuć nokie TYCOON: ROBLOX</b></a></h2><br>
-    <div class="row">
-     <iframe id="maciejclicker" src="grygry/maciejclicker" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="skibidi" src="grygry/skibidi" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="zepsucnokie" src="grygry/nokia" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="mandarynki" src="grygry/mandarynki" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="asmrbulka" src="grygry/asmr" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="kart" src="grygry/kart" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     <iframe id="nokiatycoon" src="grygry/tycoon" width="482" height="412" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
-     </div>
-     </div>
-     <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
-     <script>
-     const queryString2 = window.location.search;
-     const urlParams2 = new URLSearchParams(queryString2);
-     let shared = urlParams2.get("share");
-     let shared2 = urlParams2.get("share2");
-     if (shared != null) {
-       document.getElementById("showallbutton").style.display = "initial";
-       document.getElementById("maciejclicker").style.display = "none";
-       document.getElementById("skibidi").style.display = "none";
-       document.getElementById("zepsucnokie").style.display = "none";
-       document.getElementById("mandarynki").style.display = "none";
-       document.getElementById("asmrbulka").style.display = "none";
-       document.getElementById("nokiatycoon").style.display = "none";
-       document.getElementById(shared).style.display = "initial";
-     }
-     if (shared2 != null) {
-       document.getElementById(shared2).style.display = "initial";
-     }
-     function showall() {
-       document.getElementById("maciejclicker").style.display = "initial";
-       document.getElementById("skibidi").style.display = "initial";
-       document.getElementById("zepsucnokie").style.display = "initial";
-       document.getElementById("mandarynki").style.display = "initial";
-       document.getElementById("asmrbulka").style.display = "initial";
-       document.getElementById("nokiatycoon").style.display = "initial";
-       document.getElementById("showallbutton").style.display = "none";
-     }
-     function hidepopup() {
-       document.getElementById("sharepopup").style.display = "none";
-     }
-     function showpopup() {
-       document.getElementById("sharepopup").style.display = "initial";
-     }
-        let shareurl = "mangos"
-     if (document.getElementById("sharechoose").value == "all") {
-       shareurl = "https://maciejhub.github.io/gry"
-     } else {
-       shareurl = "https://maciejhub.github.io/gry?share=" + document.getElementById("sharechoose").value
-     }
-   function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-   }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Witaj w mojej ultra sigma stronie" />
+        <title>maciej hub</title>
+        <link href="/style2.css" rel="stylesheet" type="text/css" media="all" />
+        <script type="module" src="script.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicons/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicons/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="maciej hub" />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta
+            name="viewport"
+            content="width=device-width; initial-scale=1.0; viewport-fit=cover"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- possible content values: default, black or black-translucent -->
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta content="maciej hub" property="og:title" />
+        <meta content="Gry na maciej hub" property="og:description" />
+        <meta content="https://maciejhub.github.io/gry" property="og:url" />
+        <meta
+            content="https://maciejhub.github.io/ikon.png"
+            property="og:image"
+        />
+        <meta content="#222222" data-react-helmet="true" name="theme-color" />
+    </head>
+    <body>
+        <div id="topthing">
+            <div class="center">
+                <img id="topicon" src="ikon.png" width="200" />
+                <hr width="100%;" color="#38393f" size="3" />
+                <h2>
+                    <a href="wideo">Fajne wideo</a>
+                    <a href="wiersz">Wiersz</a>
+                    <a href="extra">Różne fajne rzeczy</a>
+                    <a href="kasyno">Kasyno</a>
+                    <hr width="100%;" color="#38393f" size="3" />
+                    <i style="color: gray">
+                        NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i
+                    >
+                </h2>
+            </div>
+        </div>
+        <div class="centerpopup" id="popup">
+            <div id="sharepopup">
+                <div class="center">
+                    <h3>Wybierz co udostępnić</h3>
+                        <select id="sharechoose" class="basiccontainer">
+                            <option value="all" style="color: white">
+                            wszystko
+                            </option>
+                            <option value="maciejclicker" style="color: white">
+                            maciej clicker
+                            </option>
+                            <option value="skibidi" style="color: white">
+                            skibidi toilet or creeper: the gra
+                            </option>
+                            <option value="zepsucnokie" style="color: white">
+                            zepsuć nokie SIMULATOR
+                            </option>
+                            <option value="mandarynki" style="color: white" selected>
+                            rzucać mandarynki do kibla: THE GRA
+                            </option>
+                            <option value="asmrbulka" style="color: white">
+                            asmr bułka: the gra
+                            </option>
+                            <option value="kart" style="color: white">
+                            <i style="color: black">censored</i> KART
+                            </option>
+                            <option value="nokiatycoon" style="color: white">
+                            zepsuć nokie TYCOON
+                            </option>
+                    </select>
+                    <br><br><button
+                        class="centerpopupbutton"
+                        onclick="copylink()"
+                    >
+                        <div id="copytext">Kopiuj link</div>
+                    </button>
+                    <button class="centerpopupbutton" onclick="hidepopup()">
+                        OK
+                    </button>
+                </div>
+            </div>
+            <div id="codepopup">
+                <div class="center">
+                    <h3>Wpisz kod</h3>
+                    <input id="codeinput" class="basiccontainer" placeholder="Tutaj wpisz kod" size="9">
+                    <br><BR>
+                    <button class="centerpopupbutton" id="codecheckbutton" onclick="checkcode()">
+                        Sprawdź kod
+                    </button>
+                    <button class="centerpopupbutton" onclick="hidepopup()">
+                        Zamknij
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("popup").style.display = "none";
+        </script>
+        <!--<button class="button"><img src="share.svg" width=50 style="float: right;"></button>-->
+        <div class="center">
+            <button
+                class="button"
+                style="display: none"
+                id="showallbutton"
+                onclick="showall()"
+            >
+                <b>Pokaż reszte gier</b>
+            </button>
+            <button class="button" onclick="showpopup()">
+                <b>Udostępnij gry</b>
+            </button>
+            <h2>
+                <a href="r/zntr">NOWE: <b>zepsuć nokie TYCOON: ROBLOX</b></a>
+            </h2>
+            <button style="display: none;" id="codeenter" onclick="showcode()" class="centerpopupbutton">Wpisz kod</button>
+            <br/>
+            <class="row">
+                <iframe
+                    id="maciejclicker"
+                    src="grygry/maciejclicker"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="skibidi"
+                    src="grygry/skibidi"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="zepsucnokie"
+                    src="grygry/nokia"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="mandarynki"
+                    src="grygry/mandarynki"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="asmrbulka"
+                    src="grygry/asmr"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="kart"
+                    src="grygry/kart"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                <iframe
+                    id="nokiatycoon"
+                    src="grygry/tycoon"
+                    width="482"
+                    height="412"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </div>
+        <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
+        <script>
+            const queryString2 = window.location.search;
+            const urlParams2 = new URLSearchParams(queryString2);
+            let shared = urlParams2.get("share");
+            let shared2 = urlParams2.get("share2");
+            if (localStorage.quest == "nRM" || localStorage.quest == "nZNT" || localStorage.quest == "nAS" || localStorage.quest == "nKRT") {
+              document.getElementById("codeenter").style.display = "inline";
+            }
+            if (shared != null) {
+                document.getElementById("showallbutton").style.display =
+                    "initial";
+                document.getElementById("maciejclicker").style.display = "none";
+                document.getElementById("skibidi").style.display = "none";
+                document.getElementById("zepsucnokie").style.display = "none";
+                document.getElementById("mandarynki").style.display = "none";
+                document.getElementById("asmrbulka").style.display = "none";
+                document.getElementById("nokiatycoon").style.display = "none";
+                document.getElementById(shared).style.display = "initial";
+            }
+            if (shared2 != null) {
+                document.getElementById(shared2).style.display = "initial";
+            }
+            function isNumber(char) {
+              return /^\d$/.test(char);
+            }
+            if (localStorage.lastCodeEntered) {
+              console.log("lastCodeEntered exists");
+            } else {
+              localStorage.setItem("lastCodeEntered", "");
+            }
+            let lettertonumber = ["error", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+            async function checkcode() {
+              let code = document.getElementById("codeinput").value
+              let dates = new Date();
+              let hour = dates.getHours().toString().padStart(2, '0').toString();
+              let date = dates.getDate().toString().padStart(2, '0').toString();
+              let hour1 = parseInt(hour.substring(0, 1));
+              let hour2 = parseInt(hour.substring(1, 2));
+              let date1 = parseInt(date.substring(0, 1));
+              let date2 = parseInt(date.substring(1, 2));
+              console.log(hour);
+              console.log(date);
+              let offset = parseInt(code.substring(0, 1));
+              console.log(offset)
+              if (isNumber(offset) == false || isNumber(code.substring(1, 2)) || isNumber(code.substring(3, 4)) || isNumber(code.substring(2, 3)) == false || isNumber(code.substring(4, 5)) == false) {
+                document.getElementById("codecheckbutton").innerText = "Nie poprawny kod";
+                await sleep(1500);
+                document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
+                return
+              }
+              let expectedcode = hour + date;
+              let madecodearray = [];
+              madecodearray.push(parseInt(code.substring(2, 3)) - offset - 1);
+              if (madecodearray[0] < 0) {
+                madecodearray[0] += 9
+              }
+              madecodearray.push(parseInt(code.substring(4, 5)) - offset - 3);
+              if (madecodearray[1] < 0) {
+                madecodearray[1] += 9
+              }
+              madecodearray.push(lettertonumber.indexOf(code.substring(1, 2)) - offset);
+              if (madecodearray[2] < 0) {
+                madecodearray[2] += 9
+              }
+              madecodearray.push(lettertonumber.indexOf(code.substring(3, 4)) - offset - 2);
+              if (madecodearray[3] < 0) {
+                madecodearray[3] += 9
+              }
+              console.log(madecodearray)
+              let madecode = madecodearray[0].toString() + madecodearray[1].toString() + madecodearray[2].toString() + madecodearray[3].toString()
+              console.log(madecode + " vs " + expectedcode)
+              if (code == localStorage.lastCodeEntered) {
+                document.getElementById("codecheckbutton").innerText = "Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
+                await sleep(1500);
+                document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
+                return
+              }
+              if (expectedcode == madecode) {
+                document.getElementById("codecheckbutton").innerText = "Poprawny kod! Sprawdź teraz misje w kasynie.";
+                localStorage.setItem("lastCodeEntered", code)
+                localStorage.setItem("quest", localStorage.quest.replace("n", "c"));
+                await sleep(1500);
+                hidepopup();
+                document.getElementById("codeenter").style.display = "none";
+              } else if (code == localStorage.lastCodeEntered) {
+                document.getElementById("codecheckbutton").innerText = "Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
+                await sleep(1500);
+                document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
+              } else {
+                document.getElementById("codecheckbutton").innerText = "Nie poprawny kod";
+                await sleep(1500);
+                document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
+              }
+            }
+            function showall() {
+                document.getElementById("maciejclicker").style.display =
+                    "initial";
+                document.getElementById("skibidi").style.display = "initial";
+                document.getElementById("zepsucnokie").style.display =
+                    "initial";
+                document.getElementById("mandarynki").style.display = "initial";
+                document.getElementById("asmrbulka").style.display = "initial";
+                document.getElementById("nokiatycoon").style.display =
+                    "initial";
+                document.getElementById("showallbutton").style.display = "none";
+            }
+            function hidepopup() {
+              document.getElementById("codepopup").style.display = "none";
+              document.getElementById("popup").style.display = "none";
+              document.getElementById("sharepopup").style.display = "none";
+            }
+            function showpopup() {
+              document.getElementById("popup").style.display = "initial";
+              document.getElementById("codepopup").style.display = "none";
+              document.getElementById("sharepopup").style.display = "initial";
+            }
+            function showcode() {
+              document.getElementById("sharepopup").style.display = "none";
+              document.getElementById("codepopup").style.display = "inline";
+              document.getElementById("popup").style.display = "inline";
+            }
+            let shareurl = "mangos";
+            if (document.getElementById("sharechoose").value == "all") {
+                shareurl = "https://maciejhub.github.io/gry";
+            } else {
+                shareurl =
+                    "https://maciejhub.github.io/gry?share=" +
+                    document.getElementById("sharechoose").value;
+            }
+            function sleep(ms) {
+                return new Promise((resolve) => setTimeout(resolve, ms));
+            }
 
-   async function copylink() {
-     if (document.getElementById("sharechoose").value == "all") {
-       shareurl = "https://maciejhub.github.io/gry"
-     } else {
-       shareurl = "https://maciejhub.github.io/gry?share=" + document.getElementById("sharechoose").value
-     }
-     navigator.clipboard.writeText(shareurl)
-     document.getElementById("copytext").innerHTML = "Link zkopiowany!"
-     await sleep(700);
-     document.getElementById("copytext").innerHTML = "Kopiuj link"
-   }
-     </script>
-     <script src="topthingscript.js"></script>
+            async function copylink() {
+                if (document.getElementById("sharechoose").value == "all") {
+                    shareurl = "https://maciejhub.github.io/gry";
+                } else {
+                    shareurl =
+                        "https://maciejhub.github.io/gry?share=" +
+                        document.getElementById("sharechoose").value;
+                }
+                navigator.clipboard.writeText(shareurl);
+                document.getElementById("copytext").innerHTML =
+                    "Link zkopiowany!";
+                await sleep(700);
+                document.getElementById("copytext").innerHTML = "Kopiuj link";
+            }
+        </script>
+        <script src="topthingscript.js"></script>
+    </body>
+</html>

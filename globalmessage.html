@@ -64,6 +64,7 @@ async function restOfTheScript() {
 	numberOfLastRead = allMessages.indexOf(localStorage.lastMessageRead);
 	await sleep(900);
 	if (allMessages[allMessages.length - 1] == localStorage.lastMessageRead) {
+	    document.body.style.overflow = "auto";
 		ok.style.display = "inline";
 		newest.style.display = "inline";
 		throbber.style.display = "none";
