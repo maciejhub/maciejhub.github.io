@@ -125,13 +125,22 @@ function diditwin(input) {
     permtime = time;
     time = "00:00";
     win = "true";
-    console.log("ms is " + ms)
-    if (ms <= 70 && sec < 1 && quest) {
-      document.getElementById("lulz").innerHTML = "Wygrałeś! I skończyłeś misję!";
-      localStorage.setItem("quest", "cS");
+    if (ms <= 60 && sec < 1 && quest) {
+      if (localStorage.speedrunWinsForQuest) {
+        localStorage.setItem("speedrunWinsForQuest", parseInt(localStorage.speedrunWinsForQuest) + 1);
+      } else {
+        localStorage.setItem("speedrunWinsForQuest", 1);
+      }
+      if (localStorage.speedrunWinsForQuest == 5) {
+        localStorage.setItem("quest", "cS");
+        localStorage.setItem("speedrunWinsForQuest", 0);
+        document.getElementById("lulz").innerHTML = "Wygrałeś! I skończyłeś misję!";
+      } else {
+        document.getElementById("lulz").innerHTML = "Wygrałeś! Jeszcze tylko " + (5 - parseInt(localStorage.speedrunWinsForQuest)) + " razy do skończenia misji!";
+      }
     } else {
       if (quest) {
-        document.getElementById("lulz").innerHTML = "Wygrałeś! Ale nie skończyłeś misji..";
+        document.getElementById("lulz").innerHTML = "Wygrałeś! Ale nic nie dodałeś do misji..";
       } else {
         document.getElementById("lulz").innerHTML = "Wygrałeś!";
       }

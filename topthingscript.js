@@ -64,17 +64,15 @@ async function nopermissionnotification() {
     const img = "ikon.png";
     const text = "Error, nie można było wziąść najnowszej wiadomośći";
     let allMessages = ["Error"];
-    await fetch("allMessages.json", {
+    await fetch(window.location.origin + "/allMessages.json", {
 		cache: 'no-cache'
 	})
 	.then(response => response.text())
 	.then(data => {
 		allMessages = JSON.parse(data);
-		console.log(allMessages);
 	})
 	.catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
     let newestmessage = removeTags(allMessages[allMessages.length - 1]);
-    console.log(localStorage.lastMessageRead + " vs " + allMessages[allMessages.length - 1]);
     if (localStorage.lastMessageRead != allMessages[allMessages.length - 1] && allMessages[0] != "Error") {
       const notification = new Notification("Nowa wiadomość!", { body: newestmessage, icon: img });
       localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1])
@@ -97,17 +95,15 @@ async function notification() {
    const img = "ikon.png";
    const text = "Error, nie można było wziąść najnowszej wiadomośći";
    let allMessages = ["Error"];
-   await fetch("allMessages.json", {
+   await fetch(window.location.origin + "/allMessages.json", {
 		cache: 'no-cache'
 	})
 	.then(response => response.text())
 	.then(data => {
 		allMessages = JSON.parse(data);
-		console.log(allMessages);
 	})
-	.catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
+	.catch(error => allMessages = [error]);
    let newestmessage = removeTags(allMessages[allMessages.length - 1]);
-   console.log(localStorage.lastMessageRead + " vs " + allMessages[allMessages.length - 1]);
    if (localStorage.lastMessageRead != allMessages[allMessages.length - 1] && allMessages[0] != "Error") {
      const notification = new Notification("Nowa wiadomość!", { body: newestmessage, icon: img });
      localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1])
