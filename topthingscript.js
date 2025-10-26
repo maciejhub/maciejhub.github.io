@@ -86,6 +86,9 @@ async function nopermissionnotification() {
 async function notification() {
  Notification.requestPermission().then((result) => {
    console.log(result);
+   if (document.getElementById("notificationtext")) {
+     document.getElementById("notificationtext").innerHTML = "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
+   }
  });
  if (Notification?.permission == "granted") {
    if (document.getElementById("notificationtext")) {
