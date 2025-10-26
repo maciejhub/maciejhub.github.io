@@ -56,6 +56,33 @@ function sleep(ms) {
 function removeTags(str) {
     return str.replace(/<[^>]+>/g, '');
 }
+async function nopermissionnotification() {
+  if (Notification?.permission == "granted") {
+    if (document.getElementById("notificationtext")) {
+      document.getElementById("notificationtext").innerHTML = "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
+    }
+    const img = "ikon.png";
+    const text = "Error, nie można było wziąść najnowszej wiadomośći";
+    let allMessages = ["Error"];
+    await fetch("allMessages.json", {
+		cache: 'no-cache'
+	})
+	.then(response => response.text())
+	.then(data => {
+		allMessages = JSON.parse(data);
+		console.log(allMessages);
+	})
+	.catch(error => allMessages = ["Error, nie można wziąść najnowszych wiadomości"]);
+    let newestmessage = removeTags(allMessages[allMessages.length - 1]);
+    console.log(localStorage.lastMessageRead + " vs " + allMessages[allMessages.length - 1]);
+    if (localStorage.lastMessageRead != allMessages[allMessages.length - 1] && allMessages[0] != "Error") {
+      const notification = new Notification("Nowa wiadomość!", { body: newestmessage, icon: img });
+      localStorage.setItem("lastMessageRead", allMessages[allMessages.length - 1])
+    } else {
+      console.log("Not going to annoy with notification")
+    }
+  }
+}
 async function notification() {
  Notification.requestPermission().then((result) => {
    console.log(result);
@@ -86,4 +113,4 @@ async function notification() {
    }
  }
 }
-notification();
+nopermissionnotification();
