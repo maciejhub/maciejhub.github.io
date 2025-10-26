@@ -4,7 +4,7 @@
      <meta charset="UTF-8">
     <meta name="description" content="Witaj w mojej ultra sigma stronie">
     <title>maciej hub</title>
-    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">     
+    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
 <link rel="shortcut icon" href="/favicons/favicon.ico" />
@@ -42,11 +42,12 @@
 </div>
     </div>
     <div class="center">
+        <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
       <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
     <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
     <h2>
     <a href="camera">maciej hub gry na kamerze</a><br><br>
-    <a href="speedrun">maciej hub speedrun</a><br><br> 
+    <a href="speedrun">maciej hub speedrun</a><br><br>
     </div>
        <div class="row">
 <a href="wallpapers/light.png" download="maciej hub tapeta">
@@ -112,6 +113,10 @@ function sleep(ms) { // stolen
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+if (Notification?.permission == "granted") {
+  document.getElementById("notificationtext").innerHTML = "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
+}
+
 async function animation() {
   await sleep(500);
   document.getElementById("plus").innerHTML = " +" + difference;
@@ -138,7 +143,7 @@ function deletelocalstorage() {
   localStorage.clear();
 }
 function showunrelated() {
-  document.getElementById("unrelated").style.display = "initial"; 
+  document.getElementById("unrelated").style.display = "initial";
   document.getElementById("showtext").style.display = "none";
 }
 function hidemessages() {
@@ -152,7 +157,7 @@ window.addEventListener("message", (event) => {
 });
 function showmessages() {
   document.getElementById("messagepopup").style.display = "inline";
-  document.getElementById("messages").innerHTML = "<iframe src='globalmessage' scrolling='yes' id='messagess' width='80%' height='30%' frameborder='0'></iframe>";
+  document.getElementById("messages").innerHTML = "<iframe src='globalmessage' scrolling='yes' id='messagess' width='80%' frameborder='0'></iframe>";
 }
 </script>
 <iframe src="bottomthing" frameborder="0" width="100%"></iframe>

@@ -14,14 +14,18 @@
 <h2>
 <img id="topicon" src="ikon.png" width=200>
         <hr width="100%;" color="#38393f" size="3">
-     <a href="?l=wiersz">Wiersz</a>
-      <a href="?l=gry">Fajne gry</a>
-       <a href="?l=wideo">Fajne wideo</a>
-          <a href="?l=audio">Fajne audio</a>
-          <a href="?l=extra">Różne fajne rzeczy</a>
-          <a href="?l=kasyno">Kasyno</a>
+     <button class="button" onclick="redirect('wiersz')" id="wiersz">Wiersz</button>
+      <button class="button" onclick="redirect('gry')"id="gry">Fajne gry</button>
+       <button class="button" onclick="redirect('zdjecia')"id="zdjecia">Ciekawe zdjęcia</button>
+          <button class="button" onclick="redirect('extra')" id="extra">Różne fajne rzeczy</button>
+          <button class="button" onclick="redirect('kasyno')"id="kasyno">Kasyno</button>
     <hr width="100%;" color="#38393f" size="3">
        <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
     </div>
     </div>
-    <script src="topthingscript.js"></script>
+<script>
+console.log(window.parent.location.path);
+function redirect(path) {
+  window.parent.postMessage(path);
+}
+</script>
