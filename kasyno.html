@@ -397,15 +397,15 @@ async function itembuy(item) {
       itemsbought.push("rmikon");
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
-      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
+      document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
       document.getElementById("topicon").src = "/rmikon.png";
     } else {
-      document.getElementById("znikonprice").innerHTML = "Masz za mało tokenów";
+      document.getElementById("rmikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
-      document.getElementById("znikonprice").innerHTML = "20 tokenów";
+      document.getElementById("rmikonprice").innerHTML = "20 tokenów";
     }
     } else {
-      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
+      document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/rmikon.png");
       document.getElementById("topicon").src = "/rmikon.png";
     }
