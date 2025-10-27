@@ -44,7 +44,7 @@
 }
 .my {
   top: -50px;
-  
+
 }
 </style>
   </head>
@@ -56,10 +56,11 @@
   <button class="button" onclick="nextgame()"><img src="last.png" width=40></button>
   <button class="button" onclick="lastgame()"><img src="next.png" width=40></button>
   <button class="button" onclick="randomgame()"><img src="random.png" width=40></button>
+    <button class="button" id="close"><img src="close.png" width=40></button>
   </div>
       <video id="webcam" frameborder="0" autoplay></video>
           <script>
-          let game = 6; 
+          let game = 6;
           let url = window.location.href;
               function nextgame() {
       if (game < 7) {
@@ -68,14 +69,14 @@
       }
     }
         function lastgame() {
-      if (game > 1) 
+      if (game > 1)
      game += -1;
      updategame();
       }
       function randomgame() {
        game = Math.floor(Math.random() * 8);
        updategame();
-       console.log(game); 
+       console.log(game);
     }
     function updategame() {
     if (game == 1) {
@@ -100,6 +101,10 @@
     document.getElementById("gra").src = "grygry/tycoon";
     }
     }
+    function close() {
+      window.location.href = "/extra";
+    }
+    document.getElementById("close").addEventListener("click", close);
 
 let video = document.querySelector('#webcam');
 

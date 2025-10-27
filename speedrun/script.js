@@ -40,7 +40,7 @@ function starttimer() {
   }
 }
 
-const urls = ["wiersz", "wideo", "extra", "kasyno", "cytaty", "kalkulator/"];
+const urls = ["wiersz", "extra", "kasyno", "zdjecia", "cytaty", "kalkulator/", "zdjecia"];
 let permtime = "";
 let win = "false";
 
@@ -79,6 +79,9 @@ function showwhere() {
   document.getElementById("lulz").innerHTML = document
     .getElementById("lulz")
     .innerHTML.replace("kalkulator/", "kalkulator");
+  document.getElementById("lulz").innerHTML = document
+    .getElementById("lulz")
+    .innerHTML.replace("zdjecia", "ciekawe zdjęcia");
 }
 document.getElementById("save").style.display = "none";
 async function hidepopup() {
