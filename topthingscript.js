@@ -23,7 +23,6 @@ check();
 
 if (localStorage.sessions) {
 } else {
-  console.log("Sessions item does not exist, creating");
   localStorage.setItem("sessions", "1");
 }
 function getCookie(name) { // stolen
@@ -41,7 +40,6 @@ if (getCookie("firstVisitInSession") == "false") {
   console.log("New session");
   sessions = parseInt(sessions) + 1;
   tokens2 += 1;
-  console.log(tokens2 + " vs " + sessions);
   localStorage.setItem("casinoTokens", tokens2);
   localStorage.setItem("sessions", sessions);
 }

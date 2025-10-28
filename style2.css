@@ -204,6 +204,9 @@ img.custom:active {
     border: 0;
 }
 @media (orientation: portrait) {
+    .zdjeciarow {
+        display: inline;
+    }
     .centerpopup {
         background-color: #292929;
         width: 70%;
@@ -222,6 +225,12 @@ img.custom:active {
     }
 }
 @media (orientation: landscape) {
+    .zdjeciarow {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+    }
     .centerpopup {
         background-color: #292929;
         width: 40%;
