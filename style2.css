@@ -37,13 +37,6 @@ a:visited {
     align-items: center;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px 0;
-    align-items: flex-start;
-}
 .row2 {
     display: flex;
     flex-wrap: wrap;
@@ -204,7 +197,7 @@ img.custom:active {
     border: 0;
 }
 @media (orientation: portrait) {
-    .zdjeciarow {
+    .row {
         display: inline;
     }
     .centerpopup {
@@ -225,7 +218,7 @@ img.custom:active {
     }
 }
 @media (orientation: landscape) {
-    .zdjeciarow {
+    .row {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

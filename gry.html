@@ -47,10 +47,10 @@
                 <img id="topicon" src="ikon.png" width="200" />
                 <hr width="100%;" color="#38393f" size="3" />
                 <h2>
-                    <a href="wideo">Fajne wideo</a>
                     <a href="wiersz">Wiersz</a>
                     <a href="extra">Różne fajne rzeczy</a>
                     <a href="kasyno">Kasyno</a>
+                    <a href="zdjecia">Ciekawe zdjęcia</a>
                     <hr width="100%;" color="#38393f" size="3" />
                     <i style="color: gray">
                         NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i
@@ -216,16 +216,25 @@
             if (localStorage.quest == "nRM" || localStorage.quest == "nZNT" || localStorage.quest == "nAS" || localStorage.quest == "nKRT") {
               document.getElementById("codeenter").style.display = "inline";
             }
+            if (shared != null || shared2 != null) {
+              if (localStorage.shareVisits) {
+                localStorage.setItem("shareVisits", parseInt(localStorage.shareVisits) + 1);
+              } else {
+                localStorage.setItem("shareVisits", 1);
+              }
+            }
             if (shared != null) {
-                document.getElementById("showallbutton").style.display =
-                    "initial";
+              if (shared != "all") {
+                document.getElementById("showallbutton").style.display ="initial";
                 document.getElementById("maciejclicker").style.display = "none";
                 document.getElementById("skibidi").style.display = "none";
                 document.getElementById("zepsucnokie").style.display = "none";
                 document.getElementById("mandarynki").style.display = "none";
                 document.getElementById("asmrbulka").style.display = "none";
                 document.getElementById("nokiatycoon").style.display = "none";
+                document.getElementById("kart").style.display = "none";
                 document.getElementById(shared).style.display = "initial";
+              }
             }
             if (shared2 != null) {
                 document.getElementById(shared2).style.display = "initial";
@@ -343,10 +352,10 @@
 
             async function copylink() {
                 if (document.getElementById("sharechoose").value == "all") {
-                    shareurl = "https://maciejhub.github.io/gry";
+                    shareurl = window.location.origin + "/gry?share=all";
                 } else {
                     shareurl =
-                        "https://maciejhub.github.io/gry?share=" +
+                        window.location.origin + "/gry?share=" +
                         document.getElementById("sharechoose").value;
                 }
                 navigator.clipboard.writeText(shareurl);

@@ -11,6 +11,16 @@ if (localStorage.ikonpng) {
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 let thing = urlParams.get("s");
+let cameFromQr = false
+if (queryString.includes("qr")) {
+  cameFromQr = true;
+  localStorage.setItem("lastQrType", "gen" + urlParams.get("gen"))
+  if (localStorage.qrVisits) {
+    localStorage.setItem("qrVisits", parseInt(localStorage.qrVisits) + 1);
+  } else {
+    localStorage.setItem("qrVisits", 1);
+  }
+}
 function check() {
 if (thing == "f") {
   document.getElementById("topthing").style.display = "none";
@@ -20,10 +30,16 @@ if (thing == "f") {
 }
 check();
 // session counter
-
+if (localStorage.cameFromQr == undefined) {
+  if (cameFromQr) {
+    localStorage.setItem("cameFromQr", "gen" + urlParams.get("gen"))
+  } else {
+    localStorage.setItem("cameFromQr", false)
+  }
+}
 if (localStorage.sessions) {
 } else {
-  localStorage.setItem("sessions", "1");
+  localStorage.setItem("sessions", "0");
 }
 function getCookie(name) { // stolen
     var value = "; " + document.cookie; // Use var instead of const
@@ -35,7 +51,6 @@ let sessions = localStorage.getItem("sessions");
 
 if (getCookie("firstVisitInSession") == "false") {
   console.log("Same session");
-  console.log(tokens2 + " vs " + sessions);
 } else {
   console.log("New session");
   sessions = parseInt(sessions) + 1;
