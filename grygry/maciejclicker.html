@@ -10,13 +10,21 @@
 <body>
 <div class="center">
 <br><br>
-<a href="https://turbowarp.org/1235476073/embed?addons=pause" id="hyperlink">
+<button onclick="redirect()" class="button">
 <img src="https://uploads.scratch.mit.edu/get_image/project/1235476073_480x360.png" width=240>
 <h2>maciej clicker</h2>
-<h3>kliknij ten napis aby zacząć ładować maciej clicker</h3></a>
+<h3>kliknij ten napis aby zacząć ładować maciej clicker</h3>
+</button>
 </div>
 <script>
-  if (JSON.parse(localStorage.boughtItems).includes("gmac")) {
-  document.getElementById("hyperlink").href = "https://turbowarp.org/1235476073/embed?addons=pause&size=482x362";
-  }
+let thing = "https://turbowarp.org/1235476073/embed?addons=pause";
+function redirect() {
+  let played = JSON.parse(localStorage.gamesPlayed);
+  played[0] = parseInt(played[0]) + 1;
+  localStorage.setItem("gamesPlayed", JSON.stringify(played))
+  window.location.href = thing;
+}
+if (JSON.parse(localStorage.boughtItems).includes("gmac")) {
+thing = "https://turbowarp.org/1235476073/embed?addons=pause&size=482x362";
+}
 </script>

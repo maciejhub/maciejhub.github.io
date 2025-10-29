@@ -9,6 +9,19 @@ body {
 .center {
   text-align: center;
 }
+.button {
+    background-color: transparent; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    display: inline-block;
+    cursor: pointer;
+    font-family: Arial;
+    font-size: 97%;
+    margin: -2px;
+    padding: 5px;
+}
 a:link {
   color: white;
 }

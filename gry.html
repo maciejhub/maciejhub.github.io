@@ -209,6 +209,9 @@
         </div>
         <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
         <script>
+        if (localStorage.gamesPlayed == undefined) {
+          localStorage.setItem("gamesPlayed", JSON.stringify([0, 0, 0, 0, 0, 0, 0]));
+        }
             const queryString2 = window.location.search;
             const urlParams2 = new URLSearchParams(queryString2);
             let shared = urlParams2.get("share");
@@ -282,7 +285,7 @@
                 madecodearray[2] += 9
               }
               madecodearray.push(lettertonumber.indexOf(code.substring(3, 4)) - offset - 2);
-              if (madecodearray[3] < 0) {
+              if (madecodearray[3] < 1) {
                 madecodearray[3] += 9
               }
               console.log(madecodearray)

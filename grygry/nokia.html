@@ -10,15 +10,31 @@
 <body>
 <div class="center">
 <br><br>
-<a href="https://turbowarp.org/1235410477/embed?addons=pause&size=480x360" id="hyperlink">
+<button onclick="redirect('1')" class="button">
 <img src="https://uploads.scratch.mit.edu/get_image/project/1235410477_480x360.png" width=240>
-<h2>zepsuc nokie SIMULATOR</h2>
-<h3>kliknij ten napis aby zacząć ładować zepsuc nokie SIMULATOR</h3></a>
-<a href="https://turbowarp.org/1235410477/embed?addons=pause&size=640x360" id="hyperlink2"><h4>wersja z większym ekranem</h4></a>
+<h2>zepsuć nokie SIMULATOR</h2>
+<h3>kliknij ten napis aby zacząć ładować zepsuć nokie SIMULATOR</h3>
+</button>
+<div style="margin-top: -25px;"></div>
+<button onclick="redirect('2')" class="button">
+<h3 style="font-size: 95%;">albo kliknij ten napis aby zacząć ładować wersje z większym ekranem</h3>
+</button>
 </div>
 <script>
-  if (JSON.parse(localStorage.boughtItems).includes("gold")) {
-  document.getElementById("hyperlink").href = "https://turbowarp.org/1235410477/embed?addons=pause&size=482x362"
-  document.getElementById("hyperlink2").href = "https://turbowarp.org/1235410477/embed?addons=pause&size=642x362"
+let thing1 = "https://turbowarp.org/1235410477/embed?addons=pause";
+let thing2 = "https://turbowarp.org/1235410477/embed?addons=pause&size=640x360";
+function redirect(which) {
+  let played = JSON.parse(localStorage.gamesPlayed);
+  played[2] = parseInt(played[2]) + 1;
+  localStorage.setItem("gamesPlayed", JSON.stringify(played));
+  if (which == "1") {
+    window.location.href = thing1;
+  } else if (which == "2") {
+    window.location.href = thing2;
   }
+}
+if (JSON.parse(localStorage.boughtItems).includes("gold")) {
+  thing1 = "https://turbowarp.org/1235410477/embed?addons=pause&size=482x362"
+  thing2 = "https://turbowarp.org/1235410477/embed?addons=pause&size=642x362"
+}
 </script>

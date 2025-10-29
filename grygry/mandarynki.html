@@ -10,13 +10,21 @@
 <body>
 <div class="center">
 <br><br>
-<a id="hyperlink" href="https://turbowarp.org/1235471141/embed?addons=pause">
+<button onclick="redirect()" class="button">
 <img src="https://uploads.scratch.mit.edu/get_image/project/1235471141_480x360.png" width=240>
 <h2>rzucać mandarynki do kibla: THE GRA</h2>
-<h3>kliknij ten napis aby zacząć ładować rzucać mandarynki do kibla: THE GRA</h3></a>
+<h3>kliknij ten napis aby zacząć ładować rzucać mandarynki do kibla: THE GRA</h3>
+</button>
 </div>
 <script>
+let thing = "https://turbowarp.org/1235471141/embed?addons=pause";
+function redirect() {
+  let played = JSON.parse(localStorage.gamesPlayed);
+  played[3] = parseInt(played[3]) + 1;
+  localStorage.setItem("gamesPlayed", JSON.stringify(played))
+  window.location.href = thing;
+}
 if (localStorage.quest == "nRM") {
-  document.getElementById("hyperlink").href = "https://turbowarp.org/1235471141/embed?addons=pause&size=482x362"
+  thing = "https://turbowarp.org/1235471141/embed?addons=pause&size=482x362"
 }
 </script>
