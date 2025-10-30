@@ -277,7 +277,7 @@
                 madecodearray[0] += 9
               }
               madecodearray.push(parseInt(code.substring(4, 5)) - offset - 3);
-              if (madecodearray[1] < 0) {
+             if (madecodearray[1] < 0) {
                 madecodearray[1] += 9
               }
               madecodearray.push(lettertonumber.indexOf(code.substring(1, 2)) - offset);
@@ -285,7 +285,7 @@
                 madecodearray[2] += 9
               }
               madecodearray.push(lettertonumber.indexOf(code.substring(3, 4)) - offset - 2);
-              if (madecodearray[3] < 1) {
+              if (madecodearray[3] < 0) {
                 madecodearray[3] += 9
               }
               console.log(madecodearray)
@@ -309,7 +309,7 @@
                 await sleep(1500);
                 document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
               } else {
-                document.getElementById("codecheckbutton").innerText = "Nie poprawny kod";
+                document.getElementById("codecheckbutton").innerText = "Nie poprawny kod. Wygeneruj nowy. Jeżeli dalej nie działa, spróbuj nowy kod za godzinę";
                 await sleep(1500);
                 document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
               }
