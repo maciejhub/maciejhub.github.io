@@ -285,7 +285,7 @@
                 madecodearray[2] += 9
               }
               madecodearray.push(lettertonumber.indexOf(code.substring(3, 4)) - offset - 2);
-              if (madecodearray[3] < 1) {
+              if (madecodearray[3] < 0) {
                 madecodearray[3] += 9
               }
               console.log(madecodearray)
