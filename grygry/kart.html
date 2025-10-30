@@ -9,7 +9,9 @@
   </head>
 <body>
 <div class="center">
-<br><br>
+    <h4 style="margin-bottom: 15px;" id="playcounter">Tutaj powinno być ile w to grałeś</h4>
+    <div style="margin-top: -30px;"></div>
+<br>
 <button onclick="redirect('1')" class="button">
 <img src="https://uploads.scratch.mit.edu/get_image/project/1235420078_480x360.png" width=240>
 <h2><i style="color: black;">censored</i> KART</h2>
@@ -20,9 +22,16 @@
 <h3 style="font-size: 95%;">albo kliknij ten napis aby zacząć ładować wersje z większym ekranem</h3>
 </button>
 </div>
+<div style="margin-top: 20px;"></div>
 <script>
 let thing1 = "https://turbowarp.org/1235420078/embed?addons=pause";
 let thing2 = "https://turbowarp.org/1235420078/embed?addons=pause&size=640x360";
+let played1 = JSON.parse(localStorage.gamesPlayed);
+if (played1[5] == 1) {
+  document.getElementById("playcounter").innerHTML = "Grałeś w <i style='color: black;'>censored</i> KART " + played1[5] + " raz!";
+} else {
+  document.getElementById("playcounter").innerHTML = "Grałeś w <i style='color: black;'>censored</i> KART " + played1[5] + " razy!";
+}
 function redirect(which) {
   let played = JSON.parse(localStorage.gamesPlayed);
   played[5] = parseInt(played[5]) + 1;

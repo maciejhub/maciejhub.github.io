@@ -9,15 +9,24 @@
   </head>
 <body>
 <div class="center">
-<br><br>
+<h4 style="margin-bottom: 15px;" id="playcounter">Tutaj powinno być ile w to grałeś</h4>
+<div style="margin-top: -30px;"></div>
+<br>
 <button onclick="redirect()" class="button">
 <img src="https://uploads.scratch.mit.edu/get_image/project/1235474567_480x360.png" width=240>
 <h2>skibidi toilet or creeper: the gra</h2>
 <h3>kliknij ten napis aby zacząć ładować skibidi toilet or creeper: the gra</h3>
 </button>
 </div>
+<div style="margin-top: 20px;"></div>
 <script>
 let thing = "https://turbowarp.org/1235474567/embed?addons=pause";
+let played1 = JSON.parse(localStorage.gamesPlayed);
+if (played1[1] == 1) {
+  document.getElementById("playcounter").innerText = "Grałeś w skibidi toilet or creeper: the gra " + played1[1] + " raz!";
+} else {
+  document.getElementById("playcounter").innerText = "Grałeś w skibidi toilet or creeper: the gra " + played1[1] + " razy!";
+}
 function redirect() {
   let played = JSON.parse(localStorage.gamesPlayed);
   played[1] = parseInt(played[1]) + 1;
