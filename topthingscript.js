@@ -1,9 +1,20 @@
 // universal script for everything
+let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens);
+if (document.getElementById("topthing")) {
+  document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='zdjecia' href='/zdjecia'>Ciekawe zdjęcia</a><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
+  if (document.getElementById(path.substring(1, path.length))) {
+    document.getElementById(path.substring(1, path.length)).remove();
+  } else {
+    console.log("id " + window.location.pathname + " doesn't exist")
+  }
+} else {
+  console.log("no topthing")
+}
 if (localStorage.ikonpng) {
   if (document.getElementById("topicon")) {
-    document.getElementById("topicon").src = localStorage.ikonpng;
+    document.getElementById("topicon").src = "ikony/" + localStorage.ikonpng;
   } else {
     console.log("topthingscript says topicon doesn't exist")
   }
@@ -22,11 +33,13 @@ if (queryString.includes("qr")) {
   }
 }
 function check() {
+  if (document.getElementById("topthing")) {
 if (thing == "f") {
   document.getElementById("topthing").style.display = "none";
 } else {
   document.getElementById("topthing").style.display = "initial";
 }
+  }
 }
 check();
 // session counter

@@ -44,20 +44,11 @@
     <body>
         <div id="topthing">
             <div class="center">
-                <img id="topicon" src="ikon.png" width="200" />
-                <hr width="100%;" color="#38393f" size="3" />
-                <h2>
-                    <a href="wiersz">Wiersz</a>
-                    <a href="extra">Różne fajne rzeczy</a>
-                    <a href="kasyno">Kasyno</a>
-                    <a href="zdjecia">Ciekawe zdjęcia</a>
-                    <hr width="100%;" color="#38393f" size="3" />
-                    <i style="color: gray">
-                        NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i
-                    >
-                </h2>
+            <img id="topicon" src="ikony/ikon.png" width=200>
+            <hr width="100%;" color="#38393f" size="3">
+            <hr width="100%;" color="#38393f" size="3">
             </div>
-        </div>
+            </div>
         <div class="centerpopup" id="popup">
             <div id="sharepopup">
                 <div class="center">
@@ -102,7 +93,7 @@
             <div id="codepopup">
                 <div class="center">
                     <h3>Wpisz kod</h3>
-                    <input id="codeinput" class="basiccontainer" placeholder="Tutaj wpisz kod" size="9">
+                    <input id="codeinput" type="search" class="basiccontainer" placeholder="Tutaj wpisz kod" size="9">
                     <br><BR>
                     <button class="centerpopupbutton" id="codecheckbutton" onclick="checkcode()">
                         Sprawdź kod
@@ -209,6 +200,11 @@
         </div>
         <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
         <script>
+        document.getElementById("codeinput").addEventListener("keydown", function(e) {
+          if (e.key == "Enter") {
+            checkcode();
+          }
+        });
         if (localStorage.gamesPlayed == undefined) {
           localStorage.setItem("gamesPlayed", JSON.stringify([0, 0, 0, 0, 0, 0, 0]));
         }

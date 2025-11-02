@@ -23,18 +23,13 @@
 <meta content="#222222" data-react-helmet="true" name="theme-color" />
   </head>
 <body>
-<div id="topthing">
-<div class=center>
-  <img id="topicon" src="ikon.png" width=200>
+    <div id="topthing">
+        <div class="center">
+        <img id="topicon" src="ikony/ikon.png" width=200>
         <hr width="100%;" color="#38393f" size="3">
-      <h2><a href="zdjecia">Ciekawe zdjęcia</a>
-      <a href="wiersz">Wiersz</a>
-      <a href="extra">Różne fajne rzeczy</a>
-        <a href="gry">Fajne gry</a>
-    <hr width="100%;" color="#38393f" size="3">
-       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
-    </div>
-    </div>
+        <hr width="100%;" color="#38393f" size="3">
+        </div>
+        </div>
     <script src="topthingscript.js"></script>
    <div class="center" style="display: flex; justify-content: center; gap: 10px; align-items: center;">
      <h1>
@@ -54,7 +49,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
                     <button class="casinoitems" onclick="itembuy('star')" id="premiumicon">
                         <div class="AAA" style="font-size: 70%;">Ikon z gwiazdką</div>
-                        <img src="premiumikon.png" width="60%"><br>
+                        <img src="ikony/premiumikon.png" width="60%"><br>
                     </button>
                     <button onclick="itembuy('star')" id="fu" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="starprice" style="font-size: 80%;">75 tokenów</b>
@@ -63,7 +58,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
                     <button class="casinoitems" onclick="itembuy('znikon')" id="znikon">
                         <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem zepsuć nokie gier</div>
-                        <img src="znikon.png" width="60%"><br>
+                        <img src="ikony/znikon.png" width="60%"><br>
                     </button>
                     <button onclick="itembuy('znikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="znikonprice" style="font-size: 80%;">10 tokenów</b>
@@ -72,10 +67,19 @@
                 <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
                     <button class="casinoitems" onclick="itembuy('rmikon')" id="rmikon">
                         <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem rzucać mandarynki do kibla: the gra</div>
-                        <img src="rmikon.png" width="60%"><br>
+                        <img src="ikony/rmikon.png" width="60%"><br>
                     </button>
                     <button onclick="itembuy('rmikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
                         <b class="AAAA" id="rmikonprice" style="font-size: 80%;">20 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('ogikon')" id="ogikon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem oryginalnego zdjęcia</div>
+                        <img src="ikony/ogikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('ogikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="ogikonprice" style="font-size: 80%;">15 tokenów</b>
                     </button>
                 </div><!-- koniec -->
                 <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
@@ -189,6 +193,13 @@ hidepopup();
        document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
        } else {
        document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
+       }
+       }
+       if (JSON.parse(localStorage.boughtItems).includes("ogikon")) {
+       if (localStorage.ikonpng == "/ogikon.png") {
+       document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
+       } else {
+       document.getElementById("ogikonprice").innerHTML = "Kliknij aby zacząć używać";
        }
        }
 
@@ -325,7 +336,6 @@ function openquests() {
   }
 }
 async function itembuy(item) {
-
   if (item == "star") {
    if (localStorage.ikonpng != "/premiumikon.png") {
      if (JSON.parse(localStorage.boughtItems).includes("star") == false) {
@@ -338,7 +348,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/premiumikon.png";
+      document.getElementById("topicon").src = "ikony/premiumikon.png";
     } else {
       document.getElementById("starprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -347,11 +357,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/premiumikon.png");
-      document.getElementById("topicon").src = "/premiumikon.png";
+      document.getElementById("topicon").src = "ikony/premiumikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikon.png";
+     document.getElementById("topicon").src = "ikony/ikon.png";
      document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";
    }
   }
@@ -368,7 +378,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/znikon.png";
+      document.getElementById("topicon").src = "ikony/znikon.png";
     } else {
       document.getElementById("znikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -377,11 +387,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/znikon.png");
-      document.getElementById("topicon").src = "/znikon.png";
+      document.getElementById("topicon").src = "ikony/znikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikon.png";
+     document.getElementById("topicon").src = "ikony/ikon.png";
      document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";
    }
   }
@@ -398,7 +408,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/rmikon.png";
+      document.getElementById("topicon").src = "ikony/rmikon.png";
     } else {
       document.getElementById("rmikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -407,14 +417,44 @@ async function itembuy(item) {
     } else {
       document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/rmikon.png");
-      document.getElementById("topicon").src = "/rmikon.png";
+      document.getElementById("topicon").src = "ikony/rmikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikon.png";
+     document.getElementById("topicon").src = "ikony/ikon.png";
      document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
    }
-  }
+    }
+
+    if (item == "ogikon") {
+   if (localStorage.ikonpng != "/ogikon.png") {
+     if (JSON.parse(localStorage.boughtItems).includes("ogikon") == false) {
+    if (tokens > 14) {
+      tokens = tokens - 15;
+      document.getElementById("ogikonprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
+      localStorage.setItem("ikonpng", "/ogikon.png");
+      const itemsbought = JSON.parse(localStorage.boughtItems);
+      itemsbought.push("ogikon");
+      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
+      await sleep(2000);
+      document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
+      document.getElementById("topicon").src = "ikony/ogikon.png";
+    } else {
+      document.getElementById("ogikonprice").innerHTML = "Masz za mało tokenów";
+      await sleep(1000);
+      document.getElementById("ogikonprice").innerHTML = "20 tokenów";
+    }
+    } else {
+      document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
+      localStorage.setItem("ikonpng", "/ogikon.png");
+      document.getElementById("topicon").src = "ikony/ogikon.png";
+    }
+   } else {
+     localStorage.setItem("ikonpng", "/ikon.png");
+     document.getElementById("topicon").src = "ikony/ikon.png";
+     document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
+   }
+    }
 
     if (item == "gold") {
       if (JSON.parse(localStorage.boughtItems).includes("gold") == false) {
@@ -450,14 +490,13 @@ async function itembuy(item) {
       document.getElementById("maciejprice").innerHTML = "25 tokenów";
     }
     }
-  }
-
-}
+    }
+   }
 
 let agained = false;
 const buy = new Audio("https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3");
 document.getElementById("spinner").style.display = "inline";
-const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3", "goldnokia.png", "premiumikon.png"]; // wiem ze to jest ochydne ale prosze nie pytac
+const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3", "goldnokia.png", "ikony/premiumikon.png"]; // wiem ze to jest ochydne ale prosze nie pytac
 let globalrolls = "hello";
 
 function getRandomInt(max) {
@@ -599,7 +638,7 @@ function updateeverything() {
 async function spinthing() {
     document.getElementById("spin").innerHTML = "Masz za mało tokenów. Dostajesz 1 token kiedy wchodzisz na maciej hub";
     await sleep(3500);
-    document.getElementById("spin").innerHTML = "Kręc maszyne za 2 tokeny";
+    document.getElementById("spin").innerHTML = "Kręć maszyne za 2 tokeny";
 }
 
 function again() {

@@ -34,7 +34,7 @@ if (document.getElementById("unrelated")) {
     function maciejchange() {
       if (document.getElementById("peepa")) {
         document.getElementById("peepa").style.display = "initial";
-        document.getElementById("peepa").src = "https://turbowarp.org/917935249/embed?addons=pause";
+        document.getElementById("peepa").src = "https://turbowarp.org/1235476073/embed?addons=pause";
       }
     }
         function gardenchange() {
@@ -46,11 +46,11 @@ if (document.getElementById("unrelated")) {
             function tycoonchange() {
               if (document.getElementById("peepa")) {
                document.getElementById("peepa").style.display = "initial";
-      document.getElementById("peepa").src = "https://turbowarp.org/1182391153/embed?addons=pause";
+      document.getElementById("peepa").src = "https://turbowarp.org/1235473043/embed?addons=pause";
               }
     }
           function deletechange() {
-            if (document.getElementById("peepa")) {
+            if (document.getElementById("ohiframe")) {
       document.getElementById("ohiframe").style.display = "none";
             }
     }
