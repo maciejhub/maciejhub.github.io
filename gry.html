@@ -36,7 +36,7 @@
         <meta content="Gry na maciej hub" property="og:description" />
         <meta content="https://maciejhub.github.io/gry" property="og:url" />
         <meta
-            content="https://maciejhub.github.io/ikon.png"
+            content="https://maciejhub.github.io/ikony/ikon.png"
             property="og:image"
         />
         <meta content="#222222" data-react-helmet="true" name="theme-color" />
@@ -125,12 +125,11 @@
             </h2>
             <button style="display: none;" id="codeenter" onclick="showcode()" class="centerpopupbutton">Wpisz kod</button>
             <br/>
-            <class="row">
+            <div class="row">
                 <iframe
                     id="maciejclicker"
+                    onload="resizeIFrameToFitContent('maciejclicker')"
                     src="grygry/maciejclicker"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -138,9 +137,8 @@
                 ></iframe>
                 <iframe
                     id="skibidi"
+                    onload="resizeIFrameToFitContent('skibidi')"
                     src="grygry/skibidi"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -148,9 +146,8 @@
                 ></iframe>
                 <iframe
                     id="zepsucnokie"
+                    onload="resizeIFrameToFitContent('zepsucnokie')"
                     src="grygry/nokia"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -158,9 +155,8 @@
                 ></iframe>
                 <iframe
                     id="mandarynki"
+                    onload="resizeIFrameToFitContent('mandarynki')"
                     src="grygry/mandarynki"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -168,9 +164,8 @@
                 ></iframe>
                 <iframe
                     id="asmrbulka"
+                    onload="resizeIFrameToFitContent('asmrbulka')"
                     src="grygry/asmr"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -178,9 +173,8 @@
                 ></iframe>
                 <iframe
                     id="kart"
+                    onload="resizeIFrameToFitContent('kart')"
                     src="grygry/kart"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -188,9 +182,8 @@
                 ></iframe>
                 <iframe
                     id="nokiatycoon"
+                    onload="resizeIFrameToFitContent('nokiatycoon')"
                     src="grygry/tycoon"
-                    width="482"
-                    height="412"
                     allowtransparency="true"
                     frameborder="0"
                     scrolling="no"
@@ -200,6 +193,22 @@
         </div>
         <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
         <script>
+        let done = [];
+        function resizeIFrameToFitContent(name) {
+          if (done.includes(name) == false) {
+            if (screen.orientation.type.includes("landscape")) {
+              document.getElementById(name).width = "480px";
+            } else {
+              document.getElementById(name).width = "90%";
+            }
+            if (name == "zepsucnokie") {
+              document.getElementById(name).height = document.getElementById(name).scrollHeight + 350;
+            } else {
+              document.getElementById(name).height = document.getElementById(name).scrollHeight + 300;
+            }
+          }
+          done.push(name)
+        }
         document.getElementById("codeinput").addEventListener("keydown", function(e) {
           if (e.key == "Enter") {
             checkcode();
