@@ -137,8 +137,10 @@ function showimage(file) {
   document.getElementById("downloadbutton").innerHTML = "<button class='centerpopupbutton' onclick='download(\"" + file + "\")'>Pobierz</button>";
   document.getElementById("imagepopup").style.display = "inline";
   document.getElementById("popupimage").src = file;
-  document.getElementById("imagepopup").style.width = document.getElementById("popupimage").clientWidth + "px";
 }
+document.addEventListener("onload", function() {
+  document.getElementById("imagepopup").style.width = document.getElementById("popupimage").clientWidth + "px";
+});
 function hidepopup() {
   document.getElementById("imagepopup").style.display = "none";
 }
