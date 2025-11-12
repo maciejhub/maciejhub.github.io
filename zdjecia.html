@@ -133,14 +133,18 @@
              <div style="margin: 20px;"></div>
 <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
 <script>
-function showimage(file) {
+function sleep(ms) { // stolen
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function showimage(file) {
   document.getElementById("downloadbutton").innerHTML = "<button class='centerpopupbutton' onclick='download(\"" + file + "\")'>Pobierz</button>";
   document.getElementById("imagepopup").style.display = "inline";
+  document.getElementById("popupimage").style.display = "none";
   document.getElementById("popupimage").src = file;
-}
-document.addEventListener("onload", function() {
+  await sleep(50);
+  document.getElementById("popupimage").style.display = "inline";
   document.getElementById("imagepopup").style.width = document.getElementById("popupimage").clientWidth + "px";
-});
+}
 function hidepopup() {
   document.getElementById("imagepopup").style.display = "none";
 }
