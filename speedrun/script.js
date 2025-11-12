@@ -1,7 +1,7 @@
 let sec = 0;
 let ms = 0;
 let time = "00:00";
-let timer = "inactive";
+let timer = "inactive"; // wtf was i stupid
 let quest = false;
 let link = window.location.origin;
 if (localStorage.quest == "nS") {
@@ -61,6 +61,9 @@ function makeitem2() {
     randomitem2 = 0;
   }
   if (randomitem == randomitem2) {
+    makeitem2();
+  }
+  if (randomitem == 3 && randomitem == 6) {
     makeitem2();
   }
 }

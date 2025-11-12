@@ -25,13 +25,15 @@
 <div class=center>
  <img id="topicon" src="/ikon.png" width=200>
         <hr width="100%;" color="#38393f" size="3">
-      <h2><a href="/extra">Różne fajne rzeczy</a>
+      <h2 id="topthingthings">
+          <a href="/extra">Różne fajne rzeczy</a>
       <a href="/gry">Fajne gry</a>
       <a href="/zdjecia">Ciekawe zdjęcia</a>
           <a href="/wiersz">Wiersz</a>
           <a href="/kasyno">Kasyno</a>
     <hr width="100%;" color="#38393f" size="3">
-       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2>
+       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i>
+      </h2>
     </div>
     </div>
 <h2><div class="center" id="notfound">Nie ma tutaj niczego...</div></h2>
@@ -59,6 +61,7 @@
         window.location.href = "https://dashboard.blooket.com/set/68f11693bcd62392cf327d6f";
       } else if (redirect == "speedruntext") {
         text.innerHTML = "Hello, my name is Maciej Hub.";
+        document.getElementById("topthingthings").innerText = "Nie ma czitowania cziterze"
       }
     } else {
       text.innerHTML = "Nie ma strony <b>" + path + "</b> na maciej hub. Czy na pewno dobrze napisałeś link?";

@@ -33,7 +33,7 @@
     </div>
        <div class="centerpopup" style="display: none;" id="imagepopup">
         <div class="center">
-            <img width="45%" id="popupimage" src="loading.png"><br>
+            <img style="max-width: 60vw; max-height: 60vh;" id="popupimage" src="loading.png"><br>
             <span style="margin: 10px;" id="downloadbutton"></span><button class="centerpopupbutton" onclick="hidepopup()">Zamknij</button>
         </div>
         </div>
@@ -117,12 +117,27 @@
              <h2><i><button onclick="showimage('zdjecia/soczek.webp')" class="button"><b>"Mama, przypadkiem oblałem się", Październik 2025</b></button></i></h2>
              </div>
              <div style="margin: 20px;"></div>
+             <div class="center">
+             <button class="button" onclick="showimage('zdjecia/telefon.jpeg')">
+             <img src="zdjecia/telefon.jpeg" width=200>
+             </button>
+             <h2><i><button onclick="showimage('zdjecia/telefon.jpeg')" class="button"><b>"Samsung Galaxy Z Flip", Listopad 2025</b></button></i></h2>
+             </div>
+             <div style="margin: 20px;"></div>
+             <div class="center">
+             <button class="button" onclick="showimage('zdjecia/sloik.jpeg')">
+             <img src="zdjecia/sloik.jpeg" width=200>
+             </button>
+             <h2><i><button onclick="showimage('zdjecia/sloik.jpeg')" class="button"><b>"Ej, myślisz że trafię?", Listopad 2025</b></button></i></h2>
+             </div>
+             <div style="margin: 20px;"></div>
 <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
 <script>
 function showimage(file) {
   document.getElementById("downloadbutton").innerHTML = "<button class='centerpopupbutton' onclick='download(\"" + file + "\")'>Pobierz</button>";
   document.getElementById("imagepopup").style.display = "inline";
   document.getElementById("popupimage").src = file;
+  document.getElementById("imagepopup").style.width = document.getElementById("popupimage").clientWidth + "px";
 }
 function hidepopup() {
   document.getElementById("imagepopup").style.display = "none";
