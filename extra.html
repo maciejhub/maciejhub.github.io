@@ -31,7 +31,7 @@
     <hr width="100%;" color="#38393f" size="3">
     </div>
     </div>
-    <div class="centerpopup" style="height: 19%; display: none;" id="messagepopup">
+    <div class="centerpopup" style="height: 20%; display: none;" id="messagepopup">
       <div id="messages"></div>
      <div class="center">
 </div>
@@ -112,7 +112,7 @@ document.getElementById("sessioncounter").innerHTML = "To jest twój " + prevses
 }
 localStorage.setItem("previousSessions", sessionsitem);
 if (difference > 0) {
-animation();
+  animation();
 }
 
 function deletelocalstorage() {
@@ -128,16 +128,18 @@ function hidemessages() {
 }
 window.addEventListener("message", (event) => {
   if (event.data == "OK") {
-  hidemessages();
+    hidemessages();
   }
 });
 function showversions() {
   document.getElementById("messagepopup").style.display = "inline";
-  document.getElementById("messages").innerHTML = "<iframe src='versionthing' scrolling='yes' id='versionthing' width='80%' frameborder='0'></iframe>";
+  let heightOfParent = (document.getElementById("messagepopup").clientHeight * 0.8) + "px";
+  document.getElementById("messages").innerHTML = "<iframe src='versionthing' width='90%' height='" + heightOfParent + "' scrolling='yes' id='versionthing' frameborder='0'></iframe>";
 }
 function showmessages() {
   document.getElementById("messagepopup").style.display = "inline";
-  document.getElementById("messages").innerHTML = "<iframe src='globalmessage' scrolling='yes' id='messagess' width='80%' frameborder='0'></iframe>";
+  let heightOfParent = (document.getElementById("messagepopup").clientHeight * 0.8) + "px";
+  document.getElementById("messages").innerHTML = "<iframe src='globalmessage' width='90%' height='" + heightOfParent + "' scrolling='yes' id='messagess' frameborder='0'></iframe>";
 }
 </script>
 <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
