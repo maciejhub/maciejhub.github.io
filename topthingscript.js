@@ -2,6 +2,9 @@
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens);
+if (localStorage.ikonpng) {
+
+}
 if (document.getElementById("topthing")) {
   if (localStorage.ikonpng && document.getElementById("topicon")) {
       document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony" + localStorage.ikonpng + "' width=200><hr width='100%' color='#38393f' size='3'><h2 id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='zdjecia' href='/zdjecia'>Ciekawe zdjęcia</a><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";

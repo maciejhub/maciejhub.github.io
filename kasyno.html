@@ -494,9 +494,9 @@ async function itembuy(item) {
    }
 
 let agained = false;
-const buy = new Audio("https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3");
+const buy = new Audio("audio/buy.mp3");
 document.getElementById("spinner").style.display = "inline";
-const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3", "goldnokia.png", "ikony/premiumikon.png"]; // wiem ze to jest ochydne ale prosze nie pytac
+const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "audio/buy.mp3", "goldnokia.png", "ikony/premiumikon.png"]; // wiem ze to jest ochydne ale prosze nie pytac
 let globalrolls = "hello";
 
 function getRandomInt(max) {
@@ -512,14 +512,14 @@ function showpopup() {
 let loadedstuff = 0;
 
 function loadImage(url) {
-    if (url != "https://file.garden/aJs27zGLpRWomK5S/audio/buy.mp3") {
+    if (url != "audio/buy.mp3") {
 
         const img = new Image();
 
         img.onload = function() {
             loadedstuff += 1;
-            document.getElementById("loadedcounter").innerHTML = "Załadowano " + loadedstuff + "/" + "12" + " rzeczy";
-            if (loadedstuff == 12) {
+            document.getElementById("loadedcounter").innerHTML = "Załadowano " + loadedstuff + "/" + urls.length + " rzeczy";
+            if (loadedstuff == urls.length) {
                 document.getElementById("spinner").style.display = "none";
                 document.getElementById("loadedcounter").style.display = "none";
                 awesomeanimation();
