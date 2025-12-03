@@ -22,6 +22,18 @@
 <meta content="https://maciejhub.github.io/extra" property="og:url" />
 <meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
 <meta content="#222222" data-react-helmet="true" name="theme-color" />
+<style>
+@media (orientation: portrait) {
+    .wallpaper {
+        width: 80%;
+    }
+}
+@media (orientation: landscape) {
+    .wallpaper {
+        width: 250px;
+    }
+}
+</style>
   </head>
 <body>
 <div id="topthing">
@@ -37,6 +49,7 @@
 </div>
     </div>
     <div class="center">
+        <button onclick="showqrs()" class="button"><b>Zobacz kody QR z maciej hub</b></button>
         <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
       <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
     <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
@@ -49,20 +62,20 @@
     </div>
        <div class="row">
 <a href="wallpapers/light.png" download="maciej hub tapeta">
-<img src="wallpapers/light.png" width=400>
+<img class="wallpaper" src="wallpapers/light.png">
 <div class="center">
 <h3>Bardzo fajna tapeta na komputer jasne</h3>
 </div>
 </a>
 <a href="wallpapers/dark.png" download="maciej hub tapeta">
-<img src="wallpapers/dark.png" width=400>
+<img class="wallpaper" src="wallpapers/dark.png">
 <div class="center">
 <h3>Bardzo fajna tapeta na komputer ciemne</h3>
 </div>
 </a>
 <div class="center">
 <a href="wallpapers/mobile.png" download="maciej hub tapeta">
-<img src="wallpapers/mobile.png" width=200>
+<img class="wallpaper" src="wallpapers/mobile.png">
 <h2>Bardzo fajna tapeta na telefon ciemne</h2>
 </a>
 </div>
@@ -124,6 +137,7 @@ function showunrelated() {
   document.getElementById("showtext").style.display = "none";
 }
 function hidemessages() {
+  document.getElementById("messagepopup").style.height = "20%";
   document.getElementById("messages").innerHTML = "";
   document.getElementById("messagepopup").style.display = "none";
 }
@@ -132,6 +146,12 @@ window.addEventListener("message", (event) => {
     hidemessages();
   }
 });
+function showqrs() {
+  document.getElementById("messagepopup").style.height = "40%";
+  document.getElementById("messagepopup").style.display = "inline";
+  let heightOfParent = (document.getElementById("messagepopup").clientHeight * 0.9) + "px";
+  document.getElementById("messages").innerHTML = "<iframe src='qrthing' width='90%' height='" + heightOfParent + "' scrolling='yes' id='qrthing' frameborder='0'></iframe>";
+}
 function showversions() {
   document.getElementById("messagepopup").style.display = "inline";
   let heightOfParent = (document.getElementById("messagepopup").clientHeight * 0.8) + "px";
