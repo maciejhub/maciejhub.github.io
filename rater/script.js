@@ -11,9 +11,6 @@ function get(id) {
 let teachers = [];
 let data = [];
 let clicks = -1;
-for (i = 0; i < teachers.length; i++) {
-  data.push("[0, 0, 0]");
-}
 get("content").style.display = "none";
 get("password").style.display = "flex";
 let lastcombination = [0, 0];
@@ -59,13 +56,16 @@ async function passwordcheck() {
       cache: 'no-cache'
     })
     .then(response => response.text())
-    .then(data => {
-      console.log(data)
-      console.log(JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż")))
-      teachers = JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż"));
+    .then(other => {
+      console.log(other)
+      console.log(JSON.parse(other.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż")))
+      teachers = JSON.parse(other.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż"));
       get("finish").style.display = "none";
       get("content").style.display = "flex";
       get("password").style.display = "none";
+      for (i = 0; i < teachers.length; i++) {
+        data.push("[0, 0, 0]");
+      }
       newteachers();
     })
     .catch(() => {
