@@ -8,7 +8,7 @@ function random(max, not) {
 function get(id) {
   return document.getElementById(id)
 }
-let teachers = ['Sala 3, głównie od historii', 'Sala 13, głównie od informatyki', 'Sala 21, głównie od plastyki i muzyki', 'Sala 24, głównie od geografii', 'Sala 28, głównie od fizyki i chemii', 'Sala 31, głównie od polskiego', 'Sala 32, głównie od matematyki', 'Sala 33, głównie od angielskiego', 'Sala 34, głównie od różnych', 'Sala 35, głównie od polskiego', 'Sala 37, głównie od religii', 'Sala 38, głównie od matematyki', 'Sala 40, głównie od biologii'];
+let teachers = [];
 let data = [];
 let clicks = -1;
 for (i = 0; i < teachers.length; i++) {
@@ -60,14 +60,17 @@ async function passwordcheck() {
     })
     .then(response => response.text())
     .then(data => {
-      console.log(JSON.parse(JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż"))))
-      teachers = JSON.parse(JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż")));
+      console.log(data)
+      console.log(JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż")))
+      teachers = JSON.parse(data.replaceAll("[l]", "ł").replaceAll("[o]", "ó").replaceAll("[z]", "ż"));
       get("finish").style.display = "none";
       get("content").style.display = "flex";
       get("password").style.display = "none";
       newteachers();
     })
     .catch(() => {
+      api = undefined;
+      console.log(error);
       get("content").style.display = "none";
       get("password").style.display = "flex";
       get("finish").style.display = "none";
