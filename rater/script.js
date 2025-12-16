@@ -68,6 +68,7 @@ async function passwordcheck() {
       newteachers();
     })
     .catch(() => {
+      api = undefined;
       get("content").style.display = "none";
       get("password").style.display = "flex";
       get("finish").style.display = "none";
