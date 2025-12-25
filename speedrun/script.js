@@ -8,12 +8,12 @@ if (localStorage.quest == "nS") {
   quest = true;
 }
 function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 function exit() {
-  window.location.href = "/extra"
+  window.location.href = "/extra";
 }
-window.addEventListener('message', function(event) {
+window.addEventListener("message", function (event) {
   if (event.origin !== link) return;
   diditwin(event.data);
 });
@@ -40,7 +40,15 @@ function starttimer() {
   }
 }
 
-const urls = ["wiersz", "extra", "kasyno", "zdjecia", "cytaty", "kalkulator/", "zdjecia"];
+const urls = [
+  "wiersz",
+  "extra",
+  "kasyno",
+  "zdjecia",
+  "cytaty",
+  "kalkulator/",
+  "zdjecia",
+];
 let permtime = "";
 let win = "false";
 
@@ -49,7 +57,7 @@ function getRandomInt(max) {
 }
 
 let randomitem = getRandomInt(urls.length - 1);
-let randomitem2
+let randomitem2;
 
 function makeitem2() {
   randomitem2 = randomitem + getRandomInt(4);
@@ -97,7 +105,8 @@ async function hidepopup() {
         document.getElementById("iframe").contentWindow.location.href =
           "/" + urls[randomitem];
       } else {
-        document.getElementById("iframe").contentWindow.location.href = "/kalkulator";
+        document.getElementById("iframe").contentWindow.location.href =
+          "/kalkulator";
       }
       await sleep(300);
       timer = "active";
@@ -126,27 +135,38 @@ function showpopup() {
 }
 
 function diditwin(input) {
-  if (input == "/" + urls[randomitem2] || randomitem2 == 6 && input == link + "kalkulator/") {
+  if (
+    input == "/" + urls[randomitem2] ||
+    (randomitem2 == 6 && input == link + "kalkulator/")
+  ) {
     timer = "inactive";
     permtime = time;
     time = "00:00";
     win = "true";
-    if (ms <= 60 && sec < 1 && quest) {
+    if (ms <= 70 && sec < 1 && quest) {
       if (localStorage.speedrunWinsForQuest) {
-        localStorage.setItem("speedrunWinsForQuest", parseInt(localStorage.speedrunWinsForQuest) + 1);
+        localStorage.setItem(
+          "speedrunWinsForQuest",
+          parseInt(localStorage.speedrunWinsForQuest) + 1,
+        );
       } else {
         localStorage.setItem("speedrunWinsForQuest", 1);
       }
       if (localStorage.speedrunWinsForQuest == 5) {
         localStorage.setItem("quest", "cS");
         localStorage.setItem("speedrunWinsForQuest", 0);
-        document.getElementById("lulz").innerHTML = "Wygrałeś! I skończyłeś misję!";
+        document.getElementById("lulz").innerHTML =
+          "Wygrałeś! I skończyłeś misję!";
       } else {
-        document.getElementById("lulz").innerHTML = "Wygrałeś! Jeszcze tylko " + (5 - parseInt(localStorage.speedrunWinsForQuest)) + " razy do skończenia misji!";
+        document.getElementById("lulz").innerHTML =
+          "Wygrałeś! Jeszcze tylko " +
+          (5 - parseInt(localStorage.speedrunWinsForQuest)) +
+          " razy do skończenia misji!";
       }
     } else {
       if (quest) {
-        document.getElementById("lulz").innerHTML = "Wygrałeś! Ale nic nie dodałeś do misji..";
+        document.getElementById("lulz").innerHTML =
+          "Wygrałeś! Ale nic nie dodałeś do misji..";
       } else {
         document.getElementById("lulz").innerHTML = "Wygrałeś!";
       }
