@@ -1,69 +1,102 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <head>
-     <meta charset="UTF-8">
-    <meta name="description" content="Witaj w mojej ultra sigma stronie">
-    <title>maciej hub</title>
-    <link href="/style2.css" rel="stylesheet" type="text/css" media="all">
-<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-<link rel="shortcut icon" href="/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="maciej hub" />
-<link rel="manifest" href="/favicons/site.webmanifest" />
-<link rel="manifest" href="manifest.json">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<!-- possible content values: default, black or black-translucent -->
-<meta name="apple-mobile-web-app-status-bar-style"
-    content="black-translucent">
-  </head>
-<body>
-<div id="topthing">
-<div class=center>
- <img id="topicon" src="/ikon.png" width=200>
-        <hr width="100%;" color="#38393f" size="3">
-      <h2 id="topthingthings">
-          <a href="/extra">Różne fajne rzeczy</a>
-      <a href="/gry">Fajne gry</a>
-      <a href="/zdjecia">Ciekawe zdjęcia</a>
-          <a href="/wiersz">Wiersz</a>
-          <a href="/kasyno">Kasyno</a>
-    <hr width="100%;" color="#38393f" size="3">
-       <i style=color:gray;> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i>
-      </h2>
-    </div>
-    </div>
-<h2><div class="center" id="notfound">Nie ma tutaj niczego...</div></h2>
-     <iframe src="/bottomthing" frameborder="0" width="100%"></iframe>
-     <script src="/topthingscript.js"></script>
-         <script>
-    let pathArray = path.split("/");
-    if (path == "/zntr") {
-      pathArray = ["", "r", "zntr"];
-    }
-    let text = document.getElementById("notfound");
-    if (pathArray[1] == "r") {
-      let redirect = pathArray[2];
-      if (redirect == "zntr") {
-        text.innerHTML = "Przeprowadzanie cie do zepsuć nokie TYCOON: ROBLOX...";
-        window.location.href = "roblox://placeId=90765644214333";
-      } else if (redirect == "group") {
-        text.innerHTML = "Przeprowadzanie cie do grupy maciej hub na roblox...";
-        window.location.href = "https://www.roblox.com/share/g/514001634";
-      } else if (redirect == "kahoot") {
-        text.innerHTML = "Przeprowadzanie cie do maciej hub kahoot...";
-        window.location.href = "https://create.kahoot.it/details/b65e11b2-e91c-4a9f-965f-d2deab98b89d?drawer=";
-      } else if (redirect == "blooket") {
-        text.innerHTML = "Przeprowadzanie cie do maciej hub blooket...";
-        window.location.href = "https://dashboard.blooket.com/set/68f11693bcd62392cf327d6f";
-      } else if (redirect == "speedruntext") {
-        text.innerHTML = "Hello, my name is Maciej Hub.";
-        document.getElementById("topthingthings").innerText = "Nie ma czitowania cziterze"
-      }
-    } else {
-      text.innerHTML = "Nie ma strony <b>" + path + "</b> na maciej hub. Czy na pewno dobrze napisałeś link?";
-    }
-    </script>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Witaj w mojej ultra sigma stronie" />
+        <title>maciej hub</title>
+        <link href="/style2.css" rel="stylesheet" type="text/css" media="all" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicons/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicons/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="maciej hub" />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <link rel="manifest" href="manifest.json" />
+        <meta
+            name="viewport"
+            content="width=device-width; initial-scale=1.0; viewport-fit=cover"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- possible content values: default, black or black-translucent -->
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+    </head>
+    <body>
+        <div id="topthing">
+            <div class="center">
+                <img id="topicon" src="/ikony/ikon.png" width="200" />
+                <hr width="100%;" color="#38393f" size="3" />
+                <h2 id="topthingthings">
+                    <a href="/extra">Różne fajne rzeczy</a>
+                    <a href="/gry">Fajne gry</a>
+                    <a href="/zdjecia">Ciekawe zdjęcia</a>
+                    <a href="/wiersz">Wiersz</a>
+                    <a href="/kasyno">Kasyno</a>
+                    <hr width="100%;" color="#38393f" size="3" />
+                    <i style="color: gray">
+                        NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i
+                    >
+                </h2>
+            </div>
+        </div>
+        <h2><div class="center" id="notfound">Nie ma tutaj niczego...</div></h2>
+        <iframe
+            id="bottomthing"
+            src="/bottomthing"
+            frameborder="0"
+            width="100%"
+        ></iframe>
+        <script src="/topthingscript.js"></script>
+        <script>
+            let pathArray = path.split("/");
+            if (path == "/zntr") {
+                pathArray = ["", "r", "zntr"];
+            }
+            let text = document.getElementById("notfound");
+            if (pathArray[1] == "r") {
+                let redirect = pathArray[2];
+                if (redirect == "zntr") {
+                    text.innerHTML =
+                        "Przeprowadzanie cie do zepsuć nokie TYCOON: ROBLOX... <a href='https://www.roblox.com/pl/games/90765644214333/zepsu-nokie-TYCOON-ROBLOX'>Kliknij tutaj jak nie działa</a>";
+                    window.location.href = "roblox://placeId=90765644214333";
+                } else if (redirect == "group") {
+                    text.innerHTML =
+                        "Przeprowadzanie cie do grupy maciej hub na roblox...";
+                    window.location.href =
+                        "https://www.roblox.com/share/g/514001634";
+                } else if (redirect == "kahoot") {
+                    text.innerHTML =
+                        "Przeprowadzanie cie do maciej hub kahoot...";
+                    window.location.href =
+                        "https://create.kahoot.it/details/b65e11b2-e91c-4a9f-965f-d2deab98b89d?drawer=";
+                } else if (redirect == "blooket") {
+                    text.innerHTML =
+                        "Przeprowadzanie cie do maciej hub blooket...";
+                    window.location.href =
+                        "https://dashboard.blooket.com/set/68f11693bcd62392cf327d6f";
+                } else if (redirect == "speedruntext") {
+                    text.innerHTML = "Hello, my name is Maciej Hub.";
+                    document.getElementById("topthingthings").innerText =
+                        "Nie ma czitowania cziterze";
+                }
+            } else {
+                text.innerHTML =
+                    "Nie ma strony <b>" +
+                    path +
+                    "</b> na maciej hub. Czy na pewno dobrze napisałeś link?";
+            }
+        </script>
+    </body>
+</html>

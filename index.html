@@ -35,12 +35,11 @@
         <h2 style="display: none;" id="unofficialalarm"><b>Ten kod został pobrany z maciej hub, nie jest wydrukowany przez twórcę maciej hub.</h2>
     <h1>Instrukcja obsługi maciej hub</b></h1>
     <img src="instrukcja.webp" width=300 alt="Filmik pokazujący o co chodzi" >
-    <h1>Każdy biały napis z linią pod nią to jest przycisk. Aby przejść dalej, przyciśnij przycisk "Okej, rozumiem". Wtedy się pokaże inny przycisk</h1>
+    <h1>Każdy biały napis z linią pod nią to jest przycisk. Aby przejść dalej, przyciśnij przycisk "Okej, rozumiem". Wtedy się pokaże inny przycisk, ktory też jest do przyciskania</h1>
         </div>
         <iframe src="bottomthing" frameborder="0" width="100%"></iframe>
+        <script src="topthingscript.js"></script>
         <script>
-        const queryString = window.location.search;
-        const urlParams = new URLSearchParams(queryString);
         if (urlParams.get("gen") != undefined && urlParams.get("gen").includes("u")) {
           document.getElementById("unofficialalarm").style.display = "inline";
         }
@@ -54,4 +53,3 @@
           window.location.href = "wiersz";
         }
         </script>
-        <script src="topthingscript.js"></script>

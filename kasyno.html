@@ -142,6 +142,12 @@ localStorage.setItem("lastDayBeen", date);
 if (localStorage.questsDoneToday == undefined) {
   localStorage.setItem("questsDoneToday", 0);
 }
+if (localStorage.questsDone == undefined) {
+  localStorage.setItem("questsDone", 0);
+}
+if (localStorage.questsDone == 0 && localStorage.quest == "nS") {
+  localStorage.setItem("quest", "nRM");
+}
 if (parseInt(localStorage.questsDoneToday) == 0) {
   document.getElementById("questamount").innerText = "Zostały ci 2 misje dzisiaj";
 } else if (parseInt(localStorage.questsDoneToday) == 1) {
@@ -268,6 +274,7 @@ async function checkforcompletedquest() {
     localStorage.setItem("quest", localStorage.quest.replace("c", "?"));
     await sleep(400);
     localStorage.setItem("questsDoneToday", parseInt(localStorage.questsDoneToday) + 1);
+    localStorage.setItem("questsDone", parseInt(localStorage.questsDoneToday) + 1);
     if (parseInt(localStorage.questsDoneToday) > 1) {
       document.getElementById("questtitle").innerText = "Nie ma misji";
       document.getElementById("questamount").innerText = "Skończyłeś wszystkie swoje misje dzisiaj. Wróć jutro na kolejne";
