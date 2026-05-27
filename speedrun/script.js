@@ -28,7 +28,6 @@ function starttimer() {
       sec++;
       ms = 0;
     }
-
     if (sec == 60) {
       window.location.reload();
     }
@@ -143,7 +142,7 @@ function diditwin(input) {
     permtime = time;
     time = "00:00";
     win = "true";
-    if (ms <= 70 && sec < 1 && quest) {
+    if (ms <= 99 && sec < 1 && quest) {
       if (localStorage.speedrunWinsForQuest) {
         localStorage.setItem(
           "speedrunWinsForQuest",
