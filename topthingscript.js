@@ -78,15 +78,15 @@ if (getCookie("firstVisitInSession") == "false") {
   localStorage.setItem("casinoTokens", tokens2);
   localStorage.setItem("sessions", sessions);
 
-  fetch("http://192.168.123.63:8888/getrandom", {
-		cache: 'no-cache'
-	})
-	.then(response => response.text())
-  .then(data => {
-    console.log("Added visit to server");
+  //fetch("http://192.168.123.63:8888/getrandom", {
+	//	cache: 'no-cache'
+	//})
+	//.then(response => response.text())
+  //.then(data => {
+  //  console.log("Added visit to server");
 
-	})
-	.catch(console.log("<b>Serwer zepsuty pewnie wyłączony</b>"));
+  //})
+  //.catch(console.log("<b>Serwer zepsuty pewnie wyłączony</b>"));
 }
 
 document.addEventListener("visibilitychange", function () {

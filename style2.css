@@ -16,6 +16,10 @@ body {
 button {
     font-family: "Roboto", Arial;
 }
+
+div {
+    font-family: "Roboto", Arial;
+}
 /* unvisited link */
 a:link {
     color: white;
