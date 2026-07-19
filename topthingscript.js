@@ -9,11 +9,10 @@ if (document.getElementById("topthing")) {
     document.getElementById("topthing").innerHTML =
       "<div class=center><img id='topicon' src='/ikony" +
       localStorage.ikonpng +
-      "' width=200><hr width='100%' color='#38393f' size='3'><h2 id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system' href='/zdjecia'>Ciekawe zdjęcia</a><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
+      "' width=200><hr width='100%' color='#38393f' size='3'><h2 id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
   } else {
-    // with system    document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system' href='/system'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
-    document.getElementById("topthing").innerHTML =
-      "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='zdjecia' href='/zdjecia'>Ciekawe zdjęcia</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
+    document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
+    // witih photo document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='zdjecia' href='/zdjecia'>Ciekawe zdjęcia</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
   }
   if (document.getElementById(path.substring(1, path.length))) {
     document.getElementById(path.substring(1, path.length)).remove();
@@ -63,8 +62,8 @@ if (localStorage.sessions) {
 }
 function getCookie(name) {
   // stolen
-  var value = "; " + document.cookie; // Use var instead of const
-  var parts = value.split("; " + name + "=");
+  let value = "; " + document.cookie; // Use var instead of const
+  let parts = value.split("; " + name + "=");
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
@@ -78,6 +77,16 @@ if (getCookie("firstVisitInSession") == "false") {
   tokens2 += 1;
   localStorage.setItem("casinoTokens", tokens2);
   localStorage.setItem("sessions", sessions);
+
+  fetch("http://192.168.123.63:8888/getrandom", {
+		cache: 'no-cache'
+	})
+	.then(response => response.text())
+  .then(data => {
+    console.log("Added visit to server");
+
+	})
+	.catch(console.log("<b>Serwer zepsuty pewnie wyłączony</b>"));
 }
 
 document.addEventListener("visibilitychange", function () {
@@ -91,6 +100,33 @@ function sleep(ms) {
 function removeTags(str) {
   return str.replace(/<[^>]+>/g, "");
 }
+let popupnumber = 0;
+let lastpopupid;
+
+function createnewpopup(id, content, second_button) {
+  if (get(lastpopupid) && get(lastpopupid).innerHTML.includes("audio_player")) {
+    if (get("gay_gay_gay") && get("audio_player")) {
+      get("audio_player").style.display = "none";
+      get("gay_gay_gay").appendChild(get("audio_player"));
+    }
+    get(lastpopupid).remove();
+  }
+  lastpopupid = id
+  let popup = document.createElement("div");
+  popup.innerHTML = `<div class='centerpopup' id=${id}><div class='center'><br><div id="popup_content${popupnumber}">${content}</div><br><div style='display: flex; gap: 10px; justify-content: center;'><button id='closepopupbutton${popupnumber}' class='centerpopupbutton'>Zamknij</button><div id='secondpopupbutton${popupnumber}'>${second_button}</div></div></div></div>`;
+  document.body.appendChild(popup);
+  document.getElementById(`closepopupbutton${popupnumber}`).onclick = function () {
+    if (get("gay_gay_gay") && get("audio_player")) {
+      get("audio_player").style.display = "none";
+      get("gay_gay_gay").appendChild(get("audio_player"));
+    }
+    popup.remove();
+  };
+  console.log(popup);
+  popupnumber += 1;
+  return popupnumber - 1
+}
+
 async function nopermissionnotification() {
   if (Notification?.permission == "granted") {
     if (document.getElementById("notificationtext")) {

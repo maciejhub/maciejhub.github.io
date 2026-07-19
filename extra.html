@@ -53,6 +53,7 @@
         <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
       <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
     <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
+    <!--<h2><button onclick="connect()" id="serwertest" class="button"><b>Połącz z serwerem</b></button></h2>-->
     <h2>
     <a href='r/kahoot' target='_blank'>Kahoot</a> i <a href='r/blooket' target='_blank'>Blooket</a> z maciej hub<br><br>
     <a href="camera">maciej hub gry na kamerze</a><br><br>
@@ -85,12 +86,9 @@
 <a target="_blank" href="https://github.com/maciejhub/maciejhub.github.io">
 <h2>Repo maciej hub na github</h2>
 </a>
-<br><button class="button" id="showtext" onclick="showunrelated()"><b>pokaż rzeczy nie związane z maciej hub</b><br><br></button>
-<div id="unrelated" style="display: none;">
 <a href="cytaty">
 <h2>cytaty o życiu (na polski)<br></h2>
 </a>
-</div>
 </div>
 <script src="script.js"></script>
 <script src="topthingscript.js"></script>
@@ -98,6 +96,21 @@
 document.getElementById("messagepopup").style.display = "none";
 function sleep(ms) { // stolen
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function connect() {
+  if (localStorage.previousSessions == localStorage.sessions) {
+
+  }
+  fetch("http://192.168.123.63:8888/addvisit", {
+		cache: 'no-cache'
+	})
+	.then(response => response.text())
+	.then(data => {
+	console.log(data)
+	document.getElementById("serwertest").innerHTML = `<b>To jest ${data} wizyta maciej hub!</b>`
+	})
+	.catch(error => document.getElementById("serwertest").innerHTML = `<b>Serwer zepsuty pewnie wyłączony</b>`);
 }
 
 if (Notification?.permission == "granted") {

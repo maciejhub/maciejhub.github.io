@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Witaj w mojej ultra sigma stronie" />
+        <title>maciej hub</title>
+        <link href="/style2.css" rel="stylesheet" type="text/css" media="all" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicons/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicons/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="maciej hub" />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta
+            name="viewport"
+            content="width=device-width; initial-scale=1.0; viewport-fit=cover"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- possible content values: default, black or black-translucent -->
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta content="maciej hub" property="og:title" />
+        <meta content="Wideo na maciej hub" property="og:description" />
+        <meta content="https://maciejhub.github.io/wideo" property="og:url" />
+        <meta
+            content="https://maciejhub.github.io/ikon.png"
+            property="og:image"
+        />
+        <meta content="#222222" data-react-helmet="true" name="theme-color" />
+        <style>
+        @font-face {
+            font-family: "Roboto";
+            src: url("Roboto-Bold.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+        }
+        .file {
+            width: 100%;
+            background-color: transparent;
+            font-size: 16px;
+            color: white;
+            margin-bottom: 7px;
+            border: none;
+            font-family: "Roboto";
+        }
+        .file:hover {
+            background-color: gray;
+        }
+        .file:active {
+            background-color: darkgray;
+        }
+        .audio_player {
+            background-color: #292929;
+            padding: 5px;
+            font-size: 15px;
+            border: 7px solid #191919;
+            width: 255px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .progress {
+            margin-left: 10px;
+            width: 100px;
+            height: 7px;
+            background-color: gray;
+        }
+        .bar {
+            height: 7px;
+            background-color: white;
+        }
+        .img_container {
+            height: 64px;
+            width: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="topthing">
+            <div class="center">
+                <img id="topicon" src="/ikony/ikon.png" width="200" />
+                <hr width="100%;" color="#38393f" size="3" />
+                <br />
+                <hr width="100%;" color="#38393f" size="3" />
+            </div>
+        </div>
+        <div id="gay_gay_gay">
+        <div class="audio_player" id="audio_player" style="display: none;">
+            <button class="buttonnounderline" style="margin-top: 3px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30">
+                <path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/>
+            </svg>
+            </button>
+            <div style="margin-right: 10px;"></div>
+            <div id="kill_everyone">00:00 / 00:00</div>
+            <div class="progress">
+                <div style="width: 0px;" id="progress_bar" class="bar"></div>
+            </div>
+        </div>
+        </div>
+        <div style="margin-top: 10px;"></div>
+        <div id="basefile">
+        <button class="file" style="display: none;">
+            <div class="img_container"><img style="margin-top: 5px;" src="folder.png" /></div>
+            <div style="margin-left: 13px"></div>
+            <h2>..</h2>
+        </button>
+        </div>
+        <div id="files">
+        </div>
+        <script src="/topthingscript.js"></script>
+        <script src="script.js"></script>
+        <iframe src="/bottomthing" frameborder="0" width="100%"></iframe>
+    </body>
+</html>

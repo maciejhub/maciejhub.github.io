@@ -26,7 +26,6 @@
     </div>
     <div class="center">
     <button class="button" onclick="maciejchange()"><b>Zmień gre na maciej clicker</b></button>
-    <button class="button" onclick="gardenchange()"><b>Zmień gre na seedy w grow a garden</b></button>
     <button class="button" onclick="tycoonchange()"><b>Zmień gre na zepsuć nokie TYCOON</b></button>
 <h2>
 Każdemu człowiekowi jest dany klucz do bram raju. <br>Tym samym kluczem otwiera się bramy piekła. <i style=color:gray;>- Richard P. Feynman</i><br><br>
@@ -62,5 +61,29 @@ Nie ma znaczenia jak wolno idziesz,<br> tak długo jak nie przestajesz. <i style
 Żyje się tylko raz, ale jeśli żyjesz dobrze, ten raz wystarczy. <i style=color:gray;>- Mae West</i><br><br>
 </h2>
 </div>
-<script src="/script.js"></script>
+<script>
+function maciejchange() {
+  if (document.getElementById("peepa")) {
+    document.getElementById("peepa").style.display = "initial";
+    document.getElementById("peepa").src = "https://turbowarp.org/1235476073/embed?addons=pause";
+  }
+}
+    function gardenchange() {
+      if (document.getElementById("peepa")) {
+       document.getElementById("peepa").style.display = "initial";
+  document.getElementById("peepa").src = "https://growagardenstock.org/";
+      }
+}
+        function tycoonchange() {
+          if (document.getElementById("peepa")) {
+           document.getElementById("peepa").style.display = "initial";
+  document.getElementById("peepa").src = "https://turbowarp.org/1235473043/embed?addons=pause";
+          }
+}
+      function deletechange() {
+        if (document.getElementById("ohiframe")) {
+  document.getElementById("ohiframe").style.display = "none";
+        }
+}
+</script>
 <script src="topthingscript.js"></script>

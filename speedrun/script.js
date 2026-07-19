@@ -43,10 +43,8 @@ const urls = [
   "wiersz",
   "extra",
   "kasyno",
-  "zdjecia",
   "cytaty",
-  "kalkulator/",
-  "zdjecia",
+  "system/"
 ];
 let permtime = "";
 let win = "false";
@@ -91,7 +89,10 @@ function showwhere() {
     .innerHTML.replace("kalkulator/", "kalkulator");
   document.getElementById("lulz").innerHTML = document
     .getElementById("lulz")
-    .innerHTML.replace("zdjecia", "ciekawe zdjęcia");
+    .innerHTML.replace("system/", "ciekawy system");
+  document.getElementById("lulz").innerHTML = document
+    .getElementById("lulz")
+    .innerHTML.replace("cytaty", "cytaty o życiu");
 }
 document.getElementById("save").style.display = "none";
 async function hidepopup() {

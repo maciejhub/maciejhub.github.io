@@ -54,32 +54,32 @@
                 <div class="center">
                     <h3>Wybierz co udostępnić</h3>
                     <select id="sharechoose" class="basiccontainer">
-                        <option value="all" style="color: white">
+                        <option value="all">
                             wszystko
                         </option>
-                        <option value="maciejclicker" style="color: white">
+                        <option value="maciejclicker" >
                             maciej clicker
                         </option>
-                        <option value="skibidi" style="color: white">
+                        <option value="skibidi">
                             skibidi toilet or creeper: the gra
                         </option>
-                        <option value="zepsucnokie" style="color: white">
+                        <option value="zepsucnokie" >
                             zepsuć nokie SIMULATOR
                         </option>
                         <option
                             value="mandarynki"
-                            style="color: white"
+
                             selected
                         >
                             rzucać mandarynki do kibla: THE GRA
                         </option>
-                        <option value="asmrbulka" style="color: white">
+                        <option value="asmrbulka">
                             asmr bułka: the gra
                         </option>
-                        <option value="kart" style="color: white">
+                        <option value="kart" >
                             <i style="color: black">censored</i> KART
                         </option>
-                        <option value="nokiatycoon" style="color: white">
+                        <option value="nokiatycoon">
                             zepsuć nokie TYCOON
                         </option>
                     </select>
@@ -379,6 +379,12 @@
                     madecodearray[2].toString() +
                     madecodearray[3].toString();
                 console.log(madecode + " vs " + expectedcode);
+                let correct = 0;
+                for (i = 0; i < 4; i++) { // so janky but if it works i lowkey dont care
+                  if (madecode.split("")[i] == expectedcode.split("")[i]) {
+                    correct++;
+                  }
+                }
                 if (code == localStorage.lastCodeEntered) {
                     document.getElementById("codecheckbutton").innerText =
                         "Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
@@ -387,7 +393,7 @@
                         "Sprawdź kod";
                     return;
                 }
-                if (expectedcode == madecode) {
+                if (correct > 2) {
                     document.getElementById("codecheckbutton").innerText =
                         "Poprawny kod! Sprawdź teraz misje w kasynie.";
                     localStorage.setItem("lastCodeEntered", code);

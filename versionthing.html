@@ -20,8 +20,14 @@
         <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
         <button id="last" style="display: none;" class="centerpopupbutton" onclick="lastversion()">Ostatnia wersja</button>
         <button id="next" style="display: none;" class="centerpopupbutton" onclick="nextversion()">Następna wersja</button>
+        <!--<button id="help" style="display: none;" class="centerpopupbutton" onclick="help_me()">Co znaczą te liczby</button>-->
+    </div>
+    <div id="helpcontent" class="center">
+        <h2><div style="display: none;" id="text">Hello</div></h2>
+        <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
     </div>
     <script>
+    // ", czyli " + versionArray[0] + " duża zmiana, " + versionArray[1] + " mała zmiana, i " + versionArray[2] + "malutka zmiana."
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -32,6 +38,8 @@ let throbber = document.getElementById("throbber");
 let ok = document.getElementById("OK");
 let next = document.getElementById("next");
 let last = document.getElementById("last");
+//let help = document.getElementById("help");
+let helpcontent = document.getElementById("helpcontent")
 let allVersions = ["Error"];
 fetch("versions.json", {
 		cache: 'no-cache'
@@ -46,6 +54,10 @@ fetch("versions.json", {
 function hidetext() {
     content.style.display = "none";
 	window.parent.postMessage("OK", '*');
+}
+function help_me() {
+  content.style.display = "none";
+  helpcontent.style.display = "inline";
 }
 async function nextversion() {
   versionShowed -= 1;
@@ -72,7 +84,7 @@ async function lastversion() {
 function updatetext() {
   let version = allVersions[allVersions.length - versionShowed].split("-");
   let versionArray = version[0].split(".");
-  text.innerHTML = allVersions[allVersions.length - versionShowed] + ", czyli " + versionArray[0] + " duża zmiana, " + versionArray[1] + " mała zmiana, i " + versionArray[2] + "malutka zmiana.";
+  text.innerHTML = allVersions[allVersions.length - versionShowed];
 }
 async function restOfTheScript() {
 	await sleep(500);
@@ -81,6 +93,7 @@ async function restOfTheScript() {
     text.style.display = "inline";
     next.style.display = "inline";
     last.style.display = "inline";
+    //help.style.display = "inline";
     updatetext();
 }
 restOfTheScript();
