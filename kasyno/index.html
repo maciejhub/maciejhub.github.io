@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta charset="UTF-8">
+    <meta name="description" content="Witaj w mojej ultra sigma stronie">
+    <title>maciej hub</title>
+    <link href="/style2.css?z" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="maciej hub" />
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!-- possible content values: default, black or black-translucent -->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta content="maciej hub" property="og:title" />
+<meta content="Kasyno na maciej hub" property="og:description" />
+<meta content="https://maciejhub.github.io/kasyno" property="og:url" />
+<meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
+<meta content="#222222" data-react-helmet="true" name="theme-color" />
+  </head>
+<body>
+    <div id="topthing">
+        <div class="center">
+        <img id="topicon" src="/ikony/ikon.png" width=200>
+        <hr width="100%;" color="#38393f" size="3">
+        <hr width="100%;" color="#38393f" size="3">
+        </div>
+        </div>
+    <script src="/topthingscript.js"></script>
+   <div class="center" style="display: flex; justify-content: center; gap: 10px; align-items: center;">
+     <h1>
+       <b>
+    <div style="display: inline-block; font-size: 80%;" id="plus"></div><button id="tokencounter" style="display: inline-block; cursor: auto;" class="centerpopupbutton">Ilość tokenów</button>
+    <button style="display: inline-block;" onclick="openshop()" class="centerpopupbutton">Sklep za tokeny</button>
+    <button style="display: inline-block;" onclick="openquests()" class="centerpopupbutton">Misje na tokeny</button>
+    <button style="display: inline-block;" onclick="openhelp()" class="centerpopupbutton">Pomoc</button>
+    </b>
+    </h1>
+    </div>
+<div class="casinocenterpopup" id="popup">
+    <div class="center">
+        <h3>
+            <div id="popuptext">Lubie mango mango</div>
+            <div id="shop">
+            <div style="max-height: 350px; overflow-y: scroll; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; gap: 5px; padding-right: 10px;">
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('star')" id="premiumicon">
+                        <div class="AAA" style="font-size: 70%;">Ikon z gwiazdką</div>
+                        <img src="/ikony/premiumikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('star')" id="fu" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="starprice" style="font-size: 80%;">75 tokenów</b>
+                    </button>
+                </div> <!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('znikon')" id="znikon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem zepsuć nokie gier</div>
+                        <img src="/ikony/znikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('znikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="znikonprice" style="font-size: 80%;">10 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('rmikon')" id="rmikon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem rzucać mandarynki do kibla: the gra</div>
+                        <img src="/ikony/rmikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('rmikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="rmikonprice" style="font-size: 80%;">20 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('ogikon')" id="ogikon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Ikon z tłem oryginalnego zdjęcia</div>
+                        <img src="/ikony/ogikon.png" width="60%"><br>
+                    </button>
+                    <button onclick="itembuy('ogikon')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="ogikonprice" style="font-size: 80%;">15 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+                <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('gold')" id="goldicon">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Złota nokia w zepsuć nokie simulator</div>
+                        <img src="sklepzdjecia/goldnokia.png" width="40%"><br>
+                    </button>
+                    <button onclick="itembuy('gold')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="goldprice" style="font-size: 80%;">25 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+               <div style="display: flex; flex-direction: column; align-items: center; width: 45%; height: 25%; max-width: 200px;">
+                    <button class="casinoitems" onclick="itembuy('goldmaciej')" id="goldmac">
+                        <div style="font-size: 70%; top: 10px; line-height: 100%;">Złoty maciej w maciej clicker</div>
+                        <img src="sklepzdjecia/goldmaciej.png" width="40%"><br>
+                    </button>
+                    <button onclick="itembuy('goldmaciej')" id="fu2" class="centerpopupbutton" style="width: 100%; margin-top: 5px;">
+                        <b class="AAAA" id="maciejprice" style="font-size: 80%;">25 tokenów</b>
+                    </button>
+                </div><!-- koniec -->
+                <!-- tutaj -->
+            </div>
+            </div>
+            <div id="questpopup">
+                <br>
+                <div style="line-height: 65%;">
+                <div style="font-size: 90%; line-height: 100%;" id="questamount">Zostały ci 2 misje dzisiaj</div><br>
+                </div>
+                <button onclick="checkforcompletedquest()" class="questbutton"><span id="questtitle">Żadne imie</span><br><br><span id="questfinished">Nie wiem</span><span style="float: right;">+2 tokeny</span></button>
+            </div>
+            <div id="helppopup">
+                <br>
+                <div style="line-height: 65%;">
+                <div style="font-size: 90%; line-height: 100%;" id="questamount">2 takie same zdjęcia = 1 token</div><br>
+                <span style="height: 100px; width: 100px; margin-right: 10px;" id='item10'><img width=100 src=kasynozdjecie/1.png></span><span style="height: 100px; width: 100px; margin-right: 15px;" id='item11'><img width=100 src=kasynozdjecie/1.png></span><span style="position: relative; top: -25px; font-size: 60px;">+1</span>
+                </div>
+            </div>
+        <div>
+            <br><button class="centerpopupbutton" onclick="hidepopup()">Zamknij</button>
+        </div>
+    </div>
+</div>
+ <script>
+
+ document.getElementById("popup").style.display = "none";
+ </script>
+    <div class="center">
+   <img src="/loading.png" size="200" id="spinner" style="display: inline;">
+   <h2><div id="loadedcounter"></div></h2>
+ <h1><div id="mythingdingle"></div></h1>
+ <button onclick="again()" class="centerpopupbutton"><b><div id="spin">Kręć maszynę za 2 tokeny</div></b></button><br>
+ </div>
+ <br><br>
+     <iframe src="/bottomthing" frameborder="0" width="100%"></iframe>
+     <script src="casino_handler.js"></script>
+     <script src="shop_handler.js"></script>
+     <script src="quest_handler.js"></script>
+     </body>
+     </html>

@@ -347,7 +347,7 @@ img.custom:active {
         width: 25%;
         padding: 15px;
         font-size: 25px;
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
         position: fixed; /* Sit on top of the page content */
         top: 50%;
         left: 50%;
@@ -369,7 +369,7 @@ img.custom:active {
         width: 40%;
         padding: 15px;
         font-size: 25px;
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
         position: fixed; /* Sit on top of the page content */
         top: 50%;
         left: 50%;
@@ -425,4 +425,27 @@ img.custom:active {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+
+.whitecontainer {
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+}
+
+.whitecontainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 7px solid white;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.whitecontainer img {
+    position: relative;
 }

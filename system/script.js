@@ -304,7 +304,7 @@ function createmediapopup(type, link, name) {
   } else if (type == "custom") {
     popupnumber = createnewpopup("mediapopup", link.split("|")[2], "");
   } else if (type == "audio") {
-    popupnumber = createnewpopup("mediapopup", "", download_button);
+    popupnumber = createnewpopup("mediapopup", "", download_button, true);
     audio_player_stuff(link, popupnumber)
   }
   if (type !== "custom") {

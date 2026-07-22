@@ -1,4 +1,8 @@
 // universal script for everything
+
+function get(x) {
+  return document.getElementById(x);
+}
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens);
@@ -103,8 +107,8 @@ function removeTags(str) {
 let popupnumber = 0;
 let lastpopupid;
 
-function createnewpopup(id, content, second_button) {
-  if (get(lastpopupid) && get(lastpopupid).innerHTML.includes("audio_player")) {
+function createnewpopup(id, content, second_button, delete_last, style) {
+  if (get(lastpopupid) && delete_last) {
     if (get("gay_gay_gay") && get("audio_player")) {
       get("audio_player").style.display = "none";
       get("gay_gay_gay").appendChild(get("audio_player"));
@@ -113,7 +117,7 @@ function createnewpopup(id, content, second_button) {
   }
   lastpopupid = id
   let popup = document.createElement("div");
-  popup.innerHTML = `<div class='centerpopup' id=${id}><div class='center'><br><div id="popup_content${popupnumber}">${content}</div><br><div style='display: flex; gap: 10px; justify-content: center;'><button id='closepopupbutton${popupnumber}' class='centerpopupbutton'>Zamknij</button><div id='secondpopupbutton${popupnumber}'>${second_button}</div></div></div></div>`;
+  popup.innerHTML = `<div class='centerpopup' ${style} id=${id}><div class='center'><br><div id="popup_content${popupnumber}">${content}</div><br><div style='display: flex; gap: 10px; justify-content: center;'><button id='closepopupbutton${popupnumber}' class='centerpopupbutton'>Zamknij</button><div id='secondpopupbutton${popupnumber}'>${second_button}</div></div></div></div>`;
   document.body.appendChild(popup);
   document.getElementById(`closepopupbutton${popupnumber}`).onclick = function () {
     if (get("gay_gay_gay") && get("audio_player")) {
@@ -128,7 +132,7 @@ function createnewpopup(id, content, second_button) {
 }
 
 async function nopermissionnotification() {
-  if (Notification?.permission == "granted") {
+  if (Notification?.permission == "granted" && Notification?.permission != "default") {
     if (document.getElementById("notificationtext")) {
       document.getElementById("notificationtext").innerHTML =
         "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
@@ -166,45 +170,40 @@ async function nopermissionnotification() {
   }
 }
 async function notification() {
-  Notification.requestPermission().then((result) => {
-    console.log(result);
-    if (document.getElementById("notificationtext")) {
-      document.getElementById("notificationtext").innerHTML =
-        "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
+  Notification.requestPermission().then(async (result) => {
+    if (result == "granted") {
+      if (document.getElementById("notificationtext")) {
+        document.getElementById("notificationtext").innerHTML =
+          "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
+      }
+      const img = "ikon.png";
+      const text = "Error, nie można było wziąść najnowszej wiadomośći";
+      let allMessages = ["Error"];
+      await fetch(window.location.origin + "/allMessages.json", {
+        cache: "no-cache",
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          allMessages = JSON.parse(data);
+        })
+        .catch((error) => (allMessages = [error]));
+      let newestmessage = removeTags(allMessages[allMessages.length - 1]);
+      if (
+        localStorage.lastMessageRead != allMessages[allMessages.length - 1] &&
+        allMessages[0] != "Error"
+      ) {
+        const notification = new Notification("Nowa wiadomość!", {
+          body: newestmessage,
+          icon: img,
+        });
+        localStorage.setItem(
+          "lastMessageRead",
+          allMessages[allMessages.length - 1],
+        );
+      } else {
+        console.log("Not going to annoy with notification");
+      }
     }
   });
-  if (Notification?.permission == "granted") {
-    if (document.getElementById("notificationtext")) {
-      document.getElementById("notificationtext").innerHTML =
-        "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
-    }
-    const img = "ikon.png";
-    const text = "Error, nie można było wziąść najnowszej wiadomośći";
-    let allMessages = ["Error"];
-    await fetch(window.location.origin + "/allMessages.json", {
-      cache: "no-cache",
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        allMessages = JSON.parse(data);
-      })
-      .catch((error) => (allMessages = [error]));
-    let newestmessage = removeTags(allMessages[allMessages.length - 1]);
-    if (
-      localStorage.lastMessageRead != allMessages[allMessages.length - 1] &&
-      allMessages[0] != "Error"
-    ) {
-      const notification = new Notification("Nowa wiadomość!", {
-        body: newestmessage,
-        icon: img,
-      });
-      localStorage.setItem(
-        "lastMessageRead",
-        allMessages[allMessages.length - 1],
-      );
-    } else {
-      console.log("Not going to annoy with notification");
-    }
-  }
 }
 nopermissionnotification();

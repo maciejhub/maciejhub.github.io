@@ -49,10 +49,11 @@
 </div>
     </div>
     <div class="center">
+        <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
         <button onclick="showqrs()" class="button"><b>Zobacz kody QR z maciej hub</b></button>
         <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
       <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
-    <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
+
     <!--<h2><button onclick="connect()" id="serwertest" class="button"><b>Połącz z serwerem</b></button></h2>-->
     <h2>
     <a href='r/kahoot' target='_blank'>Kahoot</a> i <a href='r/blooket' target='_blank'>Blooket</a> z maciej hub<br><br>
@@ -90,7 +91,6 @@
 <h2>cytaty o życiu (na polski)<br></h2>
 </a>
 </div>
-<script src="script.js"></script>
 <script src="topthingscript.js"></script>
 <script>
 document.getElementById("messagepopup").style.display = "none";
@@ -157,7 +157,7 @@ window.addEventListener("message", (event) => {
   }
 });
 function showqrs() {
-  document.getElementById("messagepopup").style.height = "40%";
+  document.getElementById("messagepopup").style.height = "35%";
   document.getElementById("messagepopup").style.display = "inline";
   let heightOfParent = (document.getElementById("messagepopup").clientHeight * 0.9) + "px";
   document.getElementById("messages").innerHTML = "<iframe src='qrthing' width='90%' height='" + heightOfParent + "' scrolling='yes' id='qrthing' frameborder='0'></iframe>";
