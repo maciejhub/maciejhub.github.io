@@ -117,10 +117,6 @@ function loadImage(url) {
 
 urls.forEach(url => loadImage(url));
 
-function get(x) {
-  return document.getElementById(x);
-}
-
 async function animate_border(my_matches, match_number, is_help) {
   value = my_matches[match_number];
   let pos = value.split(",");
@@ -178,13 +174,9 @@ async function checkformatch() {
     }
   plusanimation2(tokens, tokens - 2 + addtokens);
 }
-
 // token maker
 
-let first_visit = true
-
 if (localStorage.visitedCasino) {
-  first_visit = false
   console.log("Visited casino")
 } else {
   localStorage.setItem("visitedCasino", "true");
@@ -214,6 +206,15 @@ async function spinthing() {
     document.getElementById("spin").innerHTML = "Masz za mało tokenów. Dostajesz 1 token kiedy wchodzisz na maciej hub";
     await sleep(3500);
     document.getElementById("spin").innerHTML = "Kręć maszyne za 2 tokeny";
+}
+
+function openhelp() {
+  if (animationhappening == false) {
+    showpopup();
+    get("popuptext").innerHTML = "Pomoc<br>";
+    get("helppopup").style.display = "inline";
+    animate_border(["11,12"], 0, true);
+  }
 }
 
 function again() {
@@ -318,13 +319,4 @@ window.addEventListener("pagehide", setprevtokens);
 
 if (isNaN(tokens2)) {
   window.location.reload();
-}
-
-function openhelp() {
-  if (animationhappening == false) {
-    showpopup();
-    get("popuptext").innerHTML = "Pomoc<br>";
-    get("helppopup").style.display = "inline";
-    animate_border(["11,12"], 0, true);
-  }
 }

@@ -227,7 +227,7 @@ img.custom:active {
         width: 60%;
         padding: 15px;
         font-size: 25px;
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+        z-index: 3; /* Specify a stack order in case you're using a different order for other elements */
         position: fixed; /* Sit on top of the page content */
         top: 50%;
         left: 50%;
