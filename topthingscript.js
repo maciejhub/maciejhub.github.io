@@ -5,6 +5,7 @@ function get(x) {
 }
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
+let tokens2 = parseInt(localStorage.casinoTokens)
 if (localStorage.ikonpng) {
 }
 if (document.getElementById("topthing")) {
