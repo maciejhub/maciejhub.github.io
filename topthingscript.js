@@ -5,7 +5,6 @@ function get(x) {
 }
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
-let tokens2 = parseInt(localStorage.casinoTokens);
 if (localStorage.ikonpng) {
 }
 if (document.getElementById("topthing")) {
@@ -78,8 +77,6 @@ if (getCookie("firstVisitInSession") == "false") {
 } else {
   console.log("New session");
   sessions = parseInt(sessions) + 1;
-  tokens2 += 1;
-  localStorage.setItem("casinoTokens", tokens2);
   localStorage.setItem("sessions", sessions);
 
   //fetch("http://192.168.123.63:8888/getrandom", {
