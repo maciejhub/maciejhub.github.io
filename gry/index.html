@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Witaj w mojej ultra sigma stronie" />
+        <title>maciej hub</title>
+        <link href="/style2.css" rel="stylesheet" type="text/css" media="all" />
+        <script type="module" src="script.js"></script>
+        <link
+            rel="icon"
+            type="image/png"
+            href="/favicons/favicon-96x96.png"
+            sizes="96x96"
+        />
+        <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+        <link rel="shortcut icon" href="/favicons/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/favicons/apple-touch-icon.png"
+        />
+        <meta name="apple-mobile-web-app-title" content="maciej hub" />
+        <link rel="manifest" href="/favicons/site.webmanifest" />
+        <meta
+            name="viewport"
+            content="width=device-width; initial-scale=1.0; viewport-fit=cover"
+        />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- possible content values: default, black or black-translucent -->
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <meta content="maciej hub" property="og:title" />
+        <meta content="Gry na maciej hub" property="og:description" />
+        <meta content="https://maciejhub.github.io/gry" property="og:url" />
+        <meta
+            content="https://maciejhub.github.io/ikony/ikon.png"
+            property="og:image"
+        />
+        <meta content="#222222" data-react-helmet="true" name="theme-color" />
+    </head>
+    <body>
+        <div id="topthing">
+            <div class="center">
+                <img id="topicon" src="/ikony/ikon.png" width="200" />
+                <hr width="100%;" color="#38393f" size="3" />
+                <hr width="100%;" color="#38393f" size="3" />
+            </div>
+        </div>
+        <div class="centerpopup" id="popup">
+            <div id="sharepopup">
+                <div class="center">
+                    <h3>Wybierz co udostępnić</h3>
+                    <select id="sharechoose" class="basiccontainer">
+                        <option value="all">
+                            wszystko
+                        </option>
+                        <option value="maciejclicker" >
+                            maciej clicker
+                        </option>
+                        <option value="skibidi">
+                            skibidi toilet or creeper: the gra
+                        </option>
+                        <option value="zepsucnokie" >
+                            zepsuć nokie SIMULATOR
+                        </option>
+                        <option
+                            value="mandarynki"
+
+                            selected
+                        >
+                            rzucać mandarynki do kibla: THE GRA
+                        </option>
+                        <option value="asmrbulka">
+                            asmr bułka: THE GRA
+                        </option>
+                        <option value="kart" >
+                            <i style="color: black">censored</i> KART
+                        </option>
+                        <option value="nokiatycoon">
+                            zepsuć nokie TYCOON
+                        </option>
+                    </select>
+                    <br /><br /><button
+                        class="centerpopupbutton"
+                        onclick="copylink()"
+                    >
+                        <div id="copytext">Kopiuj link</div>
+                    </button>
+                    <button class="centerpopupbutton" onclick="hidepopup()">
+                        OK
+                    </button>
+                </div>
+            </div>
+            <div id="codepopup">
+                <div class="center">
+                    <h3>Wpisz kod</h3>
+                    <input
+                        id="codeinput"
+                        type="search"
+                        class="basiccontainer"
+                        placeholder="Tutaj wpisz kod"
+                        size="9"
+                    />
+                    <br /><br />
+                    <button
+                        class="centerpopupbutton"
+                        id="codecheckbutton"
+                        onclick="checkcode()"
+                    >
+                        Sprawdź kod
+                    </button>
+                    <button class="centerpopupbutton" onclick="hidepopup()">
+                        Zamknij
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("popup").style.display = "none";
+        </script>
+        <div class="center">
+            <button
+                class="button"
+                style="display: none"
+                id="showallbutton"
+                onclick="showall()"
+            >
+                Pokaż reszte gier
+            </button>
+            <button class="centerpopupbutton" onclick="showpopup()">
+                Udostępnij gry
+            </button>
+            <button class="centerpopupbutton" id="sorting_button" onclick="changesorting()">
+                Sortowanie: Polecane
+            </button>
+            <button
+                style="display: none"
+                id="codeenter"
+                onclick="showcode()"
+                class="centerpopupbutton"
+            >
+                Wpisz kod
+            </button>
+            <br />
+            <div id="games" class="row">
+                <div id="1">
+                <iframe
+                    id="zntr"
+                    onload="resizeIFrameToFitContent('zntr')"
+                    src="/grygry/zntr"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="2">
+                <iframe
+                    id="maciejclicker"
+                    onload="resizeIFrameToFitContent('maciejclicker')"
+                    src="/grygry/maciejclicker"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="3">
+                <iframe
+                    id="skibidi"
+                    onload="resizeIFrameToFitContent('skibidi')"
+                    src="/grygry/skibidi"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="4">
+                <iframe
+                    id="zepsucnokie"
+                    onload="resizeIFrameToFitContent('zepsucnokie')"
+                    src="/grygry/nokia"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="5">
+                <iframe
+                    id="mandarynki"
+                    onload="resizeIFrameToFitContent('mandarynki')"
+                    src="/grygry/mandarynki"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="6">
+                <iframe
+                    id="asmrbulka"
+                    onload="resizeIFrameToFitContent('asmrbulka')"
+                    src="/grygry/asmr"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="7">
+                <iframe
+                    id="kart"
+                    onload="resizeIFrameToFitContent('kart')"
+                    src="/grygry/kart"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+                <div id="8">
+                <iframe
+                    id="nokiatycoon"
+                    onload="resizeIFrameToFitContent('nokiatycoon')"
+                    src="/grygry/tycoon"
+                    allowtransparency="true"
+                    frameborder="0"
+                    scrolling="no"
+                    allowfullscreen
+                ></iframe>
+                </div>
+            </div>
+        </div>
+        <iframe src="/bottomthing" frameborder="0" width="100%"></iframe>
+        <script src="/topthingscript.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

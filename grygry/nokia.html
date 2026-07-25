@@ -2,6 +2,7 @@
 <html>
   <head>
      <meta charset="UTF-8">
+     <meta name="robots" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Witaj w mojej ultra sigma stronie">
     <title>maciej hub</title>
@@ -24,8 +25,9 @@
 </div>
 <div style="margin-top: 20px;"></div>
 <script>
-let thing1 = "https://turbowarp.org/1235410477/embed?addons=pause";
-let thing2 = "https://turbowarp.org/1235410477/embed?addons=pause&size=640x360";
+let link = "https://turbowarp.org/1235410477/embed?addons=pause";
+let last_width_digit = 0;
+let last_height_digit = 0;
 let played1 = JSON.parse(localStorage.gamesPlayed);
 if (played1[2] == 1) {
   document.getElementById("playcounter").innerText = "Grałeś w zepsuć nokie SIMULATOR " + played1[2] + " raz!";
@@ -37,13 +39,15 @@ function redirect(which) {
   played[2] = parseInt(played[2]) + 1;
   localStorage.setItem("gamesPlayed", JSON.stringify(played));
   if (which == "1") {
-    window.location.href = thing1;
+    window.location.href = `${link}&size=48${last_width_digit}x36${last_height_digit}`
   } else if (which == "2") {
-    window.location.href = thing2;
+    window.location.href = `${link}&size=64${last_width_digit}x36${last_height_digit}`
   }
 }
 if (JSON.parse(localStorage.boughtItems).includes("gold")) {
-  thing1 = "https://turbowarp.org/1235410477/embed?addons=pause&size=482x362"
-  thing2 = "https://turbowarp.org/1235410477/embed?addons=pause&size=642x362"
+  last_height_digit = 2;
+}
+if (localStorage.quest == "nZNS") {
+  last_width_digit = 2;
 }
 </script>

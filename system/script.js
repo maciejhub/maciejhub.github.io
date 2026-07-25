@@ -127,22 +127,48 @@ const file_system =
           "type": "folder",
           "contents": [
             {
-              "name": "Kasyno 1",
+              "name": "Kasyno 1.mp4",
               "type": "file",
               "contents": "root/wideo/motywacja/lebron1.mp4"
             },
             {
-              "name": "Kasyno 2",
+              "name": "Kasyno 2.mp4",
               "type": "file",
               "contents": "root/wideo/motywacja/lebron2.mp4"
             },
             {
-              "name": "Kasyno 3",
+              "name": "Kasyno 3.mp4",
               "type": "file",
               "contents": "root/wideo/motywacja/lebron3.mp4"
+            },
+            {
+              "name": "Kasyno 4.mp4",
+              "type": "file",
+              "contents": "root/wideo/motywacja/lebron4.mp4"
             }
           ]
         },
+        {
+          "name": "Gry",
+          "type": "folder",
+          "contents": [
+            {
+              "name": "asmr bułka.mp4",
+              "type": "file",
+              "contents": "root/wideo/gry/asmr.mp4"
+            },
+            {
+              "name": "nie wiem co to.mp4",
+              "type": "file",
+              "contents": "root/wideo/gry/nwm.mp4"
+            },
+            {
+              "name": "skibidi toilet or creeper.mp4",
+              "type": "file",
+              "contents": "root/wideo/gry/skibidi.mp4"
+            }
+          ]
+        }
       ]
     },
     {
@@ -153,6 +179,37 @@ const file_system =
           "name": "Gry",
           "type": "folder",
           "contents": [
+            {
+              "name": "Muzyka",
+              "type": "folder",
+              "contents": [
+                {
+                  "name": "zepsuć nokie SIMULATOR gra (Flying Gorilla).wav",
+                  "type": "file",
+                  "contents": "root/audio/gry/muzyka/flying.wav"
+                },
+                {
+                  "name": "zepsuć nokie SIMULATOR sklep (Flying Gorilla stary menu).wav",
+                  "type": "file",
+                  "contents": "root/audio/gry/muzyka/gorilla.wav"
+                },
+                {
+                  "name": "maciej clicker (Amanda - Aisha Duo).mp3",
+                  "type": "file",
+                  "contents": "root/audio/gry/muzyka/maciej.mp3"
+                },
+                {
+                  "name": "censored KART menu (Wii Play menu).mp3",
+                  "type": "file",
+                  "contents": "root/audio/gry/muzyka/play.mp3"
+                },
+                {
+                  "name": "asmr bułka: the gra menu (Tetris 99 menu).mp3",
+                  "type": "file",
+                  "contents": "root/audio/gry/muzyka/tetris.wav"
+                }
+              ]
+            },
             {
               "name": "Wygrałeś.wav",
               "type": "file",
@@ -174,7 +231,7 @@ const file_system =
               "contents": "root/audio/gry/mandarynki.wav"
             }
           ]
-        },
+        }
       ]
     },
     {
@@ -232,6 +289,29 @@ async function renderdirectory(path) {
 
 renderdirectory("/");
 
+async function remove_listeners(audio, player, popupnumber, func1, func2) {
+  if (player.parentElement.id !== `popup_content${popupnumber}`) {
+    audio.removeEventListener("timeupdate", func1);
+    player.removeEventListener("click", func2);
+    audio.pause();
+    return;
+  }
+  await sleep(100);
+  remove_listeners(audio, player, popupnumber, func1, func2);
+}
+
+function format_time(time) {
+  let minutes = Math.floor(Number(time) / 60);
+  if (minutes.toString().length == 1) {
+    minutes = `0${minutes}`;
+  }
+  let seconds = Number(time) - 60 * minutes;
+  if (seconds.toString().length == 1) {
+    seconds = `0${seconds}`;
+  }
+  return `${minutes}:${seconds}`;
+}
+
 function audio_player_stuff(link, popupnumber) {
   let player = get("audio_player");
   get(`popup_content${popupnumber}`).appendChild(player);
@@ -239,30 +319,17 @@ function audio_player_stuff(link, popupnumber) {
   get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
   audio = new Audio(link);
   player.style.display = "flex";
-  let duration
+  let duration = 0;
+  let formatted_duration = "00:00";
   audio.onloadedmetadata = function() {
     duration = Math.round(audio.duration).toString();
     if (duration.length == 1) {
       duration = `0${duration}`
     }
-    get("kill_everyone").innerText = `00:00 / 00:${duration}`;
+    get("kill_everyone").innerText = `00:00 / ${formatted_duration}`;
   };
   get("kill_everyone").innerText = `00:00 / 00:00`;
-  audio.addEventListener('timeupdate', () => {
-    if (player.parentElement.id !== `popup_content${popupnumber}`) {
-      return;
-    }
-    let current_time = Math.round(audio.currentTime).toString();
-    if (current_time.length == 1) {
-      current_time = `0${current_time}`
-    }
-    get("kill_everyone").innerText = `00:${current_time} / 00:${duration}`;
-    get("progress_bar").style.width = `${(100 / duration) * Number(current_time)}px`;
-    if (audio.paused) {
-      get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
-    }
-  });
-  player.addEventListener("click", function () {
+  const clicked_func = () => {
     if (player.parentElement.id !== `popup_content${popupnumber}`) {
       return;
     }
@@ -272,10 +339,28 @@ function audio_player_stuff(link, popupnumber) {
     } else {
       player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" fill="white"/></svg>';
       audio.play();
-      console.log(audio.paused);
     }
-  });
-  player.dispatchEvent(new Event("click"));
+  }
+  const timeupdate_func = () => {
+    if (player.parentElement.id !== `popup_content${popupnumber}`) {
+      return;
+    }
+    let current_time = Math.round(audio.currentTime).toString();
+    if (current_time.length == 1) {
+      current_time = `0${current_time}`
+    }
+    let formatted_time = format_time(current_time);
+    get("kill_everyone").innerText = `${formatted_time} / ${format_time(duration)}`;
+    get("progress_bar").style.width = `${(100 / duration) * Number(current_time)}px`;
+    if (audio.paused) {
+      get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+    }
+  }
+
+  audio.addEventListener('timeupdate', timeupdate_func);
+  player.addEventListener("click", clicked_func);
+  remove_listeners(audio, player, popupnumber, timeupdate_func, clicked_func);
+  clicked_func();
 }
 
 function download(link, name) {
@@ -298,7 +383,7 @@ function createmediapopup(type, link, name) {
     popupnumber = createnewpopup("mediapopup", `<img src=${link} style="max-width: 40vw; max-height: 40vh"/>`, download_button);
     get(`popup_content${popupnumber}`).parentElement.parentElement.width = `${get(`popup_content${popupnumber}`).querySelector("img").clientWidth}px`;
   } else if (type == "video") {
-    popupnumber = createnewpopup("mediapopup", `<video src=${link} style="margin-bottom: -24px; max-width: 40vw; max-height: 40vh" controls autoplay></video>`, download_button);
+    popupnumber = createnewpopup("mediapopup", `<video src=${link} style="margin-bottom: -24px; max-width: 45vw; max-height: 55vh" controls autoplay></video>`, download_button);
   } else if (type == "text") {
     popupnumber = createnewpopup("mediapopup", link.split("|")[1], download_button);
   } else if (type == "custom") {
@@ -336,7 +421,7 @@ function renderfile(type, name, link) {
       format = "image";
     } else if (link.includes(".mp4")) {
       format = "video";
-    } else if (link.includes(".wav")) {
+    } else if (link.includes(".wav") || link.includes(".mp3")) {
       format = "audio";
     } else if (link.includes("txt")) {
       format = "text";

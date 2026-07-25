@@ -126,7 +126,6 @@ function createnewpopup(id, content, second_button, delete_last, style) {
     }
     popup.remove();
   };
-  console.log(popup);
   popupnumber += 1;
   return popupnumber - 1
 }

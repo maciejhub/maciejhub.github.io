@@ -203,7 +203,7 @@ function updateeverything() {
 
 //
 async function spinthing() {
-    document.getElementById("spin").innerHTML = "Masz za mało tokenów. Dostajesz 1 token kiedy wchodzisz na maciej hub";
+    document.getElementById("spin").innerHTML = "Masz za mało tokenów. Dostajesz 3 tokeny kiedy skończysz misję";
     await sleep(3500);
     document.getElementById("spin").innerHTML = "Kręć maszyne za 2 tokeny";
 }

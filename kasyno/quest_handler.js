@@ -1,4 +1,4 @@
-let types = ["S", "RM", "ZNT", "AS", "KRT"];
+let types = ["S", "RM", "ZNT", "AS", "KRT", "ZNS"];
 
 if (localStorage.quest) {
   console.log("quest already exists")
@@ -7,7 +7,7 @@ if (localStorage.quest) {
 }
 
 if (localStorage.lastDayBeen != date) {
-  document.getElementById("questamount").innerText = "Zostały ci 2 misje dzisiaj";
+  get("questamount").innerText = "Zostały ci 2 misje dzisiaj";
   localStorage.setItem("questsDoneToday", 0);
 }
 localStorage.setItem("lastDayBeen", date);
@@ -21,11 +21,11 @@ if (localStorage.questsDone == 0 && localStorage.quest == "nS") {
   localStorage.setItem("quest", "nRM");
 }
 if (parseInt(localStorage.questsDoneToday) == 0) {
-  document.getElementById("questamount").innerText = "Zostały ci 2 misje dzisiaj";
+  get("questamount").innerText = "Zostały ci 2 misje dzisiaj";
 } else if (parseInt(localStorage.questsDoneToday) == 1) {
-  document.getElementById("questamount").innerText = "Została ci 1 misja dzisiaj";
+  get("questamount").innerText = "Została ci 1 misja dzisiaj";
 } else if (parseInt(localStorage.questsDoneToday) == 2) {
-  document.getElementById("questamount").innerText = "Skończyłeś wszystkie swoje misje dzisiaj. Wróć jutro na kolejne";
+  get("questamount").innerText = "Skończyłeś wszystkie swoje misje dzisiaj. Wróć jutro na kolejne";
 }
 
 function getnewquesttype() {
@@ -44,7 +44,7 @@ async function checkforcompletedquest() {
   if (localStorage.quest.substring(0, 1) == "c") {
     let oldtokens = tokens;
     hidepopup();
-    plusanimation2(oldtokens, oldtokens + 2);
+    plusanimation2(oldtokens, oldtokens + 3);
     await sleep(2300);
     animationhappening = false;
     tokens += 2;
@@ -53,69 +53,73 @@ async function checkforcompletedquest() {
     localStorage.setItem("questsDoneToday", parseInt(localStorage.questsDoneToday) + 1);
     localStorage.setItem("questsDone", parseInt(localStorage.questsDoneToday) + 1);
     if (parseInt(localStorage.questsDoneToday) > 1) {
-      document.getElementById("questtitle").innerText = "Nie ma misji";
-      document.getElementById("questamount").innerText = "Skończyłeś wszystkie swoje misje dzisiaj. Wróć jutro na kolejne";
+      get("questtitle").innerText = "Nie ma misji";
+      get("questamount").innerText = "Skończyłeś wszystkie swoje misje dzisiaj. Wróć jutro na kolejne";
     } else {
-      document.getElementById("questamount").innerText = "Została ci 1 misja dzisiaj";
+      get("questamount").innerText = "Została ci 1 misja dzisiaj";
     }
-    document.getElementById("questfinished").innerText = "Kliknij na nową misję";
-    document.getElementById("questtitle").innerText = "Nie ma misji";
+    get("questfinished").innerText = "Kliknij na nową misję";
+    get("questtitle").innerText = "Nie ma misji";
   } else if (localStorage.quest.substring(0, 1) == "?") {
     if (localStorage.questsDoneToday != 2) {
     localStorage.setItem("quest", getnewquesttype());
     await sleep(100);
     if (localStorage.quest == "nRM") {
-      document.getElementById("questtitle").innerText = "Dostań 4+ mandarynek w rzucać mandarynki do kibla: the gra";
+      get("questtitle").innerText = "Dostań 4+ mandarynek w rzucać mandarynki do kibla: THE GRA";
     } else if (localStorage.quest == "nS") {
-      document.getElementById("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
+      get("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
     } else if (localStorage.quest == "nZNT") {
-      document.getElementById("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
+      get("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
     } else if (localStorage.quest == "nAS") {
-      document.getElementById("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: the gra";
+      get("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: THE GRA";
     } else if (localStorage.quest == "nKRT") {
-      document.getElementById("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black;\">censored</i> KART";
+      get("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black;\">censored</i> KART";
+    } else if (localStorage.quest == "nZNS") {
+      get("questtitle").innerText = "Zniszcz 40+ nokii w zepsuć nokie SIMULATOR";
     }
-    document.getElementById("questfinished").innerText = "Nie skończone";
+    get("questfinished").innerText = "Nie skończone";
     } else {
-      document.getElementById("questfinished").innerText = "Dostajesz nic";
+      get("questfinished").innerText = "Dostajesz nic";
       await sleep(1000);
-      document.getElementById("questfinished").innerText = "Kliknij na nic";
+      get("questfinished").innerText = "Kliknij na nic";
     }
   } else {
-    document.getElementById("questfinished").innerText = "Nie skończyłeś misji";
+    get("questfinished").innerText = "Nie skończyłeś misji";
     await sleep(700);
-    document.getElementById("questfinished").innerText = "Nie skończone";
+    get("questfinished").innerText = "Nie skończone";
   }
 }
 function openquests() {
   if (animationhappening == false) {
     showpopup();
-    document.getElementById("questpopup").style.display = "initial";
-    document.getElementById("popuptext").innerHTML = "Misje<br>";
+    get("questpopup").style.display = "initial";
+    get("popuptext").innerHTML = "Misje<br>";
     if (localStorage.questsDoneToday == 2) {
-      document.getElementById("questtitle").innerText = "Nie ma misji";
-      document.getElementById("questfinished").innerText = "Kliknij na nic";
+      get("questtitle").innerText = "Nie ma misji";
+      get("questfinished").innerText = "Kliknij na nic";
       return
     }
     let questlength = localStorage.quest.length;
     if (localStorage.quest.substring(1, questlength) == "RM") {
-      document.getElementById("questtitle").innerText = "Dostań 4+ mandarynki w rzucać mandarynki do kibla: the gra";
+      get("questtitle").innerText = "Dostań 4+ mandarynki w rzucać mandarynki do kibla: the gra";
     } else if (localStorage.quest.substring(1, questlength) == "S") {
-      document.getElementById("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
+      get("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
     } else if (localStorage.quest.substring(1, questlength) == "ZNT") {
-      document.getElementById("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
+      get("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
     } else if (localStorage.quest.substring(1, questlength) == "AS") {
-      document.getElementById("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: the gra";
+      get("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: the gra";
     } else if (localStorage.quest.substring(1, questlength) == "KRT") {
-      document.getElementById("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black\">censored</i> KART";
+      get("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black\">censored</i> KART";
+    } else if (localStorage.quest.substring(1, questlength) == "ZNS") {
+      get("questtitle").innerText = "Zniszcz 40+ nokii w zepsuć nokie SIMULATOR";
     }
     if (localStorage.quest.substring(0, 1) == "n") {
-      document.getElementById("questfinished").innerText = "Nie skończone";
+      get("questfinished").innerText = "Nie skończone";
     } else if ((localStorage.quest.substring(0, 1) == "?")) {
-      document.getElementById("questtitle").innerText = "Nie ma misji";
-      document.getElementById("questfinished").innerText = "Kliknij na nową misję";
+      get("questtitle").innerText = "Nie ma misji";
+      get("questfinished").innerText = "Kliknij na nową misję";
     } else if (localStorage.quest.substring(0, 1) == "c") {
-      document.getElementById("questfinished").innerText = "Skończone, kliknij";
+      get("questfinished").innerText = "Skończone, kliknij";
     }
   }
 }

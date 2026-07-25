@@ -42,7 +42,7 @@
         <style>
         @font-face {
             font-family: "Roboto";
-            src: url("Roboto-Bold.woff2") format("woff2");
+            src: url("/Roboto-Bold.woff2") format("woff2");
             font-weight: normal;
             font-style: normal;
         }
@@ -53,6 +53,8 @@
             color: white;
             margin-bottom: 7px;
             border: none;
+            display: flex;
+            align-items: center;
             font-family: "Roboto";
         }
         .file:hover {
@@ -118,7 +120,7 @@
         <button class="file" style="display: none;">
             <div class="img_container"><img style="margin-top: 5px;" src="folder.png" /></div>
             <div style="margin-left: 13px"></div>
-            <h2>..</h2>
+            <h2 style="text-align: start;">..</h2>
         </button>
         </div>
         <div id="files">
