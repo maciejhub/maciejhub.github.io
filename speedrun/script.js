@@ -33,7 +33,7 @@ function starttimer() {
     }
     time = (sec < 10 ? "0" : "") + sec + ":" + (ms < 10 ? "0" : "") + ms;
 
-    document.getElementById("timer").innerHTML = time;
+    get("timer").innerHTML = time;
 
     setTimeout(starttimer, 10);
   }
@@ -42,9 +42,10 @@ function starttimer() {
 const urls = [
   "wiersz",
   "extra",
-  "kasyno",
+  "kasyno/",
   "cytaty",
-  "system/"
+  "system/",
+  "gry/"
 ];
 let permtime = "";
 let win = "false";
@@ -75,37 +76,30 @@ function makeitem2() {
 makeitem2();
 
 function showwhere() {
-  document.getElementById("lulz").innerHTML =
+  get("lulz").innerHTML =
     "Dostań się od <b>" +
     urls[randomitem] +
     " do " +
     urls[randomitem2] +
     "</b>";
-  document.getElementById("lulz").innerHTML = document
-    .getElementById("lulz")
-    .innerHTML.replace("extra", "różne fajne rzeczy");
-  document.getElementById("lulz").innerHTML = document
-    .getElementById("lulz")
-    .innerHTML.replace("kalkulator/", "kalkulator");
-  document.getElementById("lulz").innerHTML = document
-    .getElementById("lulz")
-    .innerHTML.replace("system/", "ciekawy system");
-  document.getElementById("lulz").innerHTML = document
-    .getElementById("lulz")
-    .innerHTML.replace("cytaty", "cytaty o życiu");
+  get("lulz").innerHTML = get("lulz").innerHTML.replace("extra", "różne fajne rzeczy");
+  get("lulz").innerHTML = get("lulz").innerHTML.replace("cytaty", "cytaty o życiu");
+  get("lulz").innerHTML = get("lulz").innerHTML.replace("gry/", "fajne gry");
+  get("lulz").innerHTML = get("lulz").innerHTML.replace("system/", "ciekawy system");
+  get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("/", "");
 }
-document.getElementById("save").style.display = "none";
+get("save").style.display = "none";
 async function hidepopup() {
-  document.getElementById("popup").style.display = "none";
-  if (document.getElementById("button").innerHTML == "Zagraj jeszcze raz") {
+  get("popup").style.display = "none";
+  if (get("button").innerHTML == "Zagraj jeszcze raz") {
     window.location.reload();
   } else {
-    if (document.getElementById("button").innerHTML == "START") {
+    if (get("button").innerHTML == "START") {
       if (randomitem != 6) {
-        document.getElementById("iframe").contentWindow.location.href =
+        get("iframe").contentWindow.location.href =
           "/" + urls[randomitem];
       } else {
-        document.getElementById("iframe").contentWindow.location.href =
+        get("iframe").contentWindow.location.href =
           "/kalkulator";
       }
       await sleep(300);
@@ -113,25 +107,25 @@ async function hidepopup() {
       starttimer();
     }
   }
-  if (document.getElementById("button").innerHTML == "Zamknij") {
+  if (get("button").innerHTML == "Zamknij") {
     if (win == "false") {
       showpopup();
-      document.getElementById("save").style.display = "none";
-      document.getElementById("button").innerHTML = "START";
+      get("save").style.display = "none";
+      get("button").innerHTML = "START";
       showwhere();
     } else {
       showpopup();
-      document.getElementById("save").style.display = "none";
-      document.getElementById("button").innerHTML = "Zagraj jeszcze raz";
-      document.getElementById("lulz").innerHTML = "Wygrałeś!";
-      document.getElementById("save").style.display = "initial";
+      get("save").style.display = "none";
+      get("button").innerHTML = "Zagraj jeszcze raz";
+      get("lulz").innerHTML = "Wygrałeś!";
+      get("save").style.display = "initial";
     }
   }
 }
 
 function showpopup() {
-  document.getElementById("popup").style.display = "initial";
-  document.getElementById("save").style.display = "initial";
+  get("popup").style.display = "initial";
+  get("save").style.display = "initial";
 }
 
 function diditwin(input) {
@@ -155,23 +149,23 @@ function diditwin(input) {
       if (localStorage.speedrunWinsForQuest == 5) {
         localStorage.setItem("quest", "cS");
         localStorage.setItem("speedrunWinsForQuest", 0);
-        document.getElementById("lulz").innerHTML =
+        get("lulz").innerHTML =
           "Wygrałeś! I skończyłeś misję!";
       } else {
-        document.getElementById("lulz").innerHTML =
+        get("lulz").innerHTML =
           "Wygrałeś! Jeszcze tylko " +
           (5 - parseInt(localStorage.speedrunWinsForQuest)) +
           " razy do skończenia misji!";
       }
     } else {
       if (quest) {
-        document.getElementById("lulz").innerHTML =
+        get("lulz").innerHTML =
           "Wygrałeś! Ale nic nie dodałeś do misji..";
       } else {
-        document.getElementById("lulz").innerHTML = "Wygrałeś!";
+        get("lulz").innerHTML = "Wygrałeś!";
       }
     }
-    document.getElementById("button").innerHTML = "Zagraj jeszcze raz";
+    get("button").innerHTML = "Zagraj jeszcze raz";
     showpopup();
     sec = "00";
     ms = "00";
@@ -186,7 +180,7 @@ if (localStorage.speedrunresults == undefined) {
 const sarray = JSON.parse(localStorage.speedrunresults);
 function saveresult() {
   if (localStorage.speedrunresults) {
-    if (document.getElementById("save").innerHTML != "Wynik zapisany") {
+    if (get("save").innerHTML != "Wynik zapisany") {
       if (sarray.length < 9) {
         sarray.push(
           "od <b>" +
@@ -197,9 +191,9 @@ function saveresult() {
             permtime,
         );
         localStorage.setItem("speedrunresults", JSON.stringify(sarray));
-        document.getElementById("save").innerHTML = "Wynik zapisany";
+        get("save").innerHTML = "Wynik zapisany";
       } else {
-        document.getElementById("save").innerHTML =
+        get("save").innerHTML =
           "Za dużo zapisanych wyników, wynik nie zapisany";
       }
     }
@@ -220,32 +214,26 @@ function savedresults() {
   if (time == "00:00" || win == "true") {
     showpopup();
     if (localStorage.speedrunresults || sarray.length != 0) {
-      document.getElementById("lulz").innerHTML = "";
+      get("lulz").innerHTML = "";
       for (let i = 0; i != sarray.length; i++) {
         if (i == 0) {
-          document.getElementById("lulz").innerHTML =
-            "<span>" +
-            sarray[i] +
-            '<button class="button" onclick="deletefromarray(' +
-            i +
-            ')"><b> Usuń wynik</b></button></span>';
+          get("lulz").innerHTML = `<span>${sarray[i]}<button class="button" onclick="deletefromarray('${i}')"><b> Usuń wynik</b></button></span>`;
         } else {
-          document.getElementById("lulz").innerHTML +=
-            "<span><br>" +
-            sarray[i] +
-            '<button class="button" onclick="deletefromarray(' +
-            i +
-            ')"><b> Usuń wynik</b></button></span>';
+          get("lulz").innerHTML += `<span><br>${sarray[i]}<button class="button" onclick="deletefromarray('${i}')"><b> Usuń wynik</b></button></span>`;
         }
       }
     } else {
-      document.getElementById("lulz").innerHTML =
-        "Nie masz żadnych zapisanych wyników";
+      get("lulz").innerHTML = "Nie masz żadnych zapisanych wyników";
     }
-    document.getElementById("button").innerHTML = "Zamknij";
-    document.getElementById("save").style.display = "none";
+    get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("extra", "różne fajne rzeczy");
+    get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("cytaty", "cytaty o życiu");
+    get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("gry/", "fajne gry");
+    get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("kasyno/", "kasyno");
+    get("lulz").innerHTML = get("lulz").innerHTML.replaceAll("system/", "ciekawy system");
+    get("button").innerHTML = "Zamknij";
+    get("save").style.display = "none";
     if (sarray.length == "0") {
-      document.getElementById("lulz").innerHTML =
+      get("lulz").innerHTML =
         "Nie masz żadnych zapisanych wyników";
     }
   }

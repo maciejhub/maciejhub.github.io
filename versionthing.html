@@ -11,36 +11,40 @@
     <style>
         body {
             background-color: transparent;
+            zoom: 100%;
+        }
+
+        .centerenter {
+            text-align: center;
         }
     </style>
   </head>
 <body>
-    <div id="content" class="center">
+    <div id="content" class="centerenter">
         <img id="throbber" src="loading.png" width="64">
-        <h2><div style="display: none;" id="text">Hello</div></h2>
-        <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
-        <button id="last" style="display: none;" class="centerpopupbutton" onclick="lastversion()">Ostatnia wersja</button>
-        <button id="next" style="display: none;" class="centerpopupbutton" onclick="nextversion()">Następna wersja</button>
-        <!--<button id="help" style="display: none;" class="centerpopupbutton" onclick="help_me()">Co znaczą te liczby</button>-->
-    </div>
-    <div id="helpcontent" class="center">
-        <h2><div style="display: none;" id="text">Hello</div></h2>
-        <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
+        <h2><div id="text"></div></h2>
+        <button id="OK" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
+        <button id="last" class="centerpopupbutton" onclick="lastversion()">Ostatnia wersja</button>
+        <button id="next" class="centerpopupbutton" onclick="nextversion()">Następna wersja</button>
+        <button id="help" class="centerpopupbutton" onclick="help_me()">Co znaczą te liczby</button>
+        <button id="back" style="display: none;" class="centerpopupbutton" onclick="go_back()">Wróć</button>
     </div>
     <script>
-    // ", czyli " + versionArray[0] + " duża zmiana, " + versionArray[1] + " mała zmiana, i " + versionArray[2] + "malutka zmiana."
+function get(x) {
+  return document.getElementById(x);
+}
 function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 let versionShowed = 1;
-let content = document.getElementById("content");
-let text = document.getElementById("text");
-let throbber = document.getElementById("throbber");
-let ok = document.getElementById("OK");
-let next = document.getElementById("next");
-let last = document.getElementById("last");
-//let help = document.getElementById("help");
-let helpcontent = document.getElementById("helpcontent")
+let content = get("content");
+let text = get("text");
+let throbber = get("throbber");
+let ok = get("OK");
+let next = get("next");
+let last = get("last");
+let help = get("help");
+let back = get("back")
 let allVersions = ["Error"];
 fetch("versions.json", {
 		cache: 'no-cache'
@@ -57,8 +61,21 @@ function hidetext() {
 	window.parent.postMessage("OK", '*');
 }
 function help_me() {
-  content.style.display = "none";
-  helpcontent.style.display = "inline";
+  next.style.display = "none";
+  last.style.display = "none";
+  help.style.display = "none";
+  text.innerHTML = "1 liczba - ilość dużych zmian, 2 liczba - ilość małych zmian, 3 liczba - ilość malutkich zmian";
+  back.style.display = "inline";
+}
+function go_back() {
+  throbber.style.display = "none";
+  back.style.display = "none";
+  ok.style.display = "inline";
+  text.style.display = "inline";
+  next.style.display = "inline";
+  last.style.display = "inline";
+  help.style.display = "inline";
+  updatetext();
 }
 async function nextversion() {
   versionShowed -= 1;
@@ -94,7 +111,7 @@ async function restOfTheScript() {
     text.style.display = "inline";
     next.style.display = "inline";
     last.style.display = "inline";
-    //help.style.display = "inline";
+    help.style.display = "inline";
     updatetext();
 }
 restOfTheScript();

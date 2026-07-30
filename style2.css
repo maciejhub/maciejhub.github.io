@@ -5,12 +5,24 @@
     font-style: normal;
 }
 
-body {
-    background-color: #222222;
-    color: white;
-    font-family: "Roboto", Arial;
-    vertical-align: middle;
-    margin: 20px;
+@media (orientation: landscape) {
+    body {
+        background-color: #222222;
+        color: white;
+        font-family: "Roboto", Arial;
+        vertical-align: middle;
+        margin: 20px;
+        zoom: 125%;
+    }
+}
+@media (orientation: portrait) {
+    body {
+        background-color: #222222;
+        color: white;
+        font-family: "Roboto", Arial;
+        vertical-align: middle;
+        margin: 20px;
+    }
 }
 
 button {

@@ -6,18 +6,11 @@ function get(x) {
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens)
-if (localStorage.ikonpng) {
+if (!localStorage.ikonpng) {
+  localStorage.setItem("ikonpng", "/ikon.png");
 }
 if (document.getElementById("topthing")) {
-  if (localStorage.ikonpng && document.getElementById("topicon")) {
-    document.getElementById("topthing").innerHTML =
-      "<div class=center><img id='topicon' src='/ikony" +
-      localStorage.ikonpng +
-      "' width=200><hr width='100%' color='#38393f' size='3'><h2 id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
-  } else {
-    document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
-    // witih photo document.getElementById("topthing").innerHTML = "<div class=center><img id='topicon' src='/ikony/ikon.png' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry' href='/gry'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='zdjecia' href='/zdjecia'>Ciekawe zdjęcia</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>";
-  }
+    document.getElementById("topthing").innerHTML = `<div class=center><img id='topicon' src='/ikony${localStorage.ikonpng}' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry/' href='/gry/'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno/' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>`
   if (document.getElementById(path.substring(1, path.length))) {
     document.getElementById(path.substring(1, path.length)).remove();
   } else {

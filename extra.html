@@ -22,18 +22,6 @@
 <meta content="https://maciejhub.github.io/extra" property="og:url" />
 <meta content="https://maciejhub.github.io/ikon.png" property="og:image" />
 <meta content="#222222" data-react-helmet="true" name="theme-color" />
-<style>
-@media (orientation: portrait) {
-    .wallpaper {
-        width: 80%;
-    }
-}
-@media (orientation: landscape) {
-    .wallpaper {
-        width: 250px;
-    }
-}
-</style>
   </head>
 <body>
 <div id="topthing">
@@ -49,48 +37,27 @@
 </div>
     </div>
     <div class="center">
-        <h1><div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div><div style="display: inline-block; font-size: 115%;" id="plus"></div></h1>
+        <h1>
+            <div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div>
+            <div style="display: inline-block; font-size: 115%;" id="plus"></div>
+        </h1>
         <button onclick="showqrs()" class="button"><b>Zobacz kody QR z maciej hub</b></button>
         <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
-      <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
-
-    <!--<h2><button onclick="connect()" id="serwertest" class="button"><b>Połącz z serwerem</b></button></h2>-->
-    <h2>
-    <a href='r/kahoot' target='_blank'>Kahoot</a> i <a href='r/blooket' target='_blank'>Blooket</a> z maciej hub<br><br>
-    <a href="camera">maciej hub gry na kamerze</a><br><br>
-    <a href="speedrun">maciej hub speedrun</a><br><br>
-    <button onclick="showversions()" class="button"><b>Zobacz wszystkie wersja maciej hub</b></button><br><br>
-    <a href="znnhd">zepsuć nokie SIMULATOR HD (nie działają tu misję)</a><br><br>
+        <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
+        <!--<h2><button onclick="connect()" id="serwertest" class="button"><b>Połącz z serwerem</b></button></h2>-->
+        <h2>
+            <a href='r/kahoot' target='_blank'>Kahoot</a> i <a href='r/blooket' target='_blank'>Blooket</a> z maciej hub<br><br>
+            <a href="camera">maciej hub gry na kamerze</a><br><br>
+            <a href="speedrun">maciej hub speedrun</a><br><br>
+            <button onclick="showversions()" class="button"><b>Zobacz wszystkie wersja maciej hub</b></button><br><br>
+            <a href="znnhd">zepsuć nokie SIMULATOR HD (nie działają tu misję)</a><br><br>
+        <a target="_blank" href="https://github.com/maciejhub/maciejhub.github.io">
+            Repo maciej hub na github<br><br>
+        </a>
+        <a href="cytaty">
+            cytaty o życiu (na polski)
+        </a>
     </div>
-    <div class="row">
-<a href="wallpapers/light.png" download="maciej hub tapeta">
-<img class="wallpaper" src="wallpapers/light.png">
-<div class="center">
-<h3 style="margin-left: -50px;">Bardzo fajna tapeta na komputer jasne</h3>
-</div>
-</a>
-<div style="margin-left: 10px;"></div>
-<a href="wallpapers/dark.png" download="maciej hub tapeta">
-<img style="margin-Left: 50px;" class="wallpaper" src="wallpapers/dark.png">
-<div class="center">
-<h3>Bardzo fajna tapeta na komputer ciemne</h3>
-</div>
-</a>
-<div class="center">
-<a href="wallpapers/mobile.png" download="maciej hub tapeta">
-<img class="wallpaper" src="wallpapers/mobile.png">
-<h2>Bardzo fajna tapeta na telefon ciemne</h2>
-</a>
-</div>
-    </div>
-<div class="center">
-<a target="_blank" href="https://github.com/maciejhub/maciejhub.github.io">
-<h2>Repo maciej hub na github</h2>
-</a>
-<a href="cytaty">
-<h2>cytaty o życiu (na polski)<br></h2>
-</a>
-</div>
 <script src="topthingscript.js"></script>
 <script>
 document.getElementById("messagepopup").style.display = "none";

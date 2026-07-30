@@ -116,6 +116,27 @@ const file_system =
             }
           ]
         },
+        {
+          "name": "Tapety",
+          "type": "folder",
+          "contents": [
+            {
+              "name": "Komputer ciemny.png",
+              "type": "file",
+              "contents": "root/zdjecia/tapety/dark.png"
+            },
+            {
+              "name": "Komputer jasny.png",
+              "type": "file",
+              "contents": "root/zdjecia/tapety/light.png"
+            },
+            {
+              "name": "Telefon ciemny.png",
+              "type": "file",
+              "contents": "root/zdjecia/tapety/mobile.png"
+            }
+          ]
+        }
       ]
     },
     {
@@ -244,9 +265,14 @@ const file_system =
           "contents": "root/wazne/money.txt|1. Wejdź na <a href='/'>strone maciej hub</a><br>2. Przeczytaj instrukcję obsługi i idź do <a href='/kasyno'>kasyna</a><br>3. Kręć maszynę<br>4. Wygrywaj (jeżeli nie wygrasz to kręć dalej niedługo wygrasz)"
         },
         {
+          "name": "Ważna liczba.txt",
+          "type": "file",
+          "contents": "root/wazne/number.txt|Liczba do zapamiętania: 112516"
+        },
+        {
           "name": "The Bosses",
           "type": "file",
-          "contents": "custom|root/wazne/bosses.webp|Graj w <a href='https://bosses.page.link/video_pr1'>The Bosses</a>"
+          "contents": "custom|root/wazne/bosses.webp|Graj w <a target=_blank href='https://bosses.page.link/video_pr1'>The Bosses</a>"
         }
       ]
     }
@@ -417,7 +443,7 @@ function renderfile(type, name, link) {
     newfile.querySelector("img").width = 64
     newfile.querySelector("img").height = 64
   } else {
-    if (link.includes(".jpg") || link.includes(".webp") && !link.includes("custom")) {
+    if (link.includes(".jpg") || link.includes(".webp") || link.includes(".png")) {
       format = "image";
     } else if (link.includes(".mp4")) {
       format = "video";
@@ -425,7 +451,8 @@ function renderfile(type, name, link) {
       format = "audio";
     } else if (link.includes("txt")) {
       format = "text";
-    } else {
+    }
+    if (link.includes("custom")) {
       format = "custom";
     }
 

@@ -54,7 +54,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "ikony/premiumikon.png";
+      document.getElementById("topicon").src = "/ikony/premiumikon.png";
     } else {
       document.getElementById("starprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -63,11 +63,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/premiumikon.png");
-      document.getElementById("topicon").src = "ikony/premiumikon.png";
+      document.getElementById("topicon").src = "/ikony/premiumikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "ikony/ikon.png";
+     document.getElementById("topicon").src = "/ikony/ikon.png";
      document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";
    }
   }
@@ -84,7 +84,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "ikony/znikon.png";
+      document.getElementById("topicon").src = "/ikony/znikon.png";
     } else {
       document.getElementById("znikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -93,11 +93,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/znikon.png");
-      document.getElementById("topicon").src = "ikony/znikon.png";
+      document.getElementById("topicon").src = "/ikony/znikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "ikony/ikon.png";
+     document.getElementById("topicon").src = "/ikony/ikon.png";
      document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";
    }
   }
@@ -114,7 +114,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "ikony/rmikon.png";
+      document.getElementById("topicon").src = "/ikony/rmikon.png";
     } else {
       document.getElementById("rmikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -123,11 +123,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/rmikon.png");
-      document.getElementById("topicon").src = "ikony/rmikon.png";
+      document.getElementById("topicon").src = "/ikony/rmikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "ikony/ikon.png";
+     document.getElementById("topicon").src = "/ikony/ikon.png";
      document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
    }
     }
@@ -144,7 +144,7 @@ async function itembuy(item) {
       localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
       await sleep(2000);
       document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "ikony/ogikon.png";
+      document.getElementById("topicon").src = "/ikony/ogikon.png";
     } else {
       document.getElementById("ogikonprice").innerHTML = "Masz za mało tokenów";
       await sleep(1000);
@@ -153,11 +153,11 @@ async function itembuy(item) {
     } else {
       document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
       localStorage.setItem("ikonpng", "/ogikon.png");
-      document.getElementById("topicon").src = "ikony/ogikon.png";
+      document.getElementById("topicon").src = "/ikony/ogikon.png";
     }
    } else {
      localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "ikony/ikon.png";
+     document.getElementById("topicon").src = "/ikony/ikon.png";
      document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
    }
     }
