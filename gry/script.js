@@ -176,37 +176,21 @@ async function checkcode() {
 			correct++;
 		}
 	}
-	if (code == localStorage.lastCodeEntered) {
-		document.getElementById("codecheckbutton").innerText =
-			"Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
-		await sleep(1500);
-		document.getElementById("codecheckbutton").innerText =
-			"Sprawdź kod";
-		return;
-	}
 	if (correct > 2) {
-		document.getElementById("codecheckbutton").innerText =
-			"Poprawny kod! Sprawdź teraz misje w kasynie.";
+		document.getElementById("codecheckbutton").innerText = "Poprawny kod! Sprawdź teraz misje w kasynie.";
 		localStorage.setItem("lastCodeEntered", code);
-		localStorage.setItem(
-			"quest",
-			localStorage.quest.replace("n", "c"),
-		);
+		localStorage.setItem("quest", localStorage.quest.replace("n", "c"));
 		await sleep(1500);
 		hidepopup();
 		document.getElementById("codeenter").style.display = "none";
 	} else if (code == localStorage.lastCodeEntered) {
-		document.getElementById("codecheckbutton").innerText =
-			"Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
+		document.getElementById("codecheckbutton").innerText = "Kod nie może być taki sam jak ostatnio. Wygeneruj nowy";
 		await sleep(1500);
-		document.getElementById("codecheckbutton").innerText =
-			"Sprawdź kod";
+		document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
 	} else {
-		document.getElementById("codecheckbutton").innerText =
-			"Nie poprawny kod. Wygeneruj nowy. Jeżeli dalej nie działa, spróbuj nowy kod za godzinę";
+		document.getElementById("codecheckbutton").innerText = "Nie poprawny kod. Wygeneruj nowy. Jeżeli dalej nie działa, spróbuj nowy kod za godzinę";
 		await sleep(1500);
-		document.getElementById("codecheckbutton").innerText =
-			"Sprawdź kod";
+		document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
 	}
 }
 

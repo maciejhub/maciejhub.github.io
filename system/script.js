@@ -189,6 +189,22 @@ const file_system =
               "contents": "root/wideo/gry/skibidi.mp4"
             }
           ]
+        },
+        {
+          "name": "Medie społeczne",
+          "type": "folder",
+          "contents": [
+            {
+              "name": "Krótkie 1.mp4",
+              "type": "file",
+              "contents": "root/wideo/media/1.mp4"
+            }
+          ]
+        },
+        {
+          "name": "Instrukcja.webp",
+          "type": "file",
+          "contents": "root/wideo/instrukcja.webp"
         }
       ]
     },
@@ -456,7 +472,7 @@ function renderfile(type, name, link) {
       format = "custom";
     }
 
-    if (format == "image") {
+    if (format == "image" && !link.includes("instrukcja.webp")) {
       newfile.querySelector("img").src = `${link}`;
       newfile.querySelector("img").style.display = "none";
       newfile.querySelector("img").addEventListener("load", function () {
@@ -467,6 +483,10 @@ function renderfile(type, name, link) {
       });
     } else if (format == "custom") {
       newfile.querySelector("img").src = link.split("|")[1];
+      newfile.querySelector("img").width = 64
+      newfile.querySelector("img").height = 64
+    } else if (link.includes("instrukcja.webp")) {
+      newfile.querySelector("img").src = `video.png`;
       newfile.querySelector("img").width = 64
       newfile.querySelector("img").height = 64
     } else {
