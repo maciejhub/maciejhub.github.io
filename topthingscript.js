@@ -3,6 +3,14 @@
 function get(x) {
   return document.getElementById(x);
 }
+
+document.querySelectorAll("iframe").forEach(function (iframe) {
+  if (iframe.src.includes("bottomthing")) {
+    iframe.height = iframe.scrollHeight + 75;
+    iframe.style.overflow = "hidden";
+  }
+});
+
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens)
