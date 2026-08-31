@@ -6,8 +6,9 @@ function get(x) {
 
 document.querySelectorAll("iframe").forEach(function (iframe) {
   if (iframe.src.includes("bottomthing")) {
-    iframe.height = iframe.scrollHeight + 75;
+    iframe.height = iframe.scrollHeight + 150;
     iframe.style.overflow = "hidden";
+    iframe.scrollable = "no";
   }
 });
 

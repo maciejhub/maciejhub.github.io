@@ -198,6 +198,16 @@ const file_system =
               "name": "Krótkie 1.mp4",
               "type": "file",
               "contents": "root/wideo/media/1.mp4"
+            },
+            {
+              "name": "Krótkie 2.mp4",
+              "type": "file",
+              "contents": "root/wideo/media/2.mp4"
+            },
+            {
+              "name": "Krótkie 3.mp4",
+              "type": "file",
+              "contents": "root/wideo/media/3.mp4"
             }
           ]
         },
