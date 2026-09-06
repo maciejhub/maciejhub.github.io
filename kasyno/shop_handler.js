@@ -1,211 +1,152 @@
-document.getElementById("goldicon").style.display = "none";
+
 if (!localStorage.boughtItems) {
-localStorage.setItem("boughtItems", "[\"none\"]")
+	localStorage.setItem("boughtItems", "[\"none\"]")
 }
-if (JSON.parse(localStorage.boughtItems).includes("star")) {
-if (localStorage.ikonpng == "/premiumikon.png") {
-document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
-} else {
-document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";
-}
-}
-if (JSON.parse(localStorage.boughtItems).includes("gold")) {
-document.getElementById("goldprice").innerHTML = "Kupione";
-} else {
-document.getElementById("goldprice").innerHTML = "25 tokenów";
-}
-if (JSON.parse(localStorage.boughtItems).includes("gmac")) {
-document.getElementById("maciejprice").innerHTML = "Kupione";
-} else {
-document.getElementById("maciejprice").innerHTML = "25 tokenów";
-}
-if (JSON.parse(localStorage.boughtItems).includes("znikon")) {
-if (localStorage.ikonpng == "/znikon.png") {
-document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
-} else {
-document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";
-}
-}
-if (JSON.parse(localStorage.boughtItems).includes("rmikon")) {
-if (localStorage.ikonpng == "/rmikon.png") {
-document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
-} else {
-document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
-}
-}
-if (JSON.parse(localStorage.boughtItems).includes("ogikon")) {
-if (localStorage.ikonpng == "/ogikon.png") {
-document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
-} else {
-document.getElementById("ogikonprice").innerHTML = "Kliknij aby zacząć używać";
-}
+const ikons = {
+  "stuff": [
+    {
+      "id": "star",
+      "name": "Ikon z gwiazdką",
+      "icon": "/ikony/star.png",
+      "price": "75",
+      "type": "ikon"
+    },
+    {
+      "id": "bdikon",
+      "name": "Ikon z okazji pierwszej rocznicy maciej hub",
+      "icon": "/ikony/bdikon.png",
+      "price": "25",
+      "type": "ikon"
+    },
+    {
+      "id": "znikon",
+      "name": "Ikon z tłem gier zepsuć nokie",
+      "icon": "/ikony/znikon.png",
+      "price": "10",
+      "type": "ikon"
+    },
+    {
+      "id": "rmikon",
+      "name": "Ikon z tłem rzucać mandarynki do kibla: the gra",
+      "icon": "/ikony/rmikon.png",
+      "price": "20",
+      "type": "ikon"
+    },
+    {
+      "id": "ogikon",
+      "name": "Ikon z tłem oryginalnego zdjęcia",
+      "icon": "/ikony/ogikon.png",
+      "price": "15",
+      "type": "ikon"
+    },
+    {
+      "id": "randomikon",
+      "name": "Zawsze losowy ikon od tych kupionych",
+      "icon": "sklepzdjecia/dice.png",
+      "price": "5",
+      "type": "ikon"
+    },
+    {
+      "id": "gmac",
+      "name": "Złoty maciej w maciej clicker",
+      "icon": "sklepzdjecia/goldmaciej.png",
+      "price": "25",
+      "type": "game_upgrade"
+    },
+    {
+      "id": "gold",
+      "name": "Złota nokia w zepsuć nokie simulator",
+      "icon": "sklepzdjecia/goldnokia.png",
+      "price": "25",
+      "type": "game_upgrade"
+    },
+  ]
 }
 
-async function itembuy(item) {
-  if (item == "star") {
-   if (localStorage.ikonpng != "/premiumikon.png") {
-     if (JSON.parse(localStorage.boughtItems).includes("star") == false) {
-    if (tokens > 74) {
-      tokens = tokens - 75;
-      document.getElementById("starprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
-      localStorage.setItem("ikonpng", "/premiumikon.png");
-      const itemsbought = JSON.parse(localStorage.boughtItems);
-      itemsbought.push("star");
-      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-      await sleep(2000);
-      document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/ikony/premiumikon.png";
-    } else {
-      document.getElementById("starprice").innerHTML = "Masz za mało tokenów";
-      await sleep(1000);
-      document.getElementById("starprice").innerHTML = "100 tokenów";
-    }
-    } else {
-      document.getElementById("starprice").innerHTML = "Kliknij aby przestać używać";
-      localStorage.setItem("ikonpng", "/premiumikon.png");
-      document.getElementById("topicon").src = "/ikony/premiumikon.png";
-    }
-   } else {
-     localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikony/ikon.png";
-     document.getElementById("starprice").innerHTML = "Kliknij aby zacząć używać";
-   }
-  }
+const boughtItems = JSON.parse(localStorage.boughtItems);
+const update_price_text = new Event('updatePriceText');
 
-    if (item == "znikon") {
-   if (localStorage.ikonpng != "/znikon.png") {
-     if (JSON.parse(localStorage.boughtItems).includes("znikon") == false) {
-    if (tokens > 9) {
-      tokens = tokens - 10;
-      document.getElementById("znikonprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
-      localStorage.setItem("ikonpng", "/znikon.png");
-      const itemsbought = JSON.parse(localStorage.boughtItems);
-      itemsbought.push("znikon");
-      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-      await sleep(2000);
-      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/ikony/znikon.png";
-    } else {
-      document.getElementById("znikonprice").innerHTML = "Masz za mało tokenów";
-      await sleep(1000);
-      document.getElementById("znikonprice").innerHTML = "10 tokenów";
-    }
-    } else {
-      document.getElementById("znikonprice").innerHTML = "Kliknij aby przestać używać";
-      localStorage.setItem("ikonpng", "/znikon.png");
-      document.getElementById("topicon").src = "/ikony/znikon.png";
-    }
-   } else {
-     localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikony/ikon.png";
-     document.getElementById("znikonprice").innerHTML = "Kliknij aby zacząć używać";
-   }
-  }
-
-    if (item == "rmikon") {
-   if (localStorage.ikonpng != "/rmikon.png") {
-     if (JSON.parse(localStorage.boughtItems).includes("rmikon") == false) {
-    if (tokens > 19) {
-      tokens = tokens - 20;
-      document.getElementById("rmikonprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
-      localStorage.setItem("ikonpng", "/rmikon.png");
-      const itemsbought = JSON.parse(localStorage.boughtItems);
-      itemsbought.push("rmikon");
-      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-      await sleep(2000);
-      document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/ikony/rmikon.png";
-    } else {
-      document.getElementById("rmikonprice").innerHTML = "Masz za mało tokenów";
-      await sleep(1000);
-      document.getElementById("rmikonprice").innerHTML = "20 tokenów";
-    }
-    } else {
-      document.getElementById("rmikonprice").innerHTML = "Kliknij aby przestać używać";
-      localStorage.setItem("ikonpng", "/rmikon.png");
-      document.getElementById("topicon").src = "/ikony/rmikon.png";
-    }
-   } else {
-     localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikony/ikon.png";
-     document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
-   }
-    }
-
-    if (item == "ogikon") {
-   if (localStorage.ikonpng != "/ogikon.png") {
-     if (JSON.parse(localStorage.boughtItems).includes("ogikon") == false) {
-    if (tokens > 14) {
-      tokens = tokens - 15;
-      document.getElementById("ogikonprice").innerHTML = "Kupione, możliwe że od razu się nie pokaże wszędzie";
-      localStorage.setItem("ikonpng", "/ogikon.png");
-      const itemsbought = JSON.parse(localStorage.boughtItems);
-      itemsbought.push("ogikon");
-      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-      await sleep(2000);
-      document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
-      document.getElementById("topicon").src = "/ikony/ogikon.png";
-    } else {
-      document.getElementById("ogikonprice").innerHTML = "Masz za mało tokenów";
-      await sleep(1000);
-      document.getElementById("ogikonprice").innerHTML = "20 tokenów";
-    }
-    } else {
-      document.getElementById("ogikonprice").innerHTML = "Kliknij aby przestać używać";
-      localStorage.setItem("ikonpng", "/ogikon.png");
-      document.getElementById("topicon").src = "/ikony/ogikon.png";
-    }
-   } else {
-     localStorage.setItem("ikonpng", "/ikon.png");
-     document.getElementById("topicon").src = "/ikony/ikon.png";
-     document.getElementById("rmikonprice").innerHTML = "Kliknij aby zacząć używać";
-   }
-    }
-
-    if (item == "gold") {
-      if (JSON.parse(localStorage.boughtItems).includes("gold") == false) {
-        if (tokens > 24) {
-          tokens = tokens - 25;
-          document.getElementById("goldprice").innerHTML = "Kupione, możliwe że nie pokaże się odrazu w grze";
-          const itemsbought = JSON.parse(localStorage.boughtItems);
-          itemsbought.push("gold");
-          localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-          await sleep(2000);
-          document.getElementById("goldprice").innerHTML = "Kupione";
+async function show_items() {
+  ikons["stuff"].forEach(function (info) {
+    let item = get("shop_item").cloneNode(true);
+    let stuff_inside = item.querySelector("div")
+    let price_text = stuff_inside.querySelectorAll("button")[1].querySelector("b")
+    stuff_inside.style.display = "flex";
+    stuff_inside.style.marginRight = "30px";
+    stuff_inside.querySelector("button").querySelector("img").src = info["icon"];
+    stuff_inside.querySelector("button").querySelector("div").innerText = info["name"];
+    if (boughtItems.includes(info["id"])) {
+      if (info["type"] == "ikon") {
+        if (localStorage.ikonpng.includes(info["id"])) {
+          price_text.innerText = "Kliknij aby przestać używać";
         } else {
-          document.getElementById("goldprice").innerHTML = "Masz za mało tokenów";
-          await sleep(1000);
-          document.getElementById("goldprice").innerHTML = "25 tokenów";
+          price_text.innerText = "Kliknij aby zacząć używać";
         }
+      } else {
+        price_text.innerText = `Kupione`;
       }
-    }
-
-    if (item == "goldmaciej") {
-      if (JSON.parse(localStorage.boughtItems).includes("gmac") == false) {
-    if (tokens > 24) {
-      tokens = tokens - 25;
-      document.getElementById("maciejprice").innerHTML = "Kupione, możliwe że nie pokaże się odrazu w grze";
-      const itemsbought = JSON.parse(localStorage.boughtItems);
-      itemsbought.push("gmac");
-      localStorage.setItem("boughtItems", JSON.stringify(itemsbought));
-      await sleep(2000);
-      document.getElementById("maciejprice").innerHTML = "Kupione";
     } else {
-      document.getElementById("maciejprice").innerHTML = "Masz za mało tokenów";
-      await sleep(1000);
-      document.getElementById("maciejprice").innerHTML = "25 tokenów";
+      price_text.innerText = `${info["price"]} tokenów`;
     }
-    }
-    }
+    document.addEventListener("updatePriceText", function (ignore) {
+      if (info["type"] !== "ikon" || info["id"] == ignore.ignore || !boughtItems.includes(info["id"])) {
+        return;
+      }
+      price_text.innerText = "Kliknij aby zacząć używać";
+    });
+    get("shop").querySelector("div").appendChild(item);
+    item.addEventListener("click", async function () {
+      // console.log("div + click = welcome to event listener brother 💀")
+      if (boughtItems.includes(info["id"])) {
+        if (info["type"] == "ikon") {
+          if (localStorage.ikonpng.includes(info["id"])) {
+            localStorage.setItem("ikonpng", "/ikon.png");
+            get("topicon").src = `/ikony/ikon.png`
+            price_text.innerText = "Kliknij aby zacząć używać";
+            update_price_text.ignore = info["id"]
+            document.dispatchEvent(update_price_text);
+          } else {
+            localStorage.setItem("ikonpng", `/${info["id"]}.png`);
+            get("topicon").src = `/ikony/${info["id"]}.png`
+            price_text.innerText = "Kliknij aby przestać używać";
+            update_price_text.ignore = info["id"]
+            document.dispatchEvent(update_price_text);
+          }
+        }
+        return;
+      }
+      if (tokens >= Number(info["price"])) {
+        boughtItems.push(info["id"]);
+        localStorage.setItem("boughtItems", JSON.stringify(boughtItems));
+        if (info["type"] == "ikon") {
+          localStorage.setItem("ikonpng", `/${info["id"]}.png`);
+          get("topicon").src = `/ikony/${info["id"]}.png`
+        }
+        tokens -= Number(info["price"]);
+        price_text.innerText = "Kupione, możliwe że nie zadziała od razu";
+        await sleep(1000);
+        if (info["type"] == "ikon") {
+          update_price_text.ignore = info["id"]
+          document.dispatchEvent(update_price_text);
+          price_text.innerText = "Kliknij aby przestać używać";
+        } else {
+          price_text.innerText = "Kupione";
+        }
+      } else {
+        price_text.innerText = "Masz za mało tokenów";
+        await sleep(1000);
+        price_text.innerText = `${info["price"]} tokenów`;
+      }
+    });
+  });
 }
+
+show_items();
 
 function openshop() {
-  if (animationhappening == false) {
-    showpopup();
-    document.getElementById("premiumicon").style.display = "initial";
-    document.getElementById("goldicon").style.display = "initial";
-    document.getElementById("goldmac").style.display = "initial";
+	if (animationhappening == false) {
+		showpopup();
     document.getElementById("shop").style.display = "initial";
-    document.getElementById("popuptext").innerHTML = "SKLEP<br>";
-  }
+		document.getElementById("popuptext").innerHTML = "SKLEP<br><br>";
+	}
 }

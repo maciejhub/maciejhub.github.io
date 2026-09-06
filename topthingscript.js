@@ -6,7 +6,7 @@ function get(x) {
 
 document.querySelectorAll("iframe").forEach(function (iframe) {
   if (iframe.src.includes("bottomthing")) {
-    iframe.height = iframe.scrollHeight + 150;
+    iframe.height = iframe.scrollHeight;
     iframe.style.overflow = "hidden";
     iframe.scrollable = "no";
   }
@@ -18,8 +18,22 @@ let tokens2 = parseInt(localStorage.casinoTokens)
 if (!localStorage.ikonpng) {
   localStorage.setItem("ikonpng", "/ikon.png");
 }
+if (localStorage.ikonpng == "/premiumikon.png") {
+  localStorage.setItem("ikonpng", "/starikon.png")
+}
+let icon = localStorage.ikonpng
+if (localStorage.ikonpng == "/randomikon.png") {
+  let icons = ["ogikon", "rmikon", "star", "znikon", "bdikon"]
+  icons.forEach(function (icon) {
+    if (!localStorage.boughtItems.includes(icon)) {
+      icons.splice(icons.indexOf(icon), 1)
+    }
+  });
+  console.log(icons)
+  icon = `/${icons[Math.floor(Math.random() * icons.length)]}.png`;
+}
 if (document.getElementById("topthing")) {
-    document.getElementById("topthing").innerHTML = `<div class=center><img id='topicon' src='/ikony${localStorage.ikonpng}' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry/' href='/gry/'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno/' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>`
+    document.getElementById("topthing").innerHTML = `<div class=center><img id='topicon' src='/ikony${icon}' width=200><hr width='100%' color='#38393f' size='3'><h2><div id='topthingthings'><a style='margin-left: 7px;' id='wiersz' href='/wiersz'>Wiersz</a><a style='margin-left: 7px;' id='extra' href='/extra'>Różne fajne rzeczy</a><a style='margin-left: 7px;' id='gry/' href='/gry/'>Fajne gry</a><a style='margin-left: 7px;' id='kasyno/' href='/kasyno'>Kasyno</a><a style='margin-left: 7px;' id='system/' href='/system/'>Ciekawy system</a></div><hr width='100%;' color='#38393f' size='3'><i style='color:gray;'> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>`
   if (document.getElementById(path.substring(1, path.length))) {
     document.getElementById(path.substring(1, path.length)).remove();
   } else {

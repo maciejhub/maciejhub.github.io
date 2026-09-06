@@ -14,18 +14,14 @@ function showpopup() {
 function hidepopup() {
   get("popuptext").innerText = ""
   get("popup").style.display = "none";
-  get("premiumicon").style.display = "none";
-  get("goldicon").style.display = "none";
-  get("goldmac").style.display = "none";
   get("shop").style.display = "none";
-  get("questpopup").style.display = "none";
   get("helppopup").style.display = "none";
+  get("questpopup").style.display = "none";
 }
 
 hidepopup();
 
 
-document.getElementById("premiumicon").style.display = "none";
 function sleep(ms) { // stolen
     return new Promise(resolve => setTimeout(resolve, ms));
 }
