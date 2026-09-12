@@ -408,6 +408,7 @@ img.custom:active {
     font-size: 20px;
     color: #ffffff;
     border: 7px solid #191919;
+    z-index: 2;
     bottom: 20px;
     cursor: pointer;
 }

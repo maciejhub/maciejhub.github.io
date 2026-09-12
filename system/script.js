@@ -5,306 +5,6 @@ let directory = "/"
 function get(element) {
    return document.getElementById(element)
 }
-const file_system =
-{
-  "name": "/",
-  "contents": [
-    {
-      "name": "Zdjecia",
-      "type": "folder",
-      "contents": [
-        {
-          "name": "Ciekawe",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Wycieczka.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/autokar.jpg"
-            },
-            {
-              "name": "Michaszek.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/michaszek.jpg"
-            },
-            {
-              "name": "Nokia w niebie.webp",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/nokia.webp"
-            },
-            {
-              "name": "Do widzenia.webp",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/pou.webp"
-            },
-            {
-              "name": "Obiad w szkole.webp",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/banan.webp"
-            },
-            {
-              "name": "Lekcja matematyki.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/kalkulator.jpg"
-            },
-            {
-              "name": "Najlepsze zdjęcie.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/maciej.jpg"
-            },
-            {
-              "name": "Ej, myślisz że trafię?.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/ciekawe/sloik.jpg"
-            },
-          ]
-        },
-        {
-          "name": "Gry",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Logo",
-              "type": "folder",
-              "contents": [
-                {
-                  "name": "maciej clicker.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/maciej.jpg"
-                },
-                {
-                  "name": "skibidi toilet or creeper: the gra.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/skibidi.jpg"
-                },
-                {
-                  "name": "zepsuć nokie gry.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/nokia.jpg"
-                },
-                {
-                  "name": "rzucać mandarynki do kibla: THE GRA.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/mandarynki.jpg"
-                },
-                {
-                  "name": "asmr bułka: THE GRA.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/asmr.jpg"
-                },
-                {
-                  "name": "censored KART.jpg",
-                  "type": "file",
-                  "contents": "root/zdjecia/gry/logo/kart.jpg"
-                }
-              ]
-            },
-            {
-              "name": "zepsuć nokie tło.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/gry/nokia.jpg"
-            },
-            {
-              "name": "rzucać mandarynki tło.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/gry/mandarynki.jpg"
-            },
-            {
-              "name": "bułka.jpg",
-              "type": "file",
-              "contents": "root/zdjecia/gry/bulka.jpg"
-            }
-          ]
-        },
-        {
-          "name": "Tapety",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Komputer ciemny.png",
-              "type": "file",
-              "contents": "root/zdjecia/tapety/dark.png"
-            },
-            {
-              "name": "Komputer jasny.png",
-              "type": "file",
-              "contents": "root/zdjecia/tapety/light.png"
-            },
-            {
-              "name": "Telefon ciemny.png",
-              "type": "file",
-              "contents": "root/zdjecia/tapety/mobile.png"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Wideo",
-      "type": "folder",
-      "contents": [
-        {
-          "name": "Motywacja",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Kasyno 1.mp4",
-              "type": "file",
-              "contents": "root/wideo/motywacja/lebron1.mp4"
-            },
-            {
-              "name": "Kasyno 2.mp4",
-              "type": "file",
-              "contents": "root/wideo/motywacja/lebron2.mp4"
-            },
-            {
-              "name": "Kasyno 3.mp4",
-              "type": "file",
-              "contents": "root/wideo/motywacja/lebron3.mp4"
-            },
-            {
-              "name": "Kasyno 4.mp4",
-              "type": "file",
-              "contents": "root/wideo/motywacja/lebron4.mp4"
-            }
-          ]
-        },
-        {
-          "name": "Gry",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "asmr bułka.mp4",
-              "type": "file",
-              "contents": "root/wideo/gry/asmr.mp4"
-            },
-            {
-              "name": "nie wiem co to.mp4",
-              "type": "file",
-              "contents": "root/wideo/gry/nwm.mp4"
-            },
-            {
-              "name": "skibidi toilet or creeper.mp4",
-              "type": "file",
-              "contents": "root/wideo/gry/skibidi.mp4"
-            }
-          ]
-        },
-        {
-          "name": "Medie społeczne",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Krótkie 1.mp4",
-              "type": "file",
-              "contents": "root/wideo/media/1.mp4"
-            },
-            {
-              "name": "Krótkie 2.mp4",
-              "type": "file",
-              "contents": "root/wideo/media/2.mp4"
-            },
-            {
-              "name": "Krótkie 3.mp4",
-              "type": "file",
-              "contents": "root/wideo/media/3.mp4"
-            }
-          ]
-        },
-        {
-          "name": "Instrukcja.webp",
-          "type": "file",
-          "contents": "root/wideo/instrukcja.webp"
-        }
-      ]
-    },
-    {
-      "name": "Audio",
-      "type": "folder",
-      "contents": [
-        {
-          "name": "Gry",
-          "type": "folder",
-          "contents": [
-            {
-              "name": "Muzyka",
-              "type": "folder",
-              "contents": [
-                {
-                  "name": "zepsuć nokie SIMULATOR gra (Flying Gorilla).wav",
-                  "type": "file",
-                  "contents": "root/audio/gry/muzyka/flying.wav"
-                },
-                {
-                  "name": "zepsuć nokie SIMULATOR sklep (Flying Gorilla stary menu).wav",
-                  "type": "file",
-                  "contents": "root/audio/gry/muzyka/gorilla.wav"
-                },
-                {
-                  "name": "maciej clicker (Amanda - Aisha Duo).mp3",
-                  "type": "file",
-                  "contents": "root/audio/gry/muzyka/maciej.mp3"
-                },
-                {
-                  "name": "censored KART menu (Wii Play menu).mp3",
-                  "type": "file",
-                  "contents": "root/audio/gry/muzyka/play.mp3"
-                },
-                {
-                  "name": "asmr bułka: the gra menu (Tetris 99 menu).mp3",
-                  "type": "file",
-                  "contents": "root/audio/gry/muzyka/tetris.wav"
-                }
-              ]
-            },
-            {
-              "name": "Wygrałeś.wav",
-              "type": "file",
-              "contents": "root/audio/gry/wygrales.wav"
-            },
-            {
-              "name": "Zginąłeś.wav",
-              "type": "file",
-              "contents": "root/audio/gry/zginales.wav"
-            },
-            {
-              "name": "Mystery box.wav",
-              "type": "file",
-              "contents": "root/audio/gry/mystery.wav"
-            },
-            {
-              "name": "Mandarynki.wav",
-              "type": "file",
-              "contents": "root/audio/gry/mandarynki.wav"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Ważne",
-      "type": "folder",
-      "contents": [
-        {
-          "name": "Jak zarabiać kasę.txt",
-          "type": "file",
-          "contents": "root/wazne/money.txt|1. Wejdź na <a href='/'>strone maciej hub</a><br>2. Przeczytaj instrukcję obsługi i idź do <a href='/kasyno'>kasyna</a><br>3. Kręć maszynę<br>4. Wygrywaj (jeżeli nie wygrasz to kręć dalej niedługo wygrasz)"
-        },
-        {
-          "name": "Ważna liczba.txt",
-          "type": "file",
-          "contents": "root/wazne/number.txt|Liczba do zapamiętania: 112516"
-        },
-        {
-          "name": "The Bosses",
-          "type": "file",
-          "contents": "custom|root/wazne/bosses.webp|Graj w <a target=_blank href='https://bosses.page.link/video_pr1'>The Bosses</a>"
-        }
-      ]
-    }
-  ]
-}
-
 
 async function renderdirectory(path) {
   await sleep(50);
@@ -364,13 +64,12 @@ function format_time(time) {
   return `${minutes}:${seconds}`;
 }
 
-function audio_player_stuff(link, popupnumber) {
-  let player = get("audio_player");
+function audio_player_stuff(audio, popupnumber) {
+  let player = get("gay_gay_gay").cloneNode(true);
+  let time_text = player.querySelectorAll("div")[2]
   get(`popup_content${popupnumber}`).appendChild(player);
-  get("progress_bar").style.width = "0px";
-  get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
-  audio = new Audio(link);
-  player.style.display = "flex";
+  player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+  player.querySelector("div").style.display = "flex";
   let duration = 0;
   let formatted_duration = "00:00";
   audio.onloadedmetadata = function() {
@@ -378,34 +77,31 @@ function audio_player_stuff(link, popupnumber) {
     if (duration.length == 1) {
       duration = `0${duration}`
     }
-    get("kill_everyone").innerText = `00:00 / ${formatted_duration}`;
+    time_text.innerText = `00:00 / ${formatted_duration}`;
   };
-  get("kill_everyone").innerText = `00:00 / 00:00`;
+  time_text.innerText = `00:00 / 00:00`;
   const clicked_func = () => {
     if (player.parentElement.id !== `popup_content${popupnumber}`) {
       return;
     }
     if (!audio.paused) {
       audio.pause();
-      get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+      player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
     } else {
       player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" fill="white"/></svg>';
       audio.play();
     }
   }
   const timeupdate_func = () => {
-    if (player.parentElement.id !== `popup_content${popupnumber}`) {
-      return;
-    }
     let current_time = Math.round(audio.currentTime).toString();
     if (current_time.length == 1) {
       current_time = `0${current_time}`
     }
     let formatted_time = format_time(current_time);
-    get("kill_everyone").innerText = `${formatted_time} / ${format_time(duration)}`;
-    get("progress_bar").style.width = `${(100 / duration) * Number(current_time)}px`;
+    time_text.innerText = `${formatted_time} / ${format_time(duration)}`;
+    player.querySelectorAll("div")[4].style.width = `${(100 / duration) * Number(current_time)}px`;
     if (audio.paused) {
-      get("audio_player").querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+      player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="30" height="30"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
     }
   }
 
@@ -413,6 +109,60 @@ function audio_player_stuff(link, popupnumber) {
   player.addEventListener("click", clicked_func);
   remove_listeners(audio, player, popupnumber, timeupdate_func, clicked_func);
   clicked_func();
+}
+
+function video_player_stuff(link, popupnumber) {
+  let player = get("video_player_top").cloneNode(true);
+  console.log(player)
+  get(`popup_content${popupnumber}`).appendChild(player);
+  player.style.display = "flex";
+  let video = player.querySelector("video");
+  video.src = link;
+  let progress_width = 0
+  video.onloadedmetadata = function() {
+    duration = Math.round(video.duration).toString();
+    if (duration.length == 1) {
+      duration = `0${duration}`
+    }
+    if (video.clientWidth > video.clientHeight) {
+      player.querySelector("video").style.maxWidth = "110%";
+    } else {
+      player.querySelector("video").style.maxWidth = "70%";
+    }
+
+    console.log(`${video.clientWidth}x${video.clientHeight}`)
+    let video_width = player.querySelector("video").clientWidth
+    if (video_width < 230) {
+      video_width = 230;
+    }
+    player.querySelector("div").style.width = `${video_width + 2}px`;
+    player.querySelectorAll("div")[4].style.width = `${video_width + 30}px`;
+    progress_width = (player.querySelector("div").clientWidth - (player.querySelector("button").clientWidth + player.querySelectorAll("div")[1].clientWidth)) - 40
+    player.querySelectorAll("div")[1].innerText = `00:00 / 00:${duration}`;
+    player.querySelectorAll("div")[2].style.width = `${progress_width}px`
+  };
+  video.addEventListener("timeupdate", function () {
+    let current_time = Math.round(video.currentTime).toString();
+    if (current_time.length == 1) {
+      current_time = `0${current_time}`
+    }
+    let formatted_time = format_time(current_time);
+    player.querySelectorAll("div")[1].innerText = `${formatted_time} / ${format_time(duration)}`;
+    player.querySelectorAll("div")[3].style.width = `${(progress_width / duration) * Number(current_time)}px`;
+    if (video.paused) {
+      player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="22" height="22"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+    }
+  });
+  player.querySelector("button").addEventListener("click", function () {
+    if (!video.paused) {
+      video.pause();
+      player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="22" height="22"><path fill="white" d="M187.2 100.9C174.8 94.1 159.8 94.4 147.6 101.6C135.4 108.8 128 121.9 128 136L128 504C128 518.1 135.5 531.2 147.6 538.4C159.7 545.6 174.8 545.9 187.2 539.1L523.2 355.1C536 348.1 544 334.6 544 320C544 305.4 536 291.9 523.2 284.9L187.2 100.9z"/></svg>';
+    } else {
+      player.querySelector("button").innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M176 96C149.5 96 128 117.5 128 144L128 496C128 522.5 149.5 544 176 544L240 544C266.5 544 288 522.5 288 496L288 144C288 117.5 266.5 96 240 96L176 96zM400 96C373.5 96 352 117.5 352 144L352 496C352 522.5 373.5 544 400 544L464 544C490.5 544 512 522.5 512 496L512 144C512 117.5 490.5 96 464 96L400 96z" fill="white"/></svg>';
+      video.play();
+    }
+  });
+  video.play()
 }
 
 function download(link, name) {
@@ -430,19 +180,21 @@ function download(link, name) {
 function createmediapopup(type, link, name) {
   let popupnumber;
   console.log(`Creating ${type} from ${link}`);
-  const download_button = "<button class='centerpopupbutton'>Pobierz</button>"
+  const download_button = "<button style='z-index: 2;' class='centerpopupbutton'>Pobierz</button>"
   if (type == "image") {
     popupnumber = createnewpopup("mediapopup", `<img src=${link} style="max-width: 40vw; max-height: 40vh"/>`, download_button);
     get(`popup_content${popupnumber}`).parentElement.parentElement.width = `${get(`popup_content${popupnumber}`).querySelector("img").clientWidth}px`;
   } else if (type == "video") {
-    popupnumber = createnewpopup("mediapopup", `<video src=${link} style="margin-bottom: -24px; max-width: 45vw; max-height: 55vh" controls autoplay></video>`, download_button);
+    popupnumber = createnewpopup("mediapopup", ``, download_button);
+    video_player_stuff(link, popupnumber)
   } else if (type == "text") {
     popupnumber = createnewpopup("mediapopup", link.split("|")[1], download_button);
   } else if (type == "custom") {
     popupnumber = createnewpopup("mediapopup", link.split("|")[2], "");
   } else if (type == "audio") {
-    popupnumber = createnewpopup("mediapopup", "", download_button, true);
-    audio_player_stuff(link, popupnumber)
+    let audio = new Audio(link);
+    popupnumber = createnewpopup("mediapopup", "", download_button, audio);
+    audio_player_stuff(audio, popupnumber)
   }
   if (type !== "custom") {
     get(`secondpopupbutton${popupnumber}`).querySelector("button").onclick = () => download(link, name);
