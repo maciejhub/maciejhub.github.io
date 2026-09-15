@@ -199,6 +199,10 @@ function createmediapopup(type, link, name) {
   if (type !== "custom") {
     get(`secondpopupbutton${popupnumber}`).querySelector("button").onclick = () => download(link, name);
   }
+  if (name == "maciej chat") {
+    chat_open = false;
+    detectMicInput();
+  }
   return popupnumber
 }
 

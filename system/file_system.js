@@ -266,10 +266,40 @@ const file_system =
               "contents": "root/audio/gry/mystery.wav"
             },
             {
+              "name": "Rozbiłem nokie.wav",
+              "type": "file",
+              "contents": "root/audio/gry/rozbilem.wav"
+            },
+            {
               "name": "Mandarynki.wav",
               "type": "file",
               "contents": "root/audio/gry/mandarynki.wav"
-            }
+            },
+            {
+              "name": "Nieznany głos.wav",
+              "type": "file",
+              "contents": "root/audio/gry/nieznane.wav"
+            },
+            {
+              "name": "Asmr mystery box.wav",
+              "type": "file",
+              "contents": "root/audio/gry/asmr.wav"
+            },
+            {
+              "name": "O moj boźe to lata.wav",
+              "type": "file",
+              "contents": "root/audio/gry/lata.wav"
+            },
+            {
+              "name": "Mandarynki 2.wav",
+              "type": "file",
+              "contents": "root/audio/gry/mandarynki2.wav"
+            },
+            {
+              "name": "Najważniejsza rzecz.wav",
+              "type": "file",
+              "contents": "root/audio/gry/najwazniejsza.wav"
+            },
           ]
         }
       ]
@@ -279,6 +309,16 @@ const file_system =
       "type": "folder",
       "contents": [
         {
+          "name": "maciej chat",
+          "type": "file",
+          "contents": "custom|/ikony/ikon.png|<div class='maciej_box'><img id='maciej_chat' src='/misc_images/maciej.png' style='height: auto;' class='maciej'></div>"
+        },
+        {
+          "name": "The Bosses",
+          "type": "file",
+          "contents": "custom|root/wazne/bosses.webp|Graj w <a target=_blank href='https://bosses.page.link/video_pr1'>The Bosses</a>"
+        },
+        {
           "name": "Jak zarabiać kasę.txt",
           "type": "file",
           "contents": "root/wazne/money.txt|1. Wejdź na <a href='/'>strone maciej hub</a><br>2. Przeczytaj instrukcję obsługi i idź do <a href='/kasyno'>kasyna</a><br>3. Kręć maszynę<br>4. Wygrywaj (jeżeli nie wygrasz to kręć dalej niedługo wygrasz)"
@@ -287,11 +327,6 @@ const file_system =
           "name": "Ważna liczba.txt",
           "type": "file",
           "contents": "root/wazne/number.txt|Liczba do zapamiętania: 112516"
-        },
-        {
-          "name": "The Bosses",
-          "type": "file",
-          "contents": "custom|root/wazne/bosses.webp|Graj w <a target=_blank href='https://bosses.page.link/video_pr1'>The Bosses</a>"
         }
       ]
     }
