@@ -25,7 +25,7 @@ async function renderdirectory(path) {
 
   if (directory !== "/") {
     if (directory !== "") {
-      renderfile("folder", "..", parts.join("/"));
+      renderfile("folder", "Wstecz", parts.join("/"));
     }
   }
 
@@ -212,9 +212,6 @@ function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) { // 
  }
 
 function renderfile(type, name, link) {
-  if (name == "..") {
-    console.log(link)
-  }
   let newfile = get("basefile").cloneNode(true);
   let format = "idk";
   newfile.querySelector("button").style.display = "flex";
@@ -224,6 +221,9 @@ function renderfile(type, name, link) {
     newfile.querySelector("img").src = "folder.png"
     newfile.querySelector("img").width = 64
     newfile.querySelector("img").height = 64
+    if (name == "Wstecz") {
+      newfile.querySelector("img").src = "back.png"
+    }
   } else {
     if (link.includes(".jpg") || link.includes(".webp") || link.includes(".png")) {
       format = "image";

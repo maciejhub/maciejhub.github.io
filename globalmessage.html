@@ -11,13 +11,24 @@
     <style>
         body {
             background-color: transparent;
-            overflow: hidden;
+            overflow: auto;
             zoom: 100%;
+            height: 100%;
         }
+.thing {
+    overflow: scroll;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    max-height: 100%;
+}
     </style>
   </head>
 <body>
-    <div id="content" class="center">
+    <div id="content" class="thing">
         <img id="throbber" src="misc_images/loading.png" width="64">
         <h2><div id="text"></div></h2>
         <button id="OK" style="display: none;" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
@@ -54,7 +65,6 @@ function hidetext() {
 
 function showall() {
 	text.innerHTML = "";
-	document.body.style.overflow = "auto";
 	for (let i = 0; i < allMessages.length; i++) {
 		text.innerHTML += (i + 1) + ". " + allMessages[i] + "<br>";
 	}
@@ -66,21 +76,11 @@ async function restOfTheScript() {
 	numberOfLastRead = allMessages.indexOf(localStorage.lastMessageRead);
 	await sleep(900);
 	if (allMessages[allMessages.length - 1] == localStorage.lastMessageRead) {
-	    document.body.style.overflow = "auto";
 		ok.style.display = "inline";
 		newest.style.display = "inline";
 		throbber.style.display = "none";
 		text.innerHTML = "Nie masz żadnych nowych wiadomości";
 	} else {
-		//if (numberOfLastRead != -1) {
-		//	if (allMessages.length - numberOfLastRead > 1) {
-		//		for (i = 0; i < allMessages.length - numberOfLastRead; i++) {
-		//			text.innerHTML += (i) + ". " + allMessages[numberOfLastRead + i] + "<br>";
-		//		}
-		//	} else {
-		//		// d
-		//	}
-		//}
 		ok.style.display = "inline";
 		newest.style.display = "inline";
 		throbber.style.display = "none";

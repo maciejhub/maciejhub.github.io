@@ -1,4 +1,54 @@
-let types = ["S", "RM", "ZNT", "AS", "KRT", "ZNS"];
+let quests = {
+  stuff: [
+    {
+      "id": "S",
+      "name": "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun",
+      "tokens": "3"
+    },
+    {
+      "id": "RM",
+      "name": "Dostań 4+ mandarynki w rzucać mandarynki do kibla: THE GRA",
+      "tokens": "3"
+    },
+    {
+      "id": "ZNT",
+      "name": "Dostań 5+ odświeżen w zepsuć nokie TYCOON",
+      "tokens": "3"
+    },
+    {
+      "id": "AS",
+      "name": "Dostań 20+ na 3 piosenkach w asmr bułka: THE GRA",
+      "tokens": "3"
+    },
+    {
+      "id": "KRT",
+      "name": "Dostań 13+ mystery boxów w <i style=\"color: black;\">censored</i> KART",
+      "tokens": "3"
+    },
+    {
+      "id": "ZNS",
+      "name": "Zniszcz 40+ nokii w zepsuć nokie SIMULATOR",
+      "tokens": "3"
+    }
+  ]
+}
+
+function indexOfQuest(string) {
+  let again = true;
+  let i = -1;
+  quests["stuff"].forEach(function (quest) {
+    if (again) {
+      i++;
+      if (quest["id"] == string) {
+        again = false;
+      }
+    }
+  });
+  console.log(i)
+  return i;
+}
+
+const current_quest = () => localStorage.quest.substring(1, localStorage.quest.length);
 
 if (localStorage.quest) {
   console.log("quest already exists")
@@ -29,16 +79,16 @@ if (parseInt(localStorage.questsDoneToday) == 0) {
 }
 
 function getnewquesttype() {
-  let prevtype = types.indexOf(localStorage.quest.substring(1, localStorage.quest.length));
+  let prevtype = indexOfQuest(current_quest());
   let type = prevtype
   type += getRandomInt(2) + 1
-  if (type > types.length - 1) {
-    type -= types.length;
+  if (type > quests["stuff"].length - 1) {
+    type -= quests["stuff"].length;
   }
   if (type < 0) {
-    type += types.length;
+    type += quests["stuff"].length;
   }
-  return "n" + types[type]
+  return "n" + quests["stuff"][type]["id"]
 }
 async function checkforcompletedquest() {
   if (localStorage.quest.substring(0, 1) == "c") {
@@ -62,22 +112,10 @@ async function checkforcompletedquest() {
     get("questtitle").innerText = "Nie ma misji";
   } else if (localStorage.quest.substring(0, 1) == "?") {
     if (localStorage.questsDoneToday != 2) {
-    localStorage.setItem("quest", getnewquesttype());
-    await sleep(100);
-    if (localStorage.quest == "nRM") {
-      get("questtitle").innerText = "Dostań 4+ mandarynek w rzucać mandarynki do kibla: THE GRA";
-    } else if (localStorage.quest == "nS") {
-      get("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
-    } else if (localStorage.quest == "nZNT") {
-      get("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
-    } else if (localStorage.quest == "nAS") {
-      get("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: THE GRA";
-    } else if (localStorage.quest == "nKRT") {
-      get("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black;\">censored</i> KART";
-    } else if (localStorage.quest == "nZNS") {
-      get("questtitle").innerText = "Zniszcz 40+ nokii w zepsuć nokie SIMULATOR";
-    }
-    get("questfinished").innerText = "Nie skończone";
+      localStorage.setItem("quest", getnewquesttype());
+      get("questtitle").innerText = quests["stuff"][indexOfQuest(current_quest())]["name"];
+      await sleep(100);
+      get("questfinished").innerText = "Nie skończone";
     } else {
       get("questfinished").innerText = "Dostajesz nic";
       await sleep(1000);
@@ -99,20 +137,7 @@ function openquests() {
       get("questfinished").innerText = "Kliknij na nic";
       return
     }
-    let questlength = localStorage.quest.length;
-    if (localStorage.quest.substring(1, questlength) == "RM") {
-      get("questtitle").innerText = "Dostań 4+ mandarynki w rzucać mandarynki do kibla: the gra";
-    } else if (localStorage.quest.substring(1, questlength) == "S") {
-      get("questtitle").innerText = "Dostań mniej niż 1 sekunde 5 razy w maciej hub speedrun";
-    } else if (localStorage.quest.substring(1, questlength) == "ZNT") {
-      get("questtitle").innerText = "Dostań 5+ odświeżen w zepsuć nokie TYCOON";
-    } else if (localStorage.quest.substring(1, questlength) == "AS") {
-      get("questtitle").innerText = "Dostań 20+ na 3 piosenkach w asmr bułka: the gra";
-    } else if (localStorage.quest.substring(1, questlength) == "KRT") {
-      get("questtitle").innerHTML = "Dostań 13+ mystery box w <i style=\"color: black\">censored</i> KART";
-    } else if (localStorage.quest.substring(1, questlength) == "ZNS") {
-      get("questtitle").innerText = "Zniszcz 40+ nokii w zepsuć nokie SIMULATOR";
-    }
+    get("questtitle").innerText = quests["stuff"][indexOfQuest(current_quest())]["name"];
     if (localStorage.quest.substring(0, 1) == "n") {
       get("questfinished").innerText = "Nie skończone";
     } else if ((localStorage.quest.substring(0, 1) == "?")) {

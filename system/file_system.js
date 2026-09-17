@@ -311,7 +311,7 @@ const file_system =
         {
           "name": "maciej chat",
           "type": "file",
-          "contents": "custom|/ikony/ikon.png|<div class='maciej_box'><img id='maciej_chat' src='/misc_images/maciej.png' style='height: auto;' class='maciej'></div>"
+          "contents": "custom|root/wazne/chat.png|<div class='maciej_box'><img id='maciej_chat' src='/misc_images/maciej.png' style='height: auto;' class='maciej'></div>"
         },
         {
           "name": "The Bosses",

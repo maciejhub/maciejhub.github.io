@@ -23,7 +23,6 @@
     <div id="content" class="centerenter">
         <img id="throbber" src="misc_images/loading.png" width="64">
         <h2><div id="text"></div></h2>
-        <button id="OK" class="centerpopupbutton" onclick="hidetext()">Zamknij</button>
         <button id="last" class="centerpopupbutton" onclick="lastversion()">Ostatnia wersja</button>
         <button id="next" class="centerpopupbutton" onclick="nextversion()">Następna wersja</button>
         <button id="help" class="centerpopupbutton" onclick="help_me()">Co znaczą te liczby</button>
@@ -40,7 +39,6 @@ let versionShowed = 1;
 let content = get("content");
 let text = get("text");
 let throbber = get("throbber");
-let ok = get("OK");
 let next = get("next");
 let last = get("last");
 let help = get("help");
@@ -70,7 +68,6 @@ function help_me() {
 function go_back() {
   throbber.style.display = "none";
   back.style.display = "none";
-  ok.style.display = "inline";
   text.style.display = "inline";
   next.style.display = "inline";
   last.style.display = "inline";
@@ -107,7 +104,6 @@ function updatetext() {
 async function restOfTheScript() {
 	await sleep(500);
 	throbber.style.display = "none";
-    ok.style.display = "inline";
     text.style.display = "inline";
     next.style.display = "inline";
     last.style.display = "inline";

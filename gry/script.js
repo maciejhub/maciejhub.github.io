@@ -153,10 +153,14 @@ async function checkcode() {
         await sleep(1500);
         hidepopup();
         document.getElementById("codeenter").style.display = "none";
-    } else {
+    } else if (correct < 3) {
         document.getElementById("codecheckbutton").innerText = "Nie poprawny kod. Wygeneruj nowy. Jeżeli dalej nie działa, spróbuj nowy kod za godzinę";
         await sleep(1500);
         document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
+    } else {
+      document.getElementById("codecheckbutton").innerText = "???";
+      await sleep(1500);
+      document.getElementById("codecheckbutton").innerText = "Sprawdź kod";
     }
 }
 
