@@ -1,9 +1,5 @@
 // universal script for everything
 
-function get(x) {
-  return document.getElementById(x);
-}
-
 let path = window.location.pathname;
 window.parent.postMessage(window.location.pathname);
 let tokens2 = parseInt(localStorage.casinoTokens)
@@ -104,30 +100,12 @@ document.addEventListener("visibilitychange", function () {
     "firstVisitInSession=false; SameSite=lax; max-age=30; path=/";
 });
 
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
 function removeTags(str) {
   return str.replace(/<[^>]+>/g, "");
 }
 let popupnumber = 0;
 let lastpopupid;
 
-function createnewpopup(id, content, second_button, audio, style) {
-  lastpopupid = id
-  let popup = document.createElement("div");
-  popup.innerHTML = `<div class='centerpopup' ${style} id=${id}><div class='center'><br><div id="popup_content${popupnumber}">${content}</div><br><div style='display: flex; gap: 10px; justify-content: center;'><button id='closepopupbutton${popupnumber}' class='centerpopupbutton'>Zamknij</button><div id='secondpopupbutton${popupnumber}' style='z-index: 2;'>${second_button}</div></div></div></div>`;
-  document.body.appendChild(popup);
-  document.getElementById(`closepopupbutton${popupnumber}`).onclick = function () {
-    if (audio instanceof Audio) {
-      audio.pause();
-      audio = null;
-    }
-    popup.remove();
-  };
-  popupnumber += 1;
-  return popupnumber - 1
-}
 
 async function nopermissionnotification() {
   if (Notification?.permission == "granted" && Notification?.permission != "default") {
@@ -136,19 +114,10 @@ async function nopermissionnotification() {
         "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
     }
     const img = "ikon.png";
-    const text = "Error, nie można było wziąść najnowszej wiadomośći";
-    let allMessages = ["Error"];
-    await fetch(window.location.origin + "/allMessages.json", {
-      cache: "no-cache",
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        allMessages = JSON.parse(data);
-      })
-      .catch(
-        (error) =>
-          (allMessages = ["Error, nie można wziąść najnowszych wiadomości"]),
-      );
+    let allMessages = JSON.parse(fetch_mch_file("/allMessages.json"));
+    if (allMessages == "error") {
+      allMessages = ["Error, nie można wziąść najnowszej wiadomośći"]
+    }
     let newestmessage = removeTags(allMessages[allMessages.length - 1]);
     if (
       localStorage.lastMessageRead != allMessages[allMessages.length - 1] &&
@@ -175,16 +144,10 @@ async function notification() {
           "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
       }
       const img = "ikon.png";
-      const text = "Error, nie można było wziąść najnowszej wiadomośći";
-      let allMessages = ["Error"];
-      await fetch(window.location.origin + "/allMessages.json", {
-        cache: "no-cache",
-      })
-        .then((response) => response.text())
-        .then((data) => {
-          allMessages = JSON.parse(data);
-        })
-        .catch((error) => (allMessages = [error]));
+      let allMessages = JSON.parse(fetch_mch_file("/allMessages.json"));
+      if (allMessages == "Error") {
+        allMessages = ["Error, nie można było wziąść najnowszej wiadomośći"]
+      }
       let newestmessage = removeTags(allMessages[allMessages.length - 1]);
       if (
         localStorage.lastMessageRead != allMessages[allMessages.length - 1] &&

@@ -50,6 +50,11 @@ const file_system =
               "type": "file",
               "contents": "root/zdjecia/ciekawe/sloik.jpg"
             },
+            {
+              "name": "Codzienność.png",
+              "type": "file",
+              "contents": "root/zdjecia/ciekawe/polski.png"
+            }
           ]
         },
         {

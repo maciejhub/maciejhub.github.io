@@ -5,7 +5,6 @@
         <meta name="description" content="Witaj w mojej ultra sigma stronie" />
         <title>maciej hub</title>
         <link href="/style2.css" rel="stylesheet" type="text/css" media="all" />
-        <script type="module" src="script.js"></script>
         <link
             rel="icon"
             type="image/png"
@@ -122,6 +121,17 @@
             document.getElementById("popup").style.display = "none";
         </script>
         <div class="center">
+            <div id="code_field" style="display: none; margin-bottom: 2em; flex-direction: row;">
+                <input
+                    id="codeinput"
+                    type="search"
+                    class="basiccontainer"
+                    style="margin-right: 1em; box-sizing: border-box; height: 4em; text-align: left; width: 444px;"
+                    placeholder="Wpisz tu kod, który się pokaże w grze po skończeniu"
+                    size="9"
+                />
+                <button style="width: 3.5em; cursor: pointer;" class="basiccontainer">></button>
+            </div>
             <button
                 class="button"
                 style="display: none"
@@ -136,20 +146,11 @@
             <button class="centerpopupbutton" id="sorting_button" onclick="changesorting()">
                 Sortowanie: Polecane
             </button>
-            <button
-                style="display: none"
-                id="codeenter"
-                onclick="showcode()"
-                class="centerpopupbutton"
-            >
-                Wpisz kod
-            </button>
             <br />
             <div id="games" class="row">
                 <div id="1">
                 <iframe
                     id="zntr"
-                    onload="resizeIFrameToFitContent('zntr')"
                     src="/grygry/zntr"
                     allowtransparency="true"
                     frameborder="0"
@@ -160,7 +161,6 @@
                 <div id="2">
                 <iframe
                     id="maciejclicker"
-                    onload="resizeIFrameToFitContent('maciejclicker')"
                     src="/grygry/maciejclicker"
                     allowtransparency="true"
                     frameborder="0"
@@ -171,7 +171,6 @@
                 <div id="3">
                 <iframe
                     id="skibidi"
-                    onload="resizeIFrameToFitContent('skibidi')"
                     src="/grygry/skibidi"
                     allowtransparency="true"
                     frameborder="0"
@@ -182,7 +181,6 @@
                 <div id="4">
                 <iframe
                     id="zepsucnokie"
-                    onload="resizeIFrameToFitContent('zepsucnokie')"
                     src="/grygry/nokia"
                     allowtransparency="true"
                     frameborder="0"
@@ -193,7 +191,6 @@
                 <div id="5">
                 <iframe
                     id="mandarynki"
-                    onload="resizeIFrameToFitContent('mandarynki')"
                     src="/grygry/mandarynki"
                     allowtransparency="true"
                     frameborder="0"
@@ -204,7 +201,6 @@
                 <div id="6">
                 <iframe
                     id="asmrbulka"
-                    onload="resizeIFrameToFitContent('asmrbulka')"
                     src="/grygry/asmr"
                     allowtransparency="true"
                     frameborder="0"
@@ -215,7 +211,6 @@
                 <div id="7">
                 <iframe
                     id="kart"
-                    onload="resizeIFrameToFitContent('kart')"
                     src="/grygry/kart"
                     allowtransparency="true"
                     frameborder="0"
@@ -226,7 +221,6 @@
                 <div id="8">
                 <iframe
                     id="nokiatycoon"
-                    onload="resizeIFrameToFitContent('nokiatycoon')"
                     src="/grygry/tycoon"
                     allowtransparency="true"
                     frameborder="0"
@@ -234,10 +228,15 @@
                     allowfullscreen
                 ></iframe>
                 </div>
+                <div id="9">
+
+                </div>
             </div>
         </div>
         <iframe src="/bottomthing" frameborder="0" height="200px" width="100%"></iframe>
+        <script src="/universal_functions.js"></script>
         <script src="/topthingscript.js"></script>
-        <script src="script.js"></script>
+        <script src="quest_stuff.js"></script>
+        <script src="everything_else.js"></script>
     </body>
 </html>
