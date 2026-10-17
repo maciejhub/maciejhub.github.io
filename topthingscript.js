@@ -17,7 +17,6 @@ if (localStorage.ikonpng == "/randomikon.png") {
       icons.splice(icons.indexOf(icon), 1)
     }
   });
-  console.log(icons)
   icon = `/${icons[Math.floor(Math.random() * icons.length)]}.png`;
 }
 if (document.getElementById("topthing")) {
@@ -184,7 +183,6 @@ fetch("/versions.json", {
 setTimeout(function () {
   document.querySelectorAll("iframe").forEach(function (iframe) {
     if (iframe.src.includes("bottomthing")) {
-      console.log(iframe)
       iframe.height = iframe.scrollHeight + 75;
       iframe.style.overflow = "hidden";
       iframe.scrollable = "no";

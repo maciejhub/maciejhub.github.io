@@ -21,7 +21,7 @@
   </head>
 <body>
     <div id="content" class="centerenter">
-        <img id="throbber" src="misc_images/loading.png" width="64">
+        <div class="loader" id="throbber"></div>
         <h2><div id="text"></div></h2>
         <button id="last" class="centerpopupbutton" onclick="lastversion()">Ostatnia wersja</button>
         <button id="next" class="centerpopupbutton" onclick="nextversion()">Następna wersja</button>
@@ -50,9 +50,14 @@ fetch("versions.json", {
 	.then(response => response.text())
 	.then(data => {
 		console.log("Setting allVersions")
-		allVersions = JSON.parse(data)
+		allVersions = JSON.parse(data);
+		if (allVersions[allVersions.length - 1].includes("<bugfix>")) {
+          allVersions.splice(allVersions.length - 1, 1)
+		}
 	})
 	.catch(error => allVersions = ["Error, nie można wziąść wersji"]);
+
+
 
 function hidetext() {
     content.style.display = "none";

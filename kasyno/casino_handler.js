@@ -63,7 +63,7 @@ async function plusanimation2(oldtokens, newtokens) {
 
 let agained = false;
 const buy = new Audio("buy.mp3");
-get("spinner").style.display = "inline";
+get("spinner").style.display = "inline-block";
 const urls = ["kasynozdjecie/1.png", "kasynozdjecie/2.png", "kasynozdjecie/3.png", "kasynozdjecie/4.png", "kasynozdjecie/5.png", "kasynozdjecie/6.png", "kasynozdjecie/7.png", "kasynozdjecie/8.png", "kasynozdjecie/9.png", "buy.mp3"]; // wiem ze to jest ochydne ale prosze nie pytac
 let globalrolls = "hello";
 

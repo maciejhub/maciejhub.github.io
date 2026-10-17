@@ -111,6 +111,6 @@ async function checkcode() {
     localStorage.setItem("quest", localStorage.quest.replace("n", "c"));
   } else {
     input.value = "";
-    input.placeholder = "Nie poprawny kod";
+    input.placeholder = "Nie poprawny kod                                                                         ROBERT EINSTEIN: THOSE WHO KNOW";
   }
 }

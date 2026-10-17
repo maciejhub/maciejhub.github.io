@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-title" content="maciej hub" />
 <link rel="manifest" href="/favicons/site.webmanifest" />
 <link rel="manifest" href="manifestnokia.json">
-<meta name="viewport" content="width=device-width; initial-scale=1.0; viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <!-- possible content values: default, black or black-translucent -->
@@ -37,10 +37,10 @@
 </div>
     </div>
     <div class="center">
-        <h1>
-            <div id="sessioncounter" style="display: inline-block;">Tutaj powinno coś innego pisać </div>
-            <div style="display: inline-block; font-size: 115%;" id="plus"></div>
-        </h1>
+        <div style="margin-bottom: 0.6em; font-size: 2em;">
+            <div id="sessioncounter" style="display: inline;">Tutaj powinno coś innego pisać</div>
+            <div style="display: inline; font-size: 115%;" id="plus"></div>
+        </div>
         <button onclick="showqrs()" class="button"><b>Zobacz kody QR z maciej hub</b></button>
         <h2><button onclick="notification()" id="notificationtext" class="button"><b>Włącz powiadomienia na nowe wiadomości</b></button></h2>
         <h2><button onclick="showmessages()" class="button"><b>Zobacz nowe wiadomości</b></button></h2>
@@ -72,7 +72,7 @@ function connect() {
 	.then(response => response.text())
 	.then(data => {
 	console.log(data)
-	document.getElementById("serwertest").innerHTML = `<b>To jest ${data} wizyta maciej hub!</b>`
+	document.getElementById("serwertest").innerHTML = `To jest ${data} wizyta maciej hub!`
 	})
 	.catch(error => document.getElementById("serwertest").innerHTML = `<b>Serwer zepsuty pewnie wyłączony</b>`);
 }
@@ -85,7 +85,7 @@ async function animation() {
   await sleep(500);
   document.getElementById("plus").innerHTML = " +" + difference;
   await sleep(1000);
-  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na maciej hub! ";
+  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na maciej hub!";
   await sleep(800);
   document.getElementById("plus").innerHTML = "";
 }
@@ -94,9 +94,9 @@ const sessionsitem = localStorage.getItem("sessions")
 const prevsessionsitem = localStorage.getItem("previousSessions")
 let difference = parseInt(sessionsitem) - parseInt(prevsessionsitem)
 if (difference > 0) {
-document.getElementById("sessioncounter").innerHTML = "To jest twój " + prevsessionsitem + " raz na maciej hub! ";
+document.getElementById("sessioncounter").innerHTML = "To jest twój " + prevsessionsitem + " raz na maciej hub!";
 } else {
-  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na maciej hub! ";
+  document.getElementById("sessioncounter").innerHTML = "To jest twój " + sessionsitem + " raz na maciej hub!";
 }
 localStorage.setItem("previousSessions", sessionsitem);
 if (difference > 0) {
