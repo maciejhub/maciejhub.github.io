@@ -113,9 +113,18 @@ async function nopermissionnotification() {
         "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
     }
     const img = "ikon.png";
-    let allMessages = JSON.parse(fetch_mch_file("/allMessages.json"));
+    let allMessages = "error";
+    fetch("/allMessages.json", {
+      cache: 'no-cache'
+    })
+    .then(response => response.text())
+    .then(data => {
+      allMessages = JSON.parse(data)
+    })
+    .catch(allMessages = ["Error, nie można wziąść najnowszej wiadomości"]);
+    await sleep(500);
     if (allMessages == "error") {
-      allMessages = ["Error, nie można wziąść najnowszej wiadomośći"]
+      allMessages = ["Error, nie można wziąść najnowszej wiadomości"]
     }
     let newestmessage = removeTags(allMessages[allMessages.length - 1]);
     if (
@@ -143,9 +152,18 @@ async function notification() {
           "<b>Włącz powiadomienia na nowe wiadomości (Włączone)</b>";
       }
       const img = "ikon.png";
-      let allMessages = JSON.parse(fetch_mch_file("/allMessages.json"));
-      if (allMessages == "Error") {
-        allMessages = ["Error, nie można było wziąść najnowszej wiadomośći"]
+      let allMessages = "error";
+      fetch("/allMessages.json", {
+        cache: 'no-cache'
+      })
+      .then(response => response.text())
+      .then(data => {
+        allMessages = JSON.parse(data)
+      })
+      .catch(allMessages = ["Error, nie można wziąść najnowszej wiadomości"]);
+      await sleep(500);
+      if (allMessages == "error") {
+        allMessages = ["Error, nie można wziąść najnowszej wiadomości"]
       }
       let newestmessage = removeTags(allMessages[allMessages.length - 1]);
       if (
@@ -183,7 +201,7 @@ fetch("/versions.json", {
 setTimeout(function () {
   document.querySelectorAll("iframe").forEach(function (iframe) {
     if (iframe.src.includes("bottomthing")) {
-      iframe.height = iframe.scrollHeight + 75;
+      iframe.height = iframe.scrollHeight + 150;
       iframe.style.overflow = "hidden";
       iframe.scrollable = "no";
       let frame_document = iframe.contentWindow.document
