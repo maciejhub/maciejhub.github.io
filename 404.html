@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        @font-face {
+            font-family: "Roboto";
+            src: url("https://maciej.pub/Roboto-Bold.woff2") format("woff2");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @media (orientation: landscape) {
+            body {
+                background-color: #222222;
+                color: white;
+                font-family: "Roboto", Arial;
+                vertical-align: middle;
+                margin: 20px;
+                zoom: 125%;
+                text-align: center;
+            }
+        }
+        @media (orientation: portrait) {
+            body {
+                background-color: #222222;
+                color: white;
+                font-family: "Roboto", Arial;
+                vertical-align: middle;
+                margin: 20px;
+                text-align: center;
+            }
+        }
+        a {
+            color: white;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="center"><img id="topicon" src="https://maciej.pub/ikon.png" width="200"><hr width="100%" color="#38393f" size="3"><h2><div id="topthingthings"><a style="margin-left: 7px;" id="wiersz" href="/wiersz">Wiersz</a><a style="margin-left: 7px;" id="extra" href="/extra">Różne fajne rzeczy</a><a style="margin-left: 7px;" id="gry/" href="/gry/">Fajne gry</a><a style="margin-left: 7px;" id="kasyno/" href="/kasyno">Kasyno</a><a style="margin-left: 7px;" id="system/" href="/system/">Ciekawy system</a></div><hr width="100%;" color="#38393f" size="3"><i style="color:gray;"> NAD TYM SĄ PRZYCISKI DO PRZYCIŚNIĘCIA</i></h2></div>
+        <div style="font-size: 23px;">Powinno to okno się zamknąć w następne 5 sekund. Jeżeli po 5 sekundach nic się nie dzieje, wróć na <a href="https://maciej.pub">maciej hub</a> i spróbuj jeszcze raz.</div>
+        <iframe src="https://maciej.pub/bottomthing?" frameborder="0" height="200px" width="100%"></iframe>
+        <script>
+const link = window.location.pathname;
+const something = link.substring(link.indexOf("g/") + 2);
+
+if (something == "data-mover") {
+  console.log(JSON.stringify(localStorage))
+  opener.postMessage(JSON.stringify(localStorage), "*");
+} else {
+  window.location.href = "https://maciej.pub/" + something
+}
+        </script>
+    </body>
+</html>
