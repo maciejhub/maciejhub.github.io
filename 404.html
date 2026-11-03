@@ -43,7 +43,7 @@
 const link = window.location.pathname;
 const something = link.substring(link.indexOf("g/") + 2);
 
-if (something == "data-mover") {
+if (something.includes("data-mover")) {
   console.log(JSON.stringify(localStorage))
   opener.postMessage(JSON.stringify(localStorage), "*");
 } else {
